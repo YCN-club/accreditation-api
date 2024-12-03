@@ -26,3 +26,7 @@ class JWT_Data:
             "email": self.email,
             "roles": self.roles,
         }
+
+    def is_valid(self) -> bool:
+        now = datetime.now()
+        return self.nbf <= now <= self.exp
