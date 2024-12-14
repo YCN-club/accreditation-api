@@ -4,6 +4,7 @@ from sanic.log import logger
 from sanic_ext import Extend
 
 from api.app import API, appserver
+from api.mayim.auth_executor import AuthExecutor
 
 from . import endpoints  # noqa: F401
 
@@ -50,7 +51,7 @@ app.config.PROXIES_COUNT = int(config.get("PROXIES_COUNT", 0))
 
 Extend.register(
     SanicMayimExtension(
-        executors=[],
+        executors=[AuthExecutor],
         dsn=f"postgres://{config['DB_USERNAME']}:{config['DB_PASSWORD']}@{config['DB_HOST']}:{config['DB_PORT']}/{config['DB_NAME']}",  # noqa: E501
     )
 )
