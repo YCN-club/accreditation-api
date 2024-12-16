@@ -11,7 +11,7 @@ from api.models.requests.login_json import LoginJSON
 
 class AuthLogin(HTTPMethodView):
 
-    @validate(json=LoginJSON, query_argument="data")
+    @validate(json=LoginJSON, body_argument="data")
     async def post(self, request: Request, data: LoginJSON):
         # Get the executor
         executor = Mayim.get(AuthExecutor)
@@ -26,7 +26,7 @@ class AuthLogin(HTTPMethodView):
         user = await executor.get_user_by_emp_id(username)
 
         # Check if the user exists.
-        if user is None:
+        if user=={"error": "invalid_username"}:
             return json({"error": "invalid_username"}, status=401)
 
         # Check if the user is active.
