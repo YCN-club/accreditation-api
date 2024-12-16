@@ -31,6 +31,26 @@ class AuthExecutor(PostgresExecutor):
             return {"error": "invalid_username"}
 
         return LoginData(**row)
+    
+    async def insert_user(self, user: LoginData) -> None:
+        """
+        Insert a user into the database.
+        """
+        query = """
+        INSERT INTO login_data (user_id, name, email, employee_id, password, is_active, requires_reset)
+        VALUES ($1, $2, $3, $4, $5, $6, $7)
+        """
+        
+        await self.execute(query=query,
+                           posargs=(
+                               user.user_id, 
+                               user.name, 
+                               user.email, 
+                               user.employee_id, 
+                               user.password, 
+                               user.is_active, 
+                               user.requires_reset)
+                            )
 
 
     async def update_user_password(self, username: str, password_hash: str) -> None:

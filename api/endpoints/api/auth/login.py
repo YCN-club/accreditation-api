@@ -13,6 +13,9 @@ class AuthLogin(HTTPMethodView):
 
     @validate(json=LoginJSON, body_argument="data")
     async def post(self, request: Request, data: LoginJSON):
+        """
+        Authenticate a user.
+        """
         # Get the executor
         executor = Mayim.get(AuthExecutor)
 
@@ -65,3 +68,4 @@ class AuthLogin(HTTPMethodView):
         token = await app.generate_jwt(user)
         # Return Token.
         return json({"token": token, "message": "Authenticated"}, status=200)
+
