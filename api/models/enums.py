@@ -40,3 +40,27 @@ class SocialDisadvantage(str, Enum):
     SC = "SC"
     ST = "ST"
     OBC = "OBC"
+
+
+class EventLevel(str, Enum):
+    INTERNAL = "INTERNAL"
+    STATE = "STATE"
+    NATIONAL = "NATIONAL"
+    INTERNATIONAL = "INTERNATIONAL"
+
+
+class EventClassification(str, Enum):
+    INDIVIDUAL = "INDIVIDUAL"
+    TEAM = "TEAM"
+
+
+class EventObjective(str, Enum):
+    COMPETITIVE = "COMPETITIVE"
+    INFORMATIONAL = "INFORMATIONAL"
+
+
+class CommunityType(str, Enum):
+    CLUBS = "CLUBS"
+    NGO = "NGO"
+    GOVERNMENT = "GOVERNMENT"
+    INDUSTRY = "INDUSTRY"
