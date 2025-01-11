@@ -64,3 +64,44 @@ class CommunityType(str, Enum):
     NGO = "NGO"
     GOVERNMENT = "GOVERNMENT"
     INDUSTRY = "INDUSTRY"
+
+
+class StudentOrigin(str, Enum):
+    IN_STATE = "IN_STATE"
+    OUT_OF_STATE = "OUT_OF_STATE"
+    INTERNATIONAL = "INTERNATIONAL"
+
+
+class StudentGender(str, Enum):
+    MALE = "MALE"
+    FEMALE = "FEMALE"
+
+
+class StudentEntries(str, Enum):
+    REGULAR = "REGULAR"
+    LATERAL_ENTRY = "LATERAL_ENTRY"
+    OTHER = "OTHER"
+
+
+class StudentExits(str, Enum):
+    REGULAR = "REGULAR"
+    LATE = "LATE"
+    LEFT = "LEFT"
+
+
+class FacultyHighestDegree(str, Enum):
+    ASSOCIATE = "ASSOCIATE"
+    BACHELORS = "BACHELORS"
+    MASTERS = "MASTERS"
+    DOCTORAL = "DOCTORAL"
+
+
+class FacultyNatureOfAssociation(str, Enum):
+    REGULAR = "REGULAR"
+    CONTRACT = "CONTRACT"
+    AD_HOC = "AD_HOC"
+
+
+class FacultyContractualObligation(str, Enum):
+    PART_TIME = "PART_TIME"
+    FULL_TIME = "FULL_TIME"
