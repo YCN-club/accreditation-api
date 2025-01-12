@@ -22,6 +22,7 @@ class BookPublicationType(str, Enum):
 class IprType(str, Enum):
     PATENT = "PATENT"
     DESIGN = "DESIGN"
+    COPYRIGHT = "COPYRIGHT"
 
 
 class IprStatus(str, Enum):
@@ -57,6 +58,13 @@ class EventClassification(str, Enum):
 class EventObjective(str, Enum):
     COMPETITIVE = "COMPETITIVE"
     INFORMATIONAL = "INFORMATIONAL"
+
+
+class CompetitiveEventType(str, Enum):
+    SPORTS = "SPORTS"
+    CULTURAL = "CULTURAL"
+    ACADEMIC = "ACADEMIC"
+    OTHER = "OTHER"
 
 
 class CommunityType(str, Enum):
@@ -105,3 +113,15 @@ class FacultyNatureOfAssociation(str, Enum):
 class FacultyContractualObligation(str, Enum):
     PART_TIME = "PART_TIME"
     FULL_TIME = "FULL_TIME"
+
+
+class FacultyItcType(str, Enum):
+    INTERNSHIP = "INTERNSHIP"
+    TRAINING = "TRAINING"
+    COLLABORATION = "COLLABORATION"
+
+
+class FacultySrpcwismType(str, Enum):
+    SPONSORED_RESEARCH_PROJECT = "SPONSORED_RESEARCH_PROJECT"
+    CONSULTANCY_WORK = "CONSULTANCY_WORK"
+    INSTITUTE_SEED_MONEY = "INSTITUTE_SEED_MONEY"

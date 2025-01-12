@@ -1,7 +1,7 @@
 from pydantic import BaseModel
 from uuid import UUID
 
-from api.models.enums import EventClassification
+from api.models.enums import CompetitiveEventType, EventClassification
 
 
 class CompetitiveEvent(BaseModel):
@@ -10,3 +10,4 @@ class CompetitiveEvent(BaseModel):
     participant_id: UUID
     position: int
     award: str
+    type: CompetitiveEventType
