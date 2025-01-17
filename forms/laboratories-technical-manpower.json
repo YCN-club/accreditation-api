@@ -1,0 +1,36 @@
+{
+	"name": "Laboratories Technical Manpower",
+	"description": "This form refers to the input of technical manpower details for laboratories.",
+	"fields": [
+		{
+			"id": "name",
+			"label": "Name",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "string",
+				"placeholder": "Keshav Gupta"
+			}
+		},
+		{
+			"id": "designation",
+			"label": "Designation",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "string",
+				"placeholder": "Lab Technician"
+			}
+		},
+		{
+			"id": "qualification",
+			"label": "Qualification",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "string",
+				"placeholder": "B.Sc. in Chemistry"
+			}
+		}
+	]
+}

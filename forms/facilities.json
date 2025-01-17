@@ -1,0 +1,76 @@
+{
+	"name": "Facilities",
+	"description": "This form refers to the input of facility details.",
+	"fields": [
+		{
+			"id": "name",
+			"label": "Name",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "string",
+				"placeholder": "Facility Name"
+			}
+		},
+		{
+			"id": "type",
+			"label": "Type",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "string",
+				"placeholder": "Facility Type"
+			}
+		},
+		{
+			"id": "is_ict",
+			"label": "Is ICT",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "boolean",
+				"placeholder": "false"
+			}
+		},
+		{
+			"id": "details",
+			"label": "Details",
+			"fieldType": "input",
+			"required": false,
+			"inputOptions": {
+				"inputType": "textarea",
+				"placeholder": "Facility Details"
+			}
+		},
+		{
+			"id": "reasons",
+			"label": "Reasons",
+			"fieldType": "input",
+			"required": false,
+			"inputOptions": {
+				"inputType": "multi-input",
+				"placeholder": "Reason 1, Reason 2, ..."
+			}
+		},
+		{
+			"id": "utilization",
+			"label": "Utilization",
+			"fieldType": "input",
+			"required": false,
+			"inputOptions": {
+				"inputType": "string",
+				"placeholder": "Utilization Details"
+			}
+		},
+		{
+			"id": "relevance_to_pos",
+			"label": "Relevance to POs",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "textarea",
+				"placeholder": "Relevance to POs"
+			}
+		}
+	]
+}

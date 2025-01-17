@@ -1,0 +1,76 @@
+{
+	"name": "Laboratories",
+	"description": "This form refers to the input of laboratory details.",
+	"fields": [
+		{
+			"id": "id",
+			"label": "Facility",
+			"fieldType": "choice",
+			"required": true,
+			"choiceOptions": {
+				"choiceType": "single",
+				"choiceSource": "table",
+				"tableOptions": {
+					"tableName": "facilities",
+					"labelColumn": "name",
+					"valueColumn": "id"
+				}
+			}
+		},
+		{
+			"id": "batch_size",
+			"label": "Batch Size",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "number",
+				"placeholder": "30"
+			}
+		},
+		{
+			"id": "name_of_equipment",
+			"label": "Name of Equipment",
+			"fieldType": "input",
+			"required": false,
+			"inputOptions": {
+				"inputType": "multi-input",
+				"placeholder": "Equipment 1, Equipment 2, ..."
+			}
+		},
+		{
+			"id": "safety_measures",
+			"label": "Safety Measures",
+			"fieldType": "input",
+			"required": false,
+			"inputOptions": {
+				"inputType": "multi-input",
+				"placeholder": "Safety Measure 1, Safety Measure 2, ..."
+			}
+		},
+		{
+			"id": "weekly_utilization",
+			"label": "Weekly Utilization",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "number",
+				"placeholder": "40"
+			}
+		},
+		{
+			"id": "technical_manpower_ids",
+			"label": "Technical Manpower",
+			"fieldType": "choice",
+			"required": false,
+			"choiceOptions": {
+				"choiceType": "multi",
+				"choiceSource": "table",
+				"tableOptions": {
+					"tableName": "laboratories_technical_manpower",
+					"labelColumn": "name",
+					"valueColumn": "id"
+				}
+			}
+		}
+	]
+}
