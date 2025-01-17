@@ -1,0 +1,41 @@
+{
+	"name": "Faculty Courses",
+	"description": "This form refers to the input of faculty courses details.",
+	"fields": [
+		{
+			"id": "faculty_id",
+			"label": "Faculty",
+			"fieldType": "choice",
+			"required": true,
+			"choiceOptions": {
+				"choiceType": "single",
+				"choiceSource": "table",
+				"tableOptions": {
+					"tableName": "faculty",
+					"labelColumn": "name",
+					"valueColumn": "id"
+				}
+			}
+		},
+		{
+			"id": "name_of_course",
+			"label": "Name of Course",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "string",
+				"placeholder": "Machine Learning"
+			}
+		},
+		{
+			"id": "developed",
+			"label": "Developed",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "boolean",
+				"placeholder": "false"
+			}
+		}
+	]
+}

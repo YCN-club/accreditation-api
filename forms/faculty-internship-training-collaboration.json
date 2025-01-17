@@ -1,0 +1,75 @@
+{
+	"name": "Faculty Internship/Training/Collaboration",
+	"description": "This form refers to the input of faculty internship, training, and collaboration details.",
+	"fields": [
+		{
+			"id": "faculty_id",
+			"label": "Faculty",
+			"fieldType": "choice",
+			"required": true,
+			"choiceOptions": {
+				"choiceType": "single",
+				"choiceSource": "table",
+				"tableOptions": {
+					"tableName": "faculty",
+					"labelColumn": "name",
+					"valueColumn": "id"
+				}
+			}
+		},
+		{
+			"id": "name_of_itc",
+			"label": "Name of ITC",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "string",
+				"placeholder": "Internship/Training/Collaboration Name"
+			}
+		},
+		{
+			"id": "name_of_company",
+			"label": "Name of Company",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "string",
+				"placeholder": "Google, Bengaluru"
+			}
+		},
+		{
+			"id": "type",
+			"label": "Type",
+			"fieldType": "choice",
+			"required": true,
+			"choiceOptions": {
+				"choiceType": "single",
+				"choiceSource": "enum",
+				"enumOptions": [
+					{
+						"name": "Internship",
+						"value": "INTERNSHIP"
+					},
+					{
+						"name": "Training",
+						"value": "TRAINING"
+					},
+					{
+						"name": "Collaboration",
+						"value": "COLLABORATION"
+					}
+				]
+			}
+		},
+		{
+			"id": "outcomes",
+			"label": "Outcomes",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "textarea",
+				"placeholder": "Outcome 1, Outcome 2, ..."
+			}
+		}
+	]
+}
