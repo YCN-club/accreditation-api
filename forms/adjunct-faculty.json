@@ -1,0 +1,41 @@
+{
+	"name": "Adjunct Faculty",
+	"description": "This form refers to the input of adjunct faculty details.",
+	"fields": [
+		{
+			"id": "faculty_id",
+			"label": "Faculty",
+			"fieldType": "choice",
+			"required": true,
+			"choiceOptions": {
+				"choiceType": "single",
+				"choiceSource": "table",
+				"tableOptions": {
+					"tableName": "faculty",
+					"labelColumn": "name",
+					"valueColumn": "id"
+				}
+			}
+		},
+		{
+			"id": "hours_handled",
+			"label": "Hours Handled",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "number",
+				"placeholder": "10"
+			}
+		},
+		{
+			"id": "subjects",
+			"label": "Subjects",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "multi-input",
+				"placeholder": "Subject 1, Subject 2, ..."
+			}
+		}
+	]
+}

@@ -1,0 +1,41 @@
+{
+	"name": "Branch Intakes",
+	"description": "This form refers to the intake of the branches offered by each department, per year.",
+	"fields": [
+		{
+			"id": "branch_id",
+			"label": "Branch",
+			"fieldType": "choice",
+			"required": true,
+			"choiceOptions": {
+				"choiceType": "single",
+				"choiceSource": "table",
+				"tableOptions": {
+					"tableName": "branches",
+					"labelColumn": "name",
+					"valueColumn": "id"
+				}
+			}
+		},
+		{
+			"id": "year",
+			"label": "Year",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "number",
+				"placeholder": "2020"
+			}
+		},
+		{
+			"id": "allowed_batch_size",
+			"label": "Allowed Batch Size",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "number",
+				"placeholder": "60"
+			}
+		}
+	]
+}

@@ -1,0 +1,41 @@
+{
+	"name": "Program Intakes",
+	"description": "This form refers to the intake of the programs offered by the institute.",
+	"fields": [
+		{
+			"id": "program_id",
+			"label": "Program",
+			"fieldType": "choice",
+			"required": true,
+			"choiceOptions": {
+				"choiceType": "single",
+				"choiceSource": "table",
+				"tableOptions": {
+					"tableName": "programs",
+					"labelColumn": "name",
+					"valueColumn": "id"
+				}
+			}
+		},
+		{
+			"id": "year",
+			"label": "Year",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "number",
+				"placeholder": "2020"
+			}
+		},
+		{
+			"id": "intake",
+			"label": "Intake",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "number",
+				"placeholder": "120"
+			}
+		}
+	]
+}
