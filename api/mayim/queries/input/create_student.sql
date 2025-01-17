@@ -1,0 +1,31 @@
+INSERT INTO students (
+    id,
+    admission_no,
+    registration_no,
+    origin,
+    gender,
+    branch_id,
+    batch_year,
+    year_of_join,
+    type_of_join,
+    year_of_exit,
+    type_of_exit,
+    social_disadvantage,
+    economic_disadvantage,
+    physically_challenged
+) VALUES (
+    $id,
+    $admission_no,
+    $registration_no,
+    $origin,
+    $gender,
+    $branch_id,
+    $batch_year,
+    $year_of_join,
+    $type_of_join,
+    $year_of_exit,
+    $type_of_exit,
+    $social_disadvantage,
+    $economic_disadvantage,
+    $physically_challenged
+);
