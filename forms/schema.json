@@ -7,9 +7,9 @@
 			"items": {
 				"type": "object",
 				"properties": {
-					"name": {
+					"id": {
 						"type": "string",
-						"description": "The name of the form field."
+						"description": "The ID of the form field, which will be used as the parameter name while communicating with the API."
 					},
 					"label": {
 						"type": "string",
@@ -126,7 +126,7 @@
 					"staticOptions": {
 						"type": "object",
 						"properties": {
-							"type": {
+							"staticType": {
 								"type": "string",
 								"enum": [
 									"h1",
@@ -143,13 +143,14 @@
 							}
 						},
 						"required": [
-							"type"
+							"staticType"
 						],
 						"description": "Configuration for static fields."
 					}
 				},
 				"required": [
-					"name",
+					"id",
+					"label",
 					"fieldType"
 				],
 				"allOf": [
@@ -221,11 +222,13 @@
 							]
 						}
 					}
-				]
+				],
+				"additionalProperties": false
 			}
 		}
 	},
 	"required": [
 		"fields"
-	]
+	],
+	"additionalProperties": false
 }

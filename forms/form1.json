@@ -1,0 +1,12 @@
+{
+	"fields": [
+		{
+			"id": "field1",
+			"fieldType": "input",
+			"label": "Field 1",
+			"inputOptions": {
+				"inputType": "string"
+			}
+		}
+	]
+}
