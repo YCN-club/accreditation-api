@@ -1,0 +1,51 @@
+{
+	"name": "After Graduation Higher Studies",
+	"description": "This form refers to the input of higher studies details after graduation.",
+	"fields": [
+		{
+			"id": "after_graduation_id",
+			"label": "After Graduation",
+			"fieldType": "choice",
+			"required": true,
+			"choiceOptions": {
+				"choiceType": "single",
+				"choiceSource": "table",
+				"tableOptions": {
+					"tableName": "after_graduation",
+					"labelColumn": "name",
+					"valueColumn": "id"
+				}
+			}
+		},
+		{
+			"id": "institute_name",
+			"label": "Institute Name",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "string",
+				"placeholder": "Institute Name"
+			}
+		},
+		{
+			"id": "program_name",
+			"label": "Program Name",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "string",
+				"placeholder": "Program Name"
+			}
+		},
+		{
+			"id": "with_exam",
+			"label": "With Exam",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "boolean",
+				"placeholder": "true"
+			}
+		}
+	]
+}

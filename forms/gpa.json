@@ -1,0 +1,51 @@
+{
+	"name": "GPA",
+	"description": "This form refers to the input of GPA details for students.",
+	"fields": [
+		{
+			"id": "student_id",
+			"label": "Student",
+			"fieldType": "choice",
+			"required": true,
+			"choiceOptions": {
+				"choiceType": "single",
+				"choiceSource": "table",
+				"tableOptions": {
+					"tableName": "students",
+					"labelColumn": "name",
+					"valueColumn": "id"
+				}
+			}
+		},
+		{
+			"id": "semester",
+			"label": "Semester",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "number",
+				"placeholder": "1"
+			}
+		},
+		{
+			"id": "GPA",
+			"label": "GPA",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "number",
+				"placeholder": "4.00"
+			}
+		},
+		{
+			"id": "credits",
+			"label": "Credits",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "number",
+				"placeholder": "20"
+			}
+		}
+	]
+}
