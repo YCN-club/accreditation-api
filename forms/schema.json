@@ -39,7 +39,8 @@
 									"string",
 									"textarea",
 									"date",
-									"time"
+									"time",
+									"datetime"
 								],
 								"description": "The type of the input field."
 							},
