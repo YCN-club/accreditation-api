@@ -1,0 +1,78 @@
+{
+	"name": "Journals",
+	"description": "This form refers to the input of journal details.",
+	"fields": [
+		{
+			"id": "name",
+			"label": "Name",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "string",
+				"placeholder": "Journal Name"
+			}
+		},
+		{
+			"id": "frequency",
+			"label": "Frequency",
+			"fieldType": "choice",
+			"required": true,
+			"choiceOptions": {
+				"choiceType": "single",
+				"choiceSource": "enum",
+				"enumOptions": [
+					{
+						"name": "Weekly",
+						"value": "WEEKLY"
+					},
+					{
+						"name": "Biweekly",
+						"value": "BIWEEKLY"
+					},
+					{
+						"name": "Monthly",
+						"value": "MONTHLY"
+					},
+					{
+						"name": "Quarterly",
+						"value": "QUARTERLY"
+					},
+					{
+						"name": "Yearly",
+						"value": "YEARLY"
+					}
+				]
+			}
+		},
+		{
+			"id": "type",
+			"label": "Type",
+			"fieldType": "choice",
+			"required": true,
+			"choiceOptions": {
+				"choiceType": "single",
+				"choiceSource": "enum",
+				"enumOptions": [
+					{
+						"name": "Hardcopy",
+						"value": "HARDCOPY"
+					},
+					{
+						"name": "Softcopy",
+						"value": "SOFTCOPY"
+					}
+				]
+			}
+		},
+		{
+			"id": "scopus_indexed",
+			"label": "Scopus Indexed",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "boolean",
+				"placeholder": "false"
+			}
+		}
+	]
+}

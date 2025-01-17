@@ -1,0 +1,41 @@
+{
+	"name": "IPR Earnings",
+	"description": "This form refers to the input of IPR earnings details.",
+	"fields": [
+		{
+			"id": "ipr_id",
+			"label": "IPR ID",
+			"fieldType": "choice",
+			"required": true,
+			"choiceOptions": {
+				"choiceType": "single",
+				"choiceSource": "table",
+				"tableOptions": {
+					"tableName": "ipr",
+					"labelColumn": "title",
+					"valueColumn": "id"
+				}
+			}
+		},
+		{
+			"id": "financial_year",
+			"label": "Financial Year",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "number",
+				"placeholder": "2021"
+			}
+		},
+		{
+			"id": "amount_inr",
+			"label": "Amount (INR)",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "number",
+				"placeholder": "100000"
+			}
+		}
+	]
+}

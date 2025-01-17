@@ -1,0 +1,106 @@
+{
+	"name": "Journal Publications",
+	"description": "This form refers to the input of journal publications details.",
+	"fields": [
+		{
+			"id": "journal_id",
+			"label": "Journal",
+			"fieldType": "choice",
+			"required": true,
+			"choiceOptions": {
+				"choiceType": "single",
+				"choiceSource": "table",
+				"tableOptions": {
+					"tableName": "journals",
+					"labelColumn": "name",
+					"valueColumn": "id"
+				}
+			}
+		},
+		{
+			"id": "journal_volume_number",
+			"label": "Journal Volume Number",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "number",
+				"placeholder": "1"
+			}
+		},
+		{
+			"id": "journal_issue_number",
+			"label": "Journal Issue Number",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "number",
+				"placeholder": "1"
+			}
+		},
+		{
+			"id": "sponsor_id",
+			"label": "Sponsor",
+			"fieldType": "choice",
+			"required": false,
+			"choiceOptions": {
+				"choiceType": "single",
+				"choiceSource": "table",
+				"tableOptions": {
+					"tableName": "sponsorships",
+					"labelColumn": "agency_name",
+					"valueColumn": "id"
+				}
+			}
+		},
+		{
+			"id": "year",
+			"label": "Year",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "number",
+				"placeholder": "2021"
+			}
+		},
+		{
+			"id": "semester",
+			"label": "Semester",
+			"fieldType": "choice",
+			"required": true,
+			"choiceOptions": {
+				"choiceType": "single",
+				"choiceSource": "enum",
+				"enumOptions": [
+					{
+						"name": "Odd",
+						"value": "ODD"
+					},
+					{
+						"name": "Even",
+						"value": "EVEN"
+					}
+				]
+			}
+		},
+		{
+			"id": "doi",
+			"label": "DOI",
+			"fieldType": "input",
+			"required": false,
+			"inputOptions": {
+				"inputType": "string",
+				"placeholder": "10.1234/example.doi"
+			}
+		},
+		{
+			"id": "title",
+			"label": "Title",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "string",
+				"placeholder": "Publication Title"
+			}
+		}
+	]
+}
