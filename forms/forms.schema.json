@@ -2,6 +2,14 @@
 	"$schema": "http://json-schema.org/draft-07/schema#",
 	"type": "object",
 	"properties": {
+		"name": {
+			"type": "string",
+			"description": "The name of the form."
+		},
+		"description": {
+			"type": "string",
+			"description": "A brief description of the form."
+		},
 		"fields": {
 			"type": "array",
 			"items": {
@@ -40,7 +48,9 @@
 									"textarea",
 									"date",
 									"time",
-									"datetime"
+									"datetime",
+									"boolean",
+									"multi-input"
 								],
 								"description": "The type of the input field."
 							},
@@ -229,6 +239,8 @@
 		}
 	},
 	"required": [
+		"name",
+		"description",
 		"fields"
 	],
 	"additionalProperties": false

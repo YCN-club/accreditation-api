@@ -4,7 +4,7 @@
 			"fileMatch": [
 				"/forms/*.json"
 			],
-			"url": "/forms/schema.json"
+			"url": "/forms/forms.schema.json"
 		}
 	]
 }
