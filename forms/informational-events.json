@@ -1,0 +1,71 @@
+{
+	"name": "Informational Events",
+	"description": "This form refers to the input of informational event details.",
+	"fields": [
+		{
+			"id": "id",
+			"label": "Event",
+			"fieldType": "choice",
+			"required": true,
+			"choiceOptions": {
+				"choiceType": "single",
+				"choiceSource": "table",
+				"tableOptions": {
+					"tableName": "events",
+					"labelColumn": "name",
+					"valueColumn": "id"
+				}
+			}
+		},
+		{
+			"id": "speaker",
+			"label": "Speaker",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "string",
+				"placeholder": "Speaker Name"
+			}
+		},
+		{
+			"id": "no_of_students",
+			"label": "Number of Students",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "number",
+				"placeholder": "100"
+			}
+		},
+		{
+			"id": "no_of_teachers",
+			"label": "Number of Teachers",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "number",
+				"placeholder": "10"
+			}
+		},
+		{
+			"id": "link_to_report",
+			"label": "Link to Report",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "string",
+				"placeholder": "http://example.com/report"
+			}
+		},
+		{
+			"id": "geotagged_photographs",
+			"label": "Geotagged Photographs",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "multi-input",
+				"placeholder": "http://example.com/photo1, http://example.com/photo2, ..."
+			}
+		}
+	]
+}
