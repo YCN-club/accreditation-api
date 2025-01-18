@@ -36,15 +36,6 @@ config.update(
     },
 )
 
-# Check if AZURE_AD env variables are set
-if (
-    config.get("AZURE_AD_TENANT_ID") is None
-    or config.get("AZURE_AD_CLIENT_ID") is None
-    or config.get("AZURE_AD_REDIRECT_URI") is None
-):
-    logger.error("MISSING AZURE AD ENV VARIABLES")
-    quit(1)
-
 app: API = appserver
 app.config.update(config)
 app.config.PROXIES_COUNT = int(config.get("PROXIES_COUNT", 0))

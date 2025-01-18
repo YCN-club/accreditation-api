@@ -1,9 +1,10 @@
 import os
 import json
 
+from sanic.log import logger
 
-def load_form_data(slug, forms_dir="forms"):
-    file_path = os.path.join(forms_dir, f"{slug}.json")
+def load_form_data(slug):
+    file_path = f"./forms/{slug}.json"
     if not os.path.isfile(file_path):
         raise FileNotFoundError("Form not found")
     with open(file_path, "r") as file:
