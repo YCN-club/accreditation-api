@@ -3,7 +3,7 @@ from sanic.views import HTTPMethodView
 
 from api.decorators.require_login import require_login
 from api.models.internal.jwt_data import JWT_Data
-from api.utils.json_loader import load_form_data, list_form_summaries
+from api.utils.form_loader import load_form_data, list_form_summaries
 
 
 class FormsRoot(HTTPMethodView):

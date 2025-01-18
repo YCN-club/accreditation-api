@@ -22,6 +22,7 @@ def list_form_summaries():
                 data = json.load(f)
                 summaries.append(
                     {
+                        "id": file_name.removesuffix('.json'),
                         "name": data.get("name"),
                         "description": data.get("description"),
                     }
