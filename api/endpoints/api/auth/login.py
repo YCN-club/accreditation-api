@@ -29,7 +29,7 @@ class AuthLogin(HTTPMethodView):
         user = await executor.get_user_by_emp_id(username)
 
         # Check if the user exists.
-        if user=={"error": "invalid_username"}:
+        if user == {"error": "invalid_username"}:
             return json({"error": "invalid_username"}, status=401)
 
         # Check if the user is active.
@@ -68,4 +68,3 @@ class AuthLogin(HTTPMethodView):
         token = await app.generate_jwt(user)
         # Return Token.
         return json({"token": token, "message": "Authenticated"}, status=200)
-
