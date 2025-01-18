@@ -1,0 +1,31 @@
+{
+	"name": "Departments",
+	"description": "This form refers to the input of the departments under a program of the institute.",
+	"fields": [
+		{
+			"id": "name",
+			"label": "Department Name",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "string",
+				"placeholder": "Computer Science and Engineering"
+			}
+		},
+		{
+			"id": "program_id",
+			"label": "Program",
+			"fieldType": "choice",
+			"required": true,
+			"choiceOptions": {
+				"choiceType": "single",
+				"choiceSource": "table",
+				"tableOptions": {
+					"tableName": "programs",
+					"labelColumn": "id",
+					"valueColumn": "name"
+				}
+			}
+		}
+	]
+}

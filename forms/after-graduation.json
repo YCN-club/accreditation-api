@@ -1,0 +1,55 @@
+{
+	"name": "After Graduation",
+	"description": "This form refers to the input of after graduation details for students.",
+	"fields": [
+		{
+			"id": "student_id",
+			"label": "Student",
+			"fieldType": "choice",
+			"required": true,
+			"choiceOptions": {
+				"choiceType": "single",
+				"choiceSource": "table",
+				"tableOptions": {
+					"tableName": "students",
+					"labelColumn": "name",
+					"valueColumn": "id"
+				}
+			}
+		},
+		{
+			"id": "year",
+			"label": "Year",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "number",
+				"placeholder": "2020"
+			}
+		},
+		{
+			"id": "type",
+			"label": "Type",
+			"fieldType": "choice",
+			"required": true,
+			"choiceOptions": {
+				"choiceType": "single",
+				"choiceSource": "enum",
+				"enumOptions": [
+					{
+						"name": "Placement",
+						"value": "PLACEMENT"
+					},
+					{
+						"name": "Entrepreneurship",
+						"value": "ENTREPRENEURSHIP"
+					},
+					{
+						"name": "Higher Studies",
+						"value": "HIGHER_STUDIES"
+					}
+				]
+			}
+		}
+	]
+}

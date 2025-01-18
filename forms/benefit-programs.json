@@ -1,0 +1,59 @@
+{
+	"name": "Benefit Programs",
+	"description": "This form refers to the input of benefit program details for students.",
+	"fields": [
+		{
+			"id": "student_id",
+			"label": "Student",
+			"fieldType": "choice",
+			"required": true,
+			"choiceOptions": {
+				"choiceType": "single",
+				"choiceSource": "table",
+				"tableOptions": {
+					"tableName": "students",
+					"labelColumn": "id",
+					"valueColumn": "id"
+				}
+			}
+		},
+		{
+			"id": "year",
+			"label": "Year",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "number",
+				"placeholder": "2023"
+			}
+		},
+		{
+			"id": "type",
+			"label": "Type",
+			"fieldType": "choice",
+			"required": true,
+			"choiceOptions": {
+				"choiceType": "single",
+				"choiceSource": "enum",
+				"enumOptions": [
+					{
+						"name": "Government",
+						"value": "GOVERNMENT"
+					},
+					{
+						"name": "Non-Government",
+						"value": "NON_GOVERNMENT"
+					},
+					{
+						"name": "Institutional",
+						"value": "INSTITUTIONAL"
+					},
+					{
+						"name": "Competitive Exam Guidance",
+						"value": "COMPETITIVE_EXAM_GUIDANCE"
+					}
+				]
+			}
+		}
+	]
+}

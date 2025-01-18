@@ -1,0 +1,114 @@
+{
+	"name": "Collaborative Activities",
+	"description": "This form refers to the input of collaborative activity details.",
+	"fields": [
+		{
+			"id": "title",
+			"label": "Title",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "string",
+				"placeholder": "Joint Research Project"
+			}
+		},
+		{
+			"id": "type",
+			"label": "Type",
+			"fieldType": "choice",
+			"required": true,
+			"choiceOptions": {
+				"choiceType": "single",
+				"choiceSource": "enum",
+				"enumOptions": [
+					{
+						"name": "Research",
+						"value": "RESEARCH"
+					},
+					{
+						"name": "Student Exchange",
+						"value": "STUDENT_EXCHANGE"
+					},
+					{
+						"name": "Faculty Exchange",
+						"value": "FACULTY_EXCHANGE"
+					},
+					{
+						"name": "Industry Internship",
+						"value": "INDUSTRY_INTERNSHIP"
+					}
+				]
+			}
+		},
+		{
+			"id": "agency_id",
+			"label": "Agency",
+			"fieldType": "choice",
+			"required": true,
+			"choiceOptions": {
+				"choiceType": "single",
+				"choiceSource": "table",
+				"tableOptions": {
+					"tableName": "agencies",
+					"labelColumn": "name",
+					"valueColumn": "id"
+				}
+			}
+		},
+		{
+			"id": "user_id",
+			"label": "User",
+			"fieldType": "choice",
+			"required": true,
+			"choiceOptions": {
+				"choiceType": "single",
+				"choiceSource": "table",
+				"tableOptions": {
+					"tableName": "users",
+					"labelColumn": "id",
+					"valueColumn": "id"
+				}
+			}
+		},
+		{
+			"id": "source_of_financial_support",
+			"label": "Source of Financial Support",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "string",
+				"placeholder": "Government Grant"
+			}
+		},
+		{
+			"id": "year",
+			"label": "Year",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "number",
+				"placeholder": "2023"
+			}
+		},
+		{
+			"id": "duration",
+			"label": "Duration",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "number",
+				"placeholder": "12"
+			}
+		},
+		{
+			"id": "link_to_relevant_documents",
+			"label": "Link to Relevant Documents",
+			"fieldType": "input",
+			"required": false,
+			"inputOptions": {
+				"inputType": "multi-input",
+				"placeholder": "http://example.com/document1, http://example.com/document2"
+			}
+		}
+	]
+}
