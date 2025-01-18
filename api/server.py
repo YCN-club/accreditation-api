@@ -5,6 +5,7 @@ from sanic_ext import Extend
 
 from api.app import API, appserver
 from api.mayim.auth_executor import AuthExecutor
+from api.mayim.user_executor import UserExecutor
 
 from . import endpoints  # noqa: F401
 
@@ -36,22 +37,13 @@ config.update(
     },
 )
 
-# Check if AZURE_AD env variables are set
-if (
-    config.get("AZURE_AD_TENANT_ID") is None
-    or config.get("AZURE_AD_CLIENT_ID") is None
-    or config.get("AZURE_AD_REDIRECT_URI") is None
-):
-    logger.error("MISSING AZURE AD ENV VARIABLES")
-    quit(1)
-
 app: API = appserver
 app.config.update(config)
 app.config.PROXIES_COUNT = int(config.get("PROXIES_COUNT", 0))
 
 Extend.register(
     SanicMayimExtension(
-        executors=[AuthExecutor],
+        executors=[AuthExecutor, UserExecutor],
         dsn=f"postgres://{config['DB_USERNAME']}:{config['DB_PASSWORD']}@{config['DB_HOST']}:{config['DB_PORT']}/{config['DB_NAME']}",  # noqa: E501
     )
 )
@@ -59,7 +51,6 @@ Extend.register(
 
 @app.listener("before_server_start")
 async def setup_app(app: API):
-    await app.load_entra_jwks()
     logger.info("Setup complete.")
 
 

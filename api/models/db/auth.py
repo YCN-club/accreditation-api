@@ -9,3 +9,4 @@ class Auth(BaseModel):
     password: str
     last_login: Optional[datetime] = None
     requires_reset: bool = False
+    is_active: bool
