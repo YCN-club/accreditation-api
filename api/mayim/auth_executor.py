@@ -7,7 +7,7 @@ class AuthExecutor(PostgresExecutor):
     generic_prefix = ""
     path = "./queries/auth/"
 
-    async def get_login_by_emp_id(self, employee_id: str) -> LoginData:
+    async def get_login_by_email(self, email: str) -> LoginData:
         """
         Get LoginData by email.
         """

@@ -28,7 +28,7 @@ class AuthLogin(HTTPMethodView):
 
         # Get the user from the database.
         try:
-            user = await executor.get_login_by_emp_id(username)
+            user = await executor.get_login_by_email(username)
         except RecordNotFound:
             return json({"error": "invalid_username"}, status=401)
         except Exception as e:
