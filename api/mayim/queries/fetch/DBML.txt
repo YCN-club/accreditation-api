@@ -1,0 +1,674 @@
+/// USERS AND AUTHENTICATION
+
+Enum SOCIAL_DISADVANTAGE {
+  SC
+  ST
+  OBC
+}
+
+Enum STUDENT_ORIGIN {
+  IN_STATE
+  OUT_OF_STATE
+  INTERNATIONAL
+}
+
+Enum STUDENT_GENDER {
+  MALE
+  FEMALE
+}
+
+Enum STUDENT_ENTRIES {
+  REGULAR
+  // In lateral entries, we are setting the year
+  // of exit by adding the programs's duration year
+  // to program intake's year.
+  LATERAL_ENTRY
+  OTHER
+}
+
+Enum STUDENT_EXITS {
+  REGULAR
+  LATE
+  LEFT
+}
+
+Enum FACULTY_HIGHEST_DEGREE {
+  ASSOCIATE
+  BACHELORS
+  MASTERS
+  DOCTORAL
+}
+
+Enum FACULTY_NATURE_OF_ASSOCIATION {
+  REGULAR
+  CONTRACT
+  AD_HOC
+}
+
+Enum FACULTY_CONTRACTUAL_OBLIGATION {
+  PART_TIME
+  FULL_TIME
+}
+
+Table users {
+  id uuid [pk]
+  first_name varchar(100)
+  middle_name varchar(100) [null]
+  last_name varchar(100)
+  email varchar(255) [unique]
+}
+
+Table auth {
+  id uuid [pk, ref: > users.id]
+  password varchar(255)
+  last_login datetime [null]
+  requires_reset boolean [default: false]
+}
+
+Table students {
+  id uuid [pk, ref: - users.id]
+  admission_no varchar(50) [unique]
+  registration_no varchar(50) [unique]
+  origin STUDENT_ORIGIN
+  gender STUDENT_GENDER
+  branch_id uuid [ref: < branches.id]
+  batch_year int
+  year_of_join int
+  type_of_join STUDENT_ENTRIES
+  year_of_exit int [null]
+  type_of_exit STUDENT_EXITS [null]
+  social_disadvantage SOCIAL_DISADVANTAGE [null]
+  economic_disadvantage bool [default: false]
+  physically_challenged bool [default: false]
+}
+
+// Backlogs DWTS
+
+Ref: students.(branch_id, batch_year) > branch_intakes.(branch_id, year)
+
+Table faculty {
+  id uuid [pk, ref: - users.id]
+  employee_id varchar(50) [unique, null]
+  department_id uuid [ref: > departments.id]
+  designation varchar(100) 
+  pan_no text
+  apaar_id text [null]
+  highest_degree FACULTY_HIGHEST_DEGREE
+  university text
+  area_of_specialization text
+  date_of_join date
+  designation_at_join varchar(100)
+  designated_as_professor date [null]
+  designated_as_associate_professor date [null]
+  designated_as_assistant_professor date [null]
+  nature_of_association FACULTY_NATURE_OF_ASSOCIATION
+  contractual_obligation FACULTY_CONTRACTUAL_OBLIGATION
+  currently_associated bool [default: true]
+  date_of_leave date [null]
+}
+
+Table adjunct_faculty {
+  faculty_id uuid [ref: - faculty.id]
+  // Number of hours only allotted to visiting
+  // faculty, a.k.a. Ad-Hoc faculty.
+  hours_handled int
+  subjects text[]
+}
+
+/// FACULTY CONTRIBUTIONS
+
+Enum FACULTY_ITC_TYPE {
+  INTERNSHIP
+  TRAINING
+  COLLABORATION
+}
+
+Enum FACULTY_SRPCWISM_TYPE {
+  SPONSORED_RESEARCH_PROJECT
+  CONSULTANCY_WORK
+  INSTITUTE_SEED_MONEY
+}
+
+Table professional_communities {
+  faculty_id uuid [ref: > faculty.id]
+  name_of_society text
+  position string
+
+  indexes {
+    (faculty_id, name_of_society) [pk]
+  }
+}
+
+// Related to instutional information.
+Table continuing_education_programs {
+  id uuid [pk]
+  year int
+  name text
+  no_of_participants int
+  no_of_days int
+}
+
+// Related to SWAYAM MOOCs.
+Table faculty_courses {
+  faculty_id uuid [ref: > faculty.id]
+  name_of_course string
+  developed bool [default: false]
+}
+
+Table faculty_student_innovative_projects {
+  faculty_id uuid [ref: > faculty.id]
+  name_of_event string
+  link_of_website string
+}
+
+Table faculty_internship_training_collaboration {
+  faculty_id uuid [ref: > faculty.id]
+  // ITC = Internship/Training/Collaboration
+  name_of_itc string
+  name_of_company string // (and place)
+  type FACULTY_ITC_TYPE
+  outcomes text
+}
+
+Table faculty_sponsored_research_projects_consultancy_work_institute_seed_money {
+  type FACULTY_SRPCWISM_TYPE
+  name_of_principal_investigator string
+  name_of_co_principal_investigator string [null]
+  department_id uuid [ref: > departments.id, null]
+  project_title string
+  name_of_funding_agency string
+  duration_of_project string
+  amount_inr number
+  outcomes text
+}
+
+/// RESEARCH AND PUBLICATIONS
+
+Enum JOURNAL_PUBLICATION_TYPE {
+  HARDCOPY
+  SOFTCOPY
+}
+
+Enum JOURNAL_FREQUENCY {
+  WEEKLY
+  BIWEEKLY
+  MONTHLY
+  QUARTERLY
+  YEARLY
+}
+
+Enum BOOK_PUBLICATION_TYPE {
+  BOOK
+  CHAPTER
+}
+
+Enum IPR_TYPE {
+  PATENT
+  DESIGN
+  COPYRIGHT
+}
+
+Enum IPR_STATUS {
+  FILED
+  GRANTED
+  LICENSED
+  COLLABORATIVE
+}
+
+Enum ACADEMIC_SEMESTER {
+  ODD
+  EVEN
+}
+
+Table journals {
+  id uuid [pk]
+  name varchar(50)
+  frequency JOURNAL_FREQUENCY
+  type JOURNAL_PUBLICATION_TYPE
+  scopus_indexed boolean
+}
+
+Table sponsorships {
+  id uuid [pk]
+  agency_name text
+  year int
+  amount_inr number
+  project_title text
+}
+
+Table ipr {
+  id uuid [pk]
+  awardee_id uuid [ref: > users.id, null]
+  awarder_name text [null]
+  government_recognized bool [default: false]
+  year int
+  uuid text // Patent/Design's Unique ID
+  title text
+  type IPR_TYPE
+  status IPR_STATUS
+}
+
+Table ipr_earnings {
+  ipr_id uuid [pk, ref: > ipr.id]
+  financial_year int
+  amount_inr number
+}
+
+Table journal_publications {
+  id uuid [pk]
+  journal_id uuid [pk, ref: > journals.id]
+  journal_volume_number int
+  journal_issue_number int
+  sponsor_id uuid [ref: > sponsorships.id] // DWTL
+  year int
+  semester ACADEMIC_SEMESTER
+  doi varchar(255) // DWTL
+  title text
+}
+
+Table journal_publication_authors {
+  publication_id uuid [pk, ref: > journal_publications.id]
+  author_id uuid [ref: > users.id]
+  author_index int
+
+  indexes {
+    (publication_id, author_id) [pk]
+  }
+}
+
+Table book_publications {
+  id uuid [pk]
+  year int
+  semester ACADEMIC_SEMESTER
+  title text
+  isbn int // ISBN-13
+  type BOOK_PUBLICATION_TYPE
+}
+
+Table book_publication_authors {
+  publication_id uuid [pk, ref: > book_publications.id]
+  author_id uuid [ref: > users.id]
+  author_index int
+
+  indexes {
+    (publication_id, author_id) [pk]
+  }
+}
+
+/// STUDENT INFO AND PERFORMANCE
+
+Enum INSTITUTE_TYPE {
+  DEEMED_TO_BE_UNIVERSITY
+  UNIVERSITY
+  AUTONOMOUS
+  AFFILIATED
+  OTHER
+}
+
+Enum INSTITUTE_OWNERSHIP_STATUS {
+  CENTRAL_GOVERNMENT
+  STATE_GOVERNMENT
+  GRANT_IN_AID
+  SELF_FINANCING_TRUST
+  OTHER
+}
+
+Enum PROGRAM_ACCREDITATION_STATUS {
+  APPLYING_FIRST_TIME
+  GRANTED_ACCREDITATION_FOR_2_3_YEARS
+  GRANTED_ACCREDITATION_FOR_5_6_YEARS
+  NOT_ACCREDITED
+  WITHDRAWN
+  NOT_ELIGIBLE_FOR_ACCREDITATION
+  ELIGIBLE_BUT_NOT_APPLIED
+}
+
+Table institutes {
+  id uuid [pk]
+  institute_code text
+  name text
+  type INSTITUTE_TYPE
+  year_of_establishment int
+  ownership_status INSTITUTE_OWNERSHIP_STATUS
+  affiliating_university_name string
+  affiliating_university_address string
+  vision text
+  mission text
+
+  other_academic_institute_ids uuid[] [ref: > other_academic_institutes_run_by_trust_society.id]
+  programs_offered uuid[] [ref: > programs.id]
+  programs_considered uuid[] [ref: > programs.id]
+
+  // - Total Number of Faculty Members at Various Departments:
+  //   - Name of the Department
+  //   - Number of faculty members in the Department (UG and PG)
+  //       - CAY(multiple years)
+  //           - No.of Professors
+  //           - No.of Associate Professors
+  //           - No.of Assistant Professors
+  //           - Total faculty members
+  // - Total Number of Engineering Students at Various Departments
+  //   - Name of the Department
+  //   - Number of students in the Department (UG and PG)
+  //       - CAY,CAYm1,CAYm2….
+
+  head_of_institute_id uuid [ref: > faculty.id]
+  nba_coordinator_id uuid [ref: > faculty.id]
+}
+
+Table other_academic_institutes_run_by_trust_society {
+  id uuid [pk]
+  name text
+  year_of_establishment int
+  program_of_study text[]
+  location text
+}
+
+// Example: Bachelor of Technology
+Table programs {
+  id uuid [pk]
+  program_code int
+  duration_year int
+  name text
+  year_of_start int
+  sanctioned_intake int
+  aicte_approval_details text
+  // DWTL: Some of these require specifying periods.
+  accreditation_status PROGRAM_ACCREDITATION_STATUS
+  number_of_times_accredited int
+  institute_id uuid [ref: > institutes.id]
+}
+
+Table program_intakes {
+  program_id uuid [ref: > programs.id]
+  year int
+  intake int
+
+  indexes {
+    (program_id, year) [pk]
+  }
+}
+
+Table departments {
+  id uuid [pk]
+  name text
+  program_id uuid [ref: > programs.id]
+}
+
+// Example: B.Tech in CSE (Core)
+Table branches {
+  id uuid [pk]
+  name text
+  department_id uuid [ref: > departments.id]
+}
+
+Table branch_intakes {
+  branch_id uuid [ref: > branches.id]
+  year int
+  allowed_batch_size int
+
+  indexes {
+    (branch_id, year) [pk]
+  }
+}
+
+/// EVENTS
+
+Enum EVENT_LEVEL {
+  INTERNAL
+  STATE
+  NATIONAL
+  INTERNATIONAL
+}
+
+Enum EVENT_CLASSIFICATION {
+  INDIVIDUAL
+  TEAM
+}
+
+Enum COMPETITIVE_EVENT_TYPE {
+  SPORTS
+  CULTURAL
+  ACADEMIC
+  OTHER
+}
+
+Enum EVENT_OBJECTIVE {
+  COMPETITIVE
+  INFORMATIONAL
+}
+
+Enum COMMUNITY_TYPE {
+  CLUBS
+  NGO
+  GOVERNMENT
+  INDUSTRY
+}
+
+Table organizers {
+  id uuid [pk]
+  type COMMUNITY_TYPE
+  name text
+}
+
+Table sdg_goals {
+  id uuid [pk]
+  number int
+  goal text
+}
+
+Table events {
+  id uuid [pk]
+  name text
+  date datetime [null]
+  start_time timestamp [null]
+  end_time timestamp [null]
+  venue text
+  organizer_id uuid [ref: > organizers.id]
+  level EVENT_LEVEL [null]
+  objective EVENT_OBJECTIVE [null]
+  description text // DWTL
+  sdg_goals uuid[] [ref: > sdg_goals.id]
+  // attachments, DWTL
+}
+
+Table competitive_events {
+  id uuid [pk, ref: > events.id]
+  classification EVENT_CLASSIFICATION
+  type COMPETITIVE_EVENT_TYPE
+  participant_id uuid [ref: > students.id]
+  position int
+  award text
+}
+
+Table informational_events {
+  id uuid [pk, ref: > events.id]
+  speaker text
+  no_of_students int
+  no_of_teachers int
+  link_to_report text
+  geotagged_photographs text[]
+}
+
+Ref: "journal_publication_authors"."author_id" < "programs"."program_code"
+
+/// STUDENT INFO AND PERFORMANCE
+
+Enum AFTER_GRADUATION_TYPE {
+  PLACEMENT
+  ENTREPRENEURSHIP
+  HIGHER_STUDIES
+}
+
+Enum AWARD_TYPE {
+  SPORTS
+  RESEARCH
+  CULTURAL
+  FELLOWSHIP
+}
+
+Enum AWARD_USER_TYPE {
+  FACULTY
+  STUDENT
+}
+
+Enum COLLABORATIVE_ACTIVITY_TYPE {
+  RESEARCH
+  STUDENT_EXCHANGE
+  FACULTY_EXCHANGE
+  INDUSTRY_INTERNSHIP
+}
+
+Enum BENEFIT_SCHEME_TYPE {
+  GOVERNMENT
+  NON_GOVERNMENT
+  INSTITUTIONAL
+  COMPETITIVE_EXAM_GUIDANCE
+}
+
+Enum NATIONAL_GOVERNMENT_EXAM_TYPE {
+  NET
+  SLET
+  GATE
+  GMAT
+  GPAT
+  CAT
+  GRE
+  IELET
+  TOEFL
+  PLAB
+  USMLE
+  AYUSH
+  STATE_GOVERNMENT_EXAMS
+  UPSC
+  PG_NEET
+  OTHERS
+}
+
+Table GPA {
+  student_id uuid [pk, ref: > students.id]
+  semester int
+  GPA decimal(4,2)
+  credits int
+
+  indexes {
+    (student_id, semester) [pk]
+  }
+}
+
+Table after_graduation {
+  id uuid [pk]
+  student_id uuid [pk, ref: - students.id]
+  year int
+  type AFTER_GRADUATION_TYPE
+}
+
+Table after_graduation_placements {
+  after_graduation_id uuid [pk, ref: - after_graduation.id]
+  employer_id uuid [ref: < companies.id]
+  salary int // Assuming INR
+}
+
+Table after_graduation_higher_studies {
+  after_graduation_id uuid [pk, ref: - after_graduation.id]
+  institute_name text
+  program_name text
+  with_exam bool [default: true]
+}
+
+Table after_graduation_entrepreneurship {
+  after_graduation_id uuid [pk, ref: - after_graduation.id]
+  company_name text
+}
+
+Table companies {
+  id uuid [pk]
+  name string
+  contact_no string
+  contact_email string
+}
+
+Table awards {
+  id uuid [pk]
+  name text
+  type AWARD_TYPE
+  awarding_agency text [null]
+  user_type AWARD_USER_TYPE
+  user_id uuid [ref: > users.id] 
+  year int
+}
+
+// How is this different from the Events table?
+Table collaborative_activities {
+  id uuid [pk]
+  title text
+  type COLLABORATIVE_ACTIVITY_TYPE
+  agency_id uuid [ref: > agencies.id]
+  user_id uuid [ref: > users.id]
+  source_of_financial_support text
+  year int
+  duration int
+  link_to_relevant_documents text[]
+}
+
+Table agencies {
+  id uuid [pk]
+  name string
+  contact_no string
+  contact_email string
+}
+
+Table benefit_programs {
+  id uuid [pk]
+  student_id uuid [ref: > students.id]
+  year int
+  type BENEFIT_SCHEME_TYPE
+
+}
+
+Table national_government_exams {
+  id uuid [pk]
+  student_id uuid [ref: > students.id]
+  exam_type NATIONAL_GOVERNMENT_EXAM_TYPE
+}
+
+/// FACILITIES AND TECHNICAL SUPPORT
+
+Table facilities {
+  id uuid [pk]
+  name text
+  type string
+  is_ict bool [default: false]
+  details text [null]
+  reasons text[]
+  utilization string [null]
+  relevance_to_pos text
+}
+
+Table laboratories {
+  id uuid [pk, ref: - facilities.id]
+  batch_size int
+  name_of_equipment text[] [null]
+  safety_measures text[] [null]
+  weekly_utilization int
+  // Store list of IDs from Technical Manpower
+  // as each person can be associated with
+  // multiple laboratories.
+  technical_manpower_ids uuid[] [ref: > laboratories_technical_manpower.id]
+}
+
+Table laboratories_technical_manpower {
+  id uuid [pk]
+  name text
+  designation text
+  qualification text
+}
+
+Table e_resources {
+  faculty_id uuid [ref: > faculty.id]
+  name text
+  development_platform text
+  date_of_launch date
+  link_to_relevant_document string
+  institute string
+}
