@@ -161,6 +161,27 @@
 							"staticType"
 						],
 						"description": "Configuration for static fields."
+					},
+					"relevantForms": {
+						"type": "array",
+						"items": {
+							"type": "object",
+							"properties": {
+								"id": {
+									"type": "string",
+									"description": "The ID of the relevant form."
+								},
+								"name": {
+									"type": "string",
+									"description": "The name of the relevant form."
+								}
+							},
+							"required": [
+								"id",
+								"name"
+							]
+						},
+						"description": "List of relevant forms associated with the field."
 					}
 				},
 				"required": [
