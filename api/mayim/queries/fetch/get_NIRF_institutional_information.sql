@@ -7,3 +7,5 @@ FROM
     continuing_education_programs
 WHERE 
     institute_id = $institute_id;
+
+-- Variables to be passed: $institute_id

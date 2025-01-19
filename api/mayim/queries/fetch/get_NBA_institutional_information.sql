@@ -53,4 +53,6 @@ LEFT JOIN
 LEFT JOIN 
     faculty n ON n.id = i.nba_coordinator_id
 WHERE 
-    i.id = $institute_id;
+    i.id = $institute_id; 
+
+# Variables to be passed: $institute_id
