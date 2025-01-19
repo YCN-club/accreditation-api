@@ -1,6 +1,7 @@
 {
 	"name": "Programs",
 	"description": "This form refers to the input of the programs offered by the institute.",
+	"priority": 1,
 	"fields": [
 		{
 			"id": "program_code",

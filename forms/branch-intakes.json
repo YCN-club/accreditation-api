@@ -1,6 +1,7 @@
 {
 	"name": "Branch Intakes",
 	"description": "This form refers to the intake of the branches offered by each department, per year.",
+	"priority": 2,
 	"fields": [
 		{
 			"id": "branch_id",

@@ -1,6 +1,7 @@
 {
 	"name": "Laboratories",
 	"description": "This form refers to the input of laboratory details.",
+	"priority": 2,
 	"fields": [
 		{
 			"id": "id",

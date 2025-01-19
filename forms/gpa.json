@@ -1,6 +1,7 @@
 {
 	"name": "GPA",
 	"description": "This form refers to the input of GPA details for students.",
+	"priority": 1,
 	"fields": [
 		{
 			"id": "student_id",

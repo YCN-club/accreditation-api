@@ -1,6 +1,7 @@
 {
 	"name": "Program Intakes",
 	"description": "This form refers to the intake of the programs offered by the institute.",
+	"priority": 2,
 	"fields": [
 		{
 			"id": "program_id",

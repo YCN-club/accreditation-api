@@ -1,6 +1,7 @@
 {
 	"name": "Collaborative Activities",
 	"description": "This form refers to the input of collaborative activity details.",
+	"priority": 2,
 	"fields": [
 		{
 			"id": "title",

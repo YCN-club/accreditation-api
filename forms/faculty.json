@@ -1,6 +1,7 @@
 {
 	"name": "Faculty",
 	"description": "This form refers to the input of faculty details.",
+	"priority": 0,
 	"fields": [
 		{
 			"id": "first_name",

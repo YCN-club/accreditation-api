@@ -1,6 +1,7 @@
 {
 	"name": "E-Resources",
 	"description": "This form refers to the input of e-resource details.",
+	"priority": 2,
 	"fields": [
 		{
 			"id": "faculty_id",

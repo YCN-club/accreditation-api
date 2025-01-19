@@ -1,6 +1,7 @@
 {
 	"name": "Students",
 	"description": "This form refers to the input of student details.",
+	"priority": 0,
 	"fields": [
 		{
 			"id": "first_name",

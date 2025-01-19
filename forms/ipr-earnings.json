@@ -1,6 +1,7 @@
 {
 	"name": "IPR Earnings",
 	"description": "This form refers to the input of IPR earnings details.",
+	"priority": 3,
 	"fields": [
 		{
 			"id": "ipr_id",

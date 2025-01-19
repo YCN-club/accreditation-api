@@ -1,6 +1,7 @@
 {
 	"name": "Intellectual Property Rights",
 	"description": "This form refers to the input of intellectual property rights details.",
+	"priority": 2,
 	"fields": [
 		{
 			"id": "awardee_id",

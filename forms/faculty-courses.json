@@ -1,6 +1,7 @@
 {
 	"name": "Faculty Courses",
 	"description": "This form refers to the input of faculty courses details.",
+	"priority": 3,
 	"fields": [
 		{
 			"id": "faculty_id",

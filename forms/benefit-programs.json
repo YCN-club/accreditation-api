@@ -1,6 +1,7 @@
 {
 	"name": "Benefit Programs",
 	"description": "This form refers to the input of benefit program details for students.",
+	"priority": 2,
 	"fields": [
 		{
 			"id": "student_id",

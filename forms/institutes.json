@@ -1,6 +1,7 @@
 {
 	"name": "Institutes",
 	"description": "This form refers to the input of the institutes.",
+	"priority": 1,
 	"fields": [
 		{
 			"id": "institute_code",

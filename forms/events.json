@@ -1,6 +1,7 @@
 {
 	"name": "Events",
 	"description": "This form refers to the input of event details.",
+	"priority": 0,
 	"fields": [
 		{
 			"id": "name",

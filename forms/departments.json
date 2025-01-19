@@ -1,6 +1,7 @@
 {
 	"name": "Departments",
 	"description": "This form refers to the input of the departments under a program of the institute.",
+	"priority": 1,
 	"fields": [
 		{
 			"id": "name",

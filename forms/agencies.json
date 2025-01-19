@@ -1,6 +1,7 @@
 {
 	"name": "Agencies",
 	"description": "This form refers to the input of agency details.",
+	"priority": 2,
 	"fields": [
 		{
 			"id": "name",

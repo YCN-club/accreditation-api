@@ -1,6 +1,7 @@
 {
 	"name": "Adjunct Faculty",
 	"description": "This form refers to the input of adjunct faculty details.",
+	"priority": 3,
 	"fields": [
 		{
 			"id": "faculty_id",

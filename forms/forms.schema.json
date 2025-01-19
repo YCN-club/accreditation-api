@@ -10,6 +10,10 @@
 			"type": "string",
 			"description": "A brief description of the form."
 		},
+		"priority": {
+			"type": "number",
+			"description": "The priority of the form. Forms with higher priority (lower number) will be displayed first."
+		},
 		"fields": {
 			"type": "array",
 			"items": {
@@ -241,6 +245,7 @@
 	"required": [
 		"name",
 		"description",
+		"priority",
 		"fields"
 	],
 	"additionalProperties": false

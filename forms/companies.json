@@ -1,6 +1,7 @@
 {
 	"name": "Companies",
 	"description": "This form refers to the input of company details.",
+	"priority": 2,
 	"fields": [
 		{
 			"id": "name",

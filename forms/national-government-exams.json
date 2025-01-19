@@ -1,6 +1,7 @@
 {
 	"name": "National Government Exams",
 	"description": "This form refers to the input of national government exam details for students.",
+	"priority": 3,
 	"fields": [
 		{
 			"id": "student_id",

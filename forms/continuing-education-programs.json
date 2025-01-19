@@ -1,6 +1,7 @@
 {
 	"name": "Continuing Education Programs",
 	"description": "This form refers to the input of continuing education programs details.",
+	"priority": 2,
 	"fields": [
 		{
 			"id": "year",

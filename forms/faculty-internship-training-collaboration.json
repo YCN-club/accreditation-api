@@ -1,6 +1,7 @@
 {
 	"name": "Faculty Internship/Training/Collaboration",
 	"description": "This form refers to the input of faculty internship, training, and collaboration details.",
+	"priority": 3,
 	"fields": [
 		{
 			"id": "faculty_id",

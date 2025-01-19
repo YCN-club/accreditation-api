@@ -1,6 +1,7 @@
 {
 	"name": "Journal Publications",
 	"description": "This form refers to the input of journal publications details.",
+	"priority": 3,
 	"fields": [
 		{
 			"id": "journal_id",

@@ -1,6 +1,7 @@
 {
 	"name": "After Graduation",
 	"description": "This form refers to the input of after graduation details for students.",
+	"priority": 2,
 	"fields": [
 		{
 			"id": "student_id",

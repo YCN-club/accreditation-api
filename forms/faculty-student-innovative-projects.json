@@ -1,6 +1,7 @@
 {
 	"name": "Faculty Student Innovative Projects",
 	"description": "This form refers to the input of faculty student innovative projects details.",
+	"priority": 3,
 	"fields": [
 		{
 			"id": "faculty_id",

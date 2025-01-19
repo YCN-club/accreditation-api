@@ -1,6 +1,7 @@
 {
 	"name": "Faculty in Professional Communities",
 	"description": "This form refers to the input of faculty participation in professional communities.",
+	"priority": 3,
 	"fields": [
 		{
 			"id": "faculty_id",

@@ -1,6 +1,7 @@
 {
 	"name": "Branches",
 	"description": "This form refers to the branches offered by each department.",
+	"priority": 1,
 	"fields": [
 		{
 			"id": "name",

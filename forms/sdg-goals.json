@@ -1,6 +1,7 @@
 {
 	"name": "SDG Goals",
 	"description": "This form refers to the input of SDG goals details.",
+	"priority": 3,
 	"fields": [
 		{
 			"id": "number",

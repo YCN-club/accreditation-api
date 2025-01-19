@@ -1,6 +1,7 @@
 {
 	"name": "Awards",
 	"description": "This form refers to the input of award details.",
+	"priority": 1,
 	"fields": [
 		{
 			"id": "name",

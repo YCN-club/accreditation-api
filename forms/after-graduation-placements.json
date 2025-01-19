@@ -1,6 +1,7 @@
 {
 	"name": "After Graduation Placements",
 	"description": "This form refers to the input of placement details after graduation.",
+	"priority": 3,
 	"fields": [
 		{
 			"id": "after_graduation_id",

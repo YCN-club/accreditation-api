@@ -1,6 +1,7 @@
 {
 	"name": "Faculty Sponsored Research Projects/Consultancy Work/Institute Seed Money",
 	"description": "This form refers to the input of faculty sponsored research projects, consultancy work, and institute seed money details.",
+	"priority": 3,
 	"fields": [
 		{
 			"id": "type",

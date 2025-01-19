@@ -1,6 +1,7 @@
 {
 	"name": "Sponsorships",
 	"description": "This form refers to the input of sponsorship details.",
+	"priority": 3,
 	"fields": [
 		{
 			"id": "agency_name",

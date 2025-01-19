@@ -1,6 +1,7 @@
 {
 	"name": "Journals",
 	"description": "This form refers to the input of journal details.",
+	"priority": 1,
 	"fields": [
 		{
 			"id": "name",

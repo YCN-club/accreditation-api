@@ -1,6 +1,7 @@
 {
 	"name": "Facilities",
 	"description": "This form refers to the input of facility details.",
+	"priority": 2,
 	"fields": [
 		{
 			"id": "name",

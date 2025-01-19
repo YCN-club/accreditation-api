@@ -1,6 +1,7 @@
 {
 	"name": "After Graduation Entrepreneurship",
 	"description": "This form refers to the input of entrepreneurship details after graduation.",
+	"priority": 3,
 	"fields": [
 		{
 			"id": "after_graduation_id",

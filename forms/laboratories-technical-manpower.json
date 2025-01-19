@@ -1,6 +1,7 @@
 {
 	"name": "Laboratories Technical Manpower",
 	"description": "This form refers to the input of technical manpower details for laboratories.",
+	"priority": 3,
 	"fields": [
 		{
 			"id": "name",

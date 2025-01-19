@@ -1,6 +1,7 @@
 {
 	"name": "Organizers",
 	"description": "This form refers to the input of organizer details.",
+	"priority": 2,
 	"fields": [
 		{
 			"id": "type",

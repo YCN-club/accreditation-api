@@ -1,6 +1,7 @@
 {
 	"name": "Competitive Events",
 	"description": "This form refers to the input of competitive event details.",
+	"priority": 2,
 	"fields": [
 		{
 			"id": "id",
