@@ -8,7 +8,6 @@ class LoginData(BaseModel):
     user_id: UUID
     name: str
     email: str
-    employee_id: str
     password: str
     is_active: bool
     requires_reset: bool

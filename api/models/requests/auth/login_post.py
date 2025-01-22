@@ -1,6 +1,6 @@
 from pydantic import BaseModel
 
 
-class LoginJSON(BaseModel):
+class LoginPost(BaseModel):
     username: str
     password: str

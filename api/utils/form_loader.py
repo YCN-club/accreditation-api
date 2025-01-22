@@ -1,7 +1,7 @@
 import os
 import json
 
-from sanic.log import logger
+# from sanic.log import logger
 
 
 def load_form_data(slug):
