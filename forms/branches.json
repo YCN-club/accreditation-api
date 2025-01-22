@@ -1,0 +1,32 @@
+{
+	"name": "Branches",
+	"description": "This form refers to the branches offered by each department.",
+	"priority": 1,
+	"fields": [
+		{
+			"id": "name",
+			"label": "Branch Name",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "string",
+				"placeholder": "Computer Science and Engineering (Core)"
+			}
+		},
+		{
+			"id": "department_id",
+			"label": "Department",
+			"fieldType": "choice",
+			"required": true,
+			"choiceOptions": {
+				"choiceType": "single",
+				"choiceSource": "table",
+				"tableOptions": {
+					"tableName": "departments",
+					"labelColumn": "name",
+					"valueColumn": "id"
+				}
+			}
+		}
+	]
+}

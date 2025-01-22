@@ -1,0 +1,216 @@
+{
+	"name": "Institutes",
+	"description": "This form refers to the input of the institutes.",
+	"priority": 1,
+	"fields": [
+		{
+			"id": "institute_code",
+			"label": "Institute Code",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "string",
+				"placeholder": "Institute Code"
+			}
+		},
+		{
+			"id": "name",
+			"label": "Institute Name",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "string",
+				"placeholder": "Manipal Institute of Technology"
+			}
+		},
+		{
+			"id": "type",
+			"label": "Type",
+			"fieldType": "choice",
+			"required": true,
+			"choiceOptions": {
+				"choiceType": "single",
+				"choiceSource": "enum",
+				"enumOptions": [
+					{
+						"name": "Deemed to be University",
+						"value": "DEEMED_TO_BE_UNIVERSITY"
+					},
+					{
+						"name": "University",
+						"value": "UNIVERSITY"
+					},
+					{
+						"name": "Autonomous",
+						"value": "AUTONOMOUS"
+					},
+					{
+						"name": "Affiliated",
+						"value": "AFFILIATED"
+					},
+					{
+						"name": "Other",
+						"value": "OTHER"
+					}
+				]
+			}
+		},
+		{
+			"id": "year_of_establishment",
+			"label": "Year of Establishment",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "number",
+				"placeholder": "2019"
+			}
+		},
+		{
+			"id": "ownership_status",
+			"label": "Ownership Status",
+			"fieldType": "choice",
+			"required": true,
+			"choiceOptions": {
+				"choiceType": "single",
+				"choiceSource": "enum",
+				"enumOptions": [
+					{
+						"name": "Central Government",
+						"value": "CENTRAL_GOVERNMENT"
+					},
+					{
+						"name": "State Government",
+						"value": "STATE_GOVERNMENT"
+					},
+					{
+						"name": "Grant in Aid",
+						"value": "GRANT_IN_AID"
+					},
+					{
+						"name": "Self Financing Trust",
+						"value": "SELF_FINANCING_TRUST"
+					},
+					{
+						"name": "Other",
+						"value": "OTHER"
+					}
+				]
+			}
+		},
+		{
+			"id": "affiliating_university_name",
+			"label": "Affiliating University Name",
+			"fieldType": "input",
+			"required": false,
+			"inputOptions": {
+				"inputType": "string",
+				"placeholder": "Manipal University"
+			}
+		},
+		{
+			"id": "affiliating_university_address",
+			"label": "Affiliating University Address",
+			"fieldType": "input",
+			"required": false,
+			"inputOptions": {
+				"inputType": "string",
+				"placeholder": "Madhav Nagar, Manipal, Karnataka, India"
+			}
+		},
+		{
+			"id": "vision",
+			"label": "Vision",
+			"fieldType": "input",
+			"required": false,
+			"inputOptions": {
+				"inputType": "textarea",
+				"placeholder": "To be a global leader in higher education and research, fostering innovation and excellence."
+			}
+		},
+		{
+			"id": "mission",
+			"label": "Mission",
+			"fieldType": "input",
+			"required": false,
+			"inputOptions": {
+				"inputType": "textarea",
+				"placeholder": "To provide quality education and research opportunities, nurturing talent and promoting sustainable development."
+			}
+		},
+		{
+			"id": "other_academic_institute_ids",
+			"label": "Other Academic Institute IDs",
+			"fieldType": "choice",
+			"required": false,
+			"choiceOptions": {
+				"choiceType": "multi",
+				"choiceSource": "table",
+				"tableOptions": {
+					"tableName": "other_academic_institutes_run_by_trust_society",
+					"labelColumn": "name",
+					"valueColumn": "id"
+				}
+			}
+		},
+		{
+			"id": "programs_offered",
+			"label": "Programs Offered",
+			"fieldType": "choice",
+			"required": false,
+			"choiceOptions": {
+				"choiceType": "multi",
+				"choiceSource": "table",
+				"tableOptions": {
+					"tableName": "programs",
+					"labelColumn": "name",
+					"valueColumn": "id"
+				}
+			}
+		},
+		{
+			"id": "programs_considered",
+			"label": "Programs Considered",
+			"fieldType": "choice",
+			"required": false,
+			"choiceOptions": {
+				"choiceType": "multi",
+				"choiceSource": "table",
+				"tableOptions": {
+					"tableName": "programs",
+					"labelColumn": "name",
+					"valueColumn": "id"
+				}
+			}
+		},
+		{
+			"id": "head_of_institute_id",
+			"label": "Head of Institute ID",
+			"fieldType": "choice",
+			"required": false,
+			"choiceOptions": {
+				"choiceType": "single",
+				"choiceSource": "table",
+				"tableOptions": {
+					"tableName": "faculty",
+					"labelColumn": "name",
+					"valueColumn": "id"
+				}
+			}
+		},
+		{
+			"id": "nba_coordinator_id",
+			"label": "NBA Coordinator ID",
+			"fieldType": "choice",
+			"required": false,
+			"choiceOptions": {
+				"choiceType": "single",
+				"choiceSource": "table",
+				"tableOptions": {
+					"tableName": "faculty",
+					"labelColumn": "name",
+					"valueColumn": "id"
+				}
+			}
+		}
+	]
+}

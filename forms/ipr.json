@@ -1,0 +1,124 @@
+{
+	"name": "Intellectual Property Rights",
+	"description": "This form refers to the input of intellectual property rights details.",
+	"priority": 2,
+	"fields": [
+		{
+			"id": "awardee_id",
+			"label": "Awardee",
+			"fieldType": "choice",
+			"required": false,
+			"choiceOptions": {
+				"choiceType": "single",
+				"choiceSource": "table",
+				"tableOptions": {
+					"tableName": "users",
+					"labelColumn": "name",
+					"valueColumn": "id"
+				}
+			}
+		},
+		{
+			"id": "awarder_name",
+			"label": "Awarder Name",
+			"fieldType": "input",
+			"required": false,
+			"inputOptions": {
+				"inputType": "string",
+				"placeholder": "Awarder Name"
+			}
+		},
+		{
+			"id": "government_recognized",
+			"label": "Government Recognized",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "boolean",
+				"placeholder": "false"
+			}
+		},
+		{
+			"id": "year",
+			"label": "Year",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "number",
+				"placeholder": "2021"
+			}
+		},
+		{
+			"id": "uuid",
+			"label": "UUID",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "string",
+				"placeholder": "Patent/Design's Unique ID"
+			}
+		},
+		{
+			"id": "title",
+			"label": "Title",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "string",
+				"placeholder": "Title"
+			}
+		},
+		{
+			"id": "type",
+			"label": "Type",
+			"fieldType": "choice",
+			"required": true,
+			"choiceOptions": {
+				"choiceType": "single",
+				"choiceSource": "enum",
+				"enumOptions": [
+					{
+						"name": "Patent",
+						"value": "PATENT"
+					},
+					{
+						"name": "Design",
+						"value": "DESIGN"
+					},
+					{
+						"name": "Copyright",
+						"value": "COPYRIGHT"
+					}
+				]
+			}
+		},
+		{
+			"id": "status",
+			"label": "Status",
+			"fieldType": "choice",
+			"required": true,
+			"choiceOptions": {
+				"choiceType": "single",
+				"choiceSource": "enum",
+				"enumOptions": [
+					{
+						"name": "Filed",
+						"value": "FILED"
+					},
+					{
+						"name": "Granted",
+						"value": "GRANTED"
+					},
+					{
+						"name": "Licensed",
+						"value": "LICENSED"
+					},
+					{
+						"name": "Collaborative",
+						"value": "COLLABORATIVE"
+					}
+				]
+			}
+		}
+	]
+}

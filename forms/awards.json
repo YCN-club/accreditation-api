@@ -1,0 +1,100 @@
+{
+	"name": "Awards",
+	"description": "This form refers to the input of award details.",
+	"priority": 1,
+	"fields": [
+		{
+			"id": "name",
+			"label": "Name",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "string",
+				"placeholder": "Best Research Paper"
+			}
+		},
+		{
+			"id": "type",
+			"label": "Type",
+			"fieldType": "choice",
+			"required": true,
+			"choiceOptions": {
+				"choiceType": "single",
+				"choiceSource": "enum",
+				"enumOptions": [
+					{
+						"name": "Sports",
+						"value": "SPORTS"
+					},
+					{
+						"name": "Research",
+						"value": "RESEARCH"
+					},
+					{
+						"name": "Cultural",
+						"value": "CULTURAL"
+					},
+					{
+						"name": "Fellowship",
+						"value": "FELLOWSHIP"
+					}
+				]
+			}
+		},
+		{
+			"id": "awarding_agency",
+			"label": "Awarding Agency",
+			"fieldType": "input",
+			"required": false,
+			"inputOptions": {
+				"inputType": "string",
+				"placeholder": "National Science Foundation"
+			}
+		},
+		{
+			"id": "user_type",
+			"label": "User Type",
+			"fieldType": "choice",
+			"required": true,
+			"choiceOptions": {
+				"choiceType": "single",
+				"choiceSource": "enum",
+				"enumOptions": [
+					{
+						"name": "Faculty",
+						"value": "FACULTY"
+					},
+					{
+						"name": "Student",
+						"value": "STUDENT"
+					}
+				]
+			}
+		},
+		{
+			"id": "user_id",
+			"label": "User",
+			"fieldType": "choice",
+			"required": true,
+			"choiceOptions": {
+				"choiceType": "single",
+				"choiceSource": "table",
+				"tableOptions": {
+					"tableName": "users",
+					"labelColumn": "id",
+					"valueColumn": "id"
+				}
+			}
+		},
+		{
+			"id": "year",
+			"label": "Year",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "number",
+				"placeholder": "2023"
+			}
+		}
+	]
+}

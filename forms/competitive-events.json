@@ -1,0 +1,105 @@
+{
+	"name": "Competitive Events",
+	"description": "This form refers to the input of competitive event details.",
+	"priority": 2,
+	"fields": [
+		{
+			"id": "id",
+			"label": "Event",
+			"fieldType": "choice",
+			"required": true,
+			"choiceOptions": {
+				"choiceType": "single",
+				"choiceSource": "table",
+				"tableOptions": {
+					"tableName": "events",
+					"labelColumn": "name",
+					"valueColumn": "id"
+				}
+			}
+		},
+		{
+			"id": "classification",
+			"label": "Classification",
+			"fieldType": "choice",
+			"required": true,
+			"choiceOptions": {
+				"choiceType": "single",
+				"choiceSource": "enum",
+				"enumOptions": [
+					{
+						"name": "Individual",
+						"value": "INDIVIDUAL"
+					},
+					{
+						"name": "Team",
+						"value": "TEAM"
+					}
+				]
+			}
+		},
+		{
+			"id": "type",
+			"label": "Type",
+			"fieldType": "choice",
+			"required": true,
+			"choiceOptions": {
+				"choiceType": "single",
+				"choiceSource": "enum",
+				"enumOptions": [
+					{
+						"name": "Sports",
+						"value": "SPORTS"
+					},
+					{
+						"name": "Cultural",
+						"value": "CULTURAL"
+					},
+					{
+						"name": "Academic",
+						"value": "ACADEMIC"
+					},
+					{
+						"name": "Other",
+						"value": "OTHER"
+					}
+				]
+			}
+		},
+		{
+			"id": "participant_id",
+			"label": "Participant",
+			"fieldType": "choice",
+			"required": true,
+			"choiceOptions": {
+				"choiceType": "single",
+				"choiceSource": "table",
+				"tableOptions": {
+					"tableName": "students",
+					"labelColumn": "name",
+					"valueColumn": "id"
+				}
+			}
+		},
+		{
+			"id": "position",
+			"label": "Position",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "number",
+				"placeholder": "1"
+			}
+		},
+		{
+			"id": "award",
+			"label": "Award",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "string",
+				"placeholder": "Gold Medal"
+			}
+		}
+	]
+}

@@ -1,0 +1,116 @@
+{
+	"name": "Faculty Sponsored Research Projects/Consultancy Work/Institute Seed Money",
+	"description": "This form refers to the input of faculty sponsored research projects, consultancy work, and institute seed money details.",
+	"priority": 3,
+	"fields": [
+		{
+			"id": "type",
+			"label": "Type",
+			"fieldType": "choice",
+			"required": true,
+			"choiceOptions": {
+				"choiceType": "single",
+				"choiceSource": "enum",
+				"enumOptions": [
+					{
+						"name": "Sponsored Research Project",
+						"value": "SPONSORED_RESEARCH_PROJECT"
+					},
+					{
+						"name": "Consultancy Work",
+						"value": "CONSULTANCY_WORK"
+					},
+					{
+						"name": "Institute Seed Money",
+						"value": "INSTITUTE_SEED_MONEY"
+					}
+				]
+			}
+		},
+		{
+			"id": "name_of_principal_investigator",
+			"label": "Name of Principal Investigator",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "string",
+				"placeholder": "Dr. Keshav Gupta"
+			}
+		},
+		{
+			"id": "name_of_co_principal_investigator",
+			"label": "Name of Co-Principal Investigator",
+			"fieldType": "input",
+			"required": false,
+			"inputOptions": {
+				"inputType": "string",
+				"placeholder": "Dr. Ankit Gupta"
+			}
+		},
+		{
+			"id": "department_id",
+			"label": "Department",
+			"fieldType": "choice",
+			"required": false,
+			"choiceOptions": {
+				"choiceType": "single",
+				"choiceSource": "table",
+				"tableOptions": {
+					"tableName": "departments",
+					"labelColumn": "name",
+					"valueColumn": "id"
+				}
+			}
+		},
+		{
+			"id": "project_title",
+			"label": "Project Title",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "string",
+				"placeholder": "Project ABC"
+			}
+		},
+		{
+			"id": "name_of_funding_agency",
+			"label": "Name of Funding Agency",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "string",
+				"placeholder": "Funding Agency Name"
+			}
+		},
+		{
+			"id": "duration_of_project",
+			"label": "Duration of Project",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "string",
+				"placeholder": "6 Months"
+			}
+		},
+		{
+			"id": "amount_inr",
+			"label": "Amount (INR)",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "number",
+				"placeholder": "1000000"
+			}
+		},
+		{
+			"id": "outcomes",
+			"label": "Outcomes",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "textarea",
+				"placeholder": "Outcomes 1, Outcome 2, ..."
+			}
+		}
+	]
+}

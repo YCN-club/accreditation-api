@@ -1,0 +1,98 @@
+{
+	"name": "National Government Exams",
+	"description": "This form refers to the input of national government exam details for students.",
+	"priority": 3,
+	"fields": [
+		{
+			"id": "student_id",
+			"label": "Student",
+			"fieldType": "choice",
+			"required": true,
+			"choiceOptions": {
+				"choiceType": "single",
+				"choiceSource": "table",
+				"tableOptions": {
+					"tableName": "students",
+					"labelColumn": "name",
+					"valueColumn": "id"
+				}
+			}
+		},
+		{
+			"id": "exam_type",
+			"label": "Exam Type",
+			"fieldType": "choice",
+			"required": true,
+			"choiceOptions": {
+				"choiceType": "single",
+				"choiceSource": "enum",
+				"enumOptions": [
+					{
+						"name": "NET",
+						"value": "NET"
+					},
+					{
+						"name": "SLET",
+						"value": "SLET"
+					},
+					{
+						"name": "GATE",
+						"value": "GATE"
+					},
+					{
+						"name": "GMAT",
+						"value": "GMAT"
+					},
+					{
+						"name": "GPAT",
+						"value": "GPAT"
+					},
+					{
+						"name": "CAT",
+						"value": "CAT"
+					},
+					{
+						"name": "GRE",
+						"value": "GRE"
+					},
+					{
+						"name": "IELET",
+						"value": "IELET"
+					},
+					{
+						"name": "TOEFL",
+						"value": "TOEFL"
+					},
+					{
+						"name": "PLAB",
+						"value": "PLAB"
+					},
+					{
+						"name": "USMLE",
+						"value": "USMLE"
+					},
+					{
+						"name": "AYUSH",
+						"value": "AYUSH"
+					},
+					{
+						"name": "State Government Exams",
+						"value": "STATE_GOVERNMENT_EXAMS"
+					},
+					{
+						"name": "UPSC",
+						"value": "UPSC"
+					},
+					{
+						"name": "PG NEET",
+						"value": "PG_NEET"
+					},
+					{
+						"name": "Others",
+						"value": "OTHERS"
+					}
+				]
+			}
+		}
+	]
+}

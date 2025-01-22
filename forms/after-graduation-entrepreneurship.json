@@ -1,0 +1,32 @@
+{
+	"name": "After Graduation Entrepreneurship",
+	"description": "This form refers to the input of entrepreneurship details after graduation.",
+	"priority": 3,
+	"fields": [
+		{
+			"id": "after_graduation_id",
+			"label": "After Graduation",
+			"fieldType": "choice",
+			"required": true,
+			"choiceOptions": {
+				"choiceType": "single",
+				"choiceSource": "table",
+				"tableOptions": {
+					"tableName": "after_graduation",
+					"labelColumn": "name",
+					"valueColumn": "id"
+				}
+			}
+		},
+		{
+			"id": "company_name",
+			"label": "Company Name",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "string",
+				"placeholder": "Company Name"
+			}
+		}
+	]
+}

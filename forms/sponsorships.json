@@ -1,0 +1,47 @@
+{
+	"name": "Sponsorships",
+	"description": "This form refers to the input of sponsorship details.",
+	"priority": 3,
+	"fields": [
+		{
+			"id": "agency_name",
+			"label": "Agency Name",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "string",
+				"placeholder": "Agency Name"
+			}
+		},
+		{
+			"id": "year",
+			"label": "Year",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "number",
+				"placeholder": "2021"
+			}
+		},
+		{
+			"id": "amount_inr",
+			"label": "Amount (INR)",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "number",
+				"placeholder": "1000000"
+			}
+		},
+		{
+			"id": "project_title",
+			"label": "Project Title",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "string",
+				"placeholder": "Project Title"
+			}
+		}
+	]
+}

@@ -1,0 +1,45 @@
+{
+	"name": "Organizers",
+	"description": "This form refers to the input of organizer details.",
+	"priority": 2,
+	"fields": [
+		{
+			"id": "type",
+			"label": "Type",
+			"fieldType": "choice",
+			"required": true,
+			"choiceOptions": {
+				"choiceType": "single",
+				"choiceSource": "enum",
+				"enumOptions": [
+					{
+						"name": "Clubs",
+						"value": "CLUBS"
+					},
+					{
+						"name": "NGO",
+						"value": "NGO"
+					},
+					{
+						"name": "Government",
+						"value": "GOVERNMENT"
+					},
+					{
+						"name": "Industry",
+						"value": "INDUSTRY"
+					}
+				]
+			}
+		},
+		{
+			"id": "name",
+			"label": "Name",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "string",
+				"placeholder": "Organizer Name"
+			}
+		}
+	]
+}

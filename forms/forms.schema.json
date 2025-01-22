@@ -1,0 +1,273 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"type": "object",
+	"properties": {
+		"name": {
+			"type": "string",
+			"description": "The name of the form."
+		},
+		"description": {
+			"type": "string",
+			"description": "A brief description of the form."
+		},
+		"priority": {
+			"type": "number",
+			"description": "The priority of the form. Forms with higher priority (lower number) will be displayed first."
+		},
+		"fields": {
+			"type": "array",
+			"items": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "string",
+						"description": "The ID of the form field, which will be used as the parameter name while communicating with the API."
+					},
+					"label": {
+						"type": "string",
+						"description": "The label for the form field."
+					},
+					"fieldType": {
+						"type": "string",
+						"enum": [
+							"input",
+							"choice",
+							"static"
+						],
+						"description": "The main type of the form field."
+					},
+					"required": {
+						"type": "boolean",
+						"description": "Indicates if the field is required.",
+						"default": false
+					},
+					"inputOptions": {
+						"type": "object",
+						"properties": {
+							"inputType": {
+								"type": "string",
+								"enum": [
+									"number",
+									"string",
+									"textarea",
+									"date",
+									"time",
+									"datetime",
+									"boolean",
+									"multi-input"
+								],
+								"description": "The type of the input field."
+							},
+							"placeholder": {
+								"type": "string",
+								"description": "Placeholder text for input fields."
+							}
+						},
+						"required": [
+							"inputType"
+						],
+						"description": "Configuration for input fields."
+					},
+					"choiceOptions": {
+						"type": "object",
+						"properties": {
+							"choiceType": {
+								"type": "string",
+								"enum": [
+									"single",
+									"multi"
+								],
+								"description": "The type of the choice field (single select or multi-select)."
+							},
+							"choiceSource": {
+								"type": "string",
+								"enum": [
+									"enum",
+									"table"
+								],
+								"description": "The source of options for the choice field."
+							},
+							"enumOptions": {
+								"type": "array",
+								"items": {
+									"type": "object",
+									"properties": {
+										"name": {
+											"type": "string",
+											"description": "The display name for the option."
+										},
+										"value": {
+											"type": "string",
+											"description": "The value of the option."
+										}
+									},
+									"required": [
+										"name",
+										"value"
+									]
+								},
+								"description": "Options for 'enum' choice source."
+							},
+							"tableOptions": {
+								"type": "object",
+								"properties": {
+									"tableName": {
+										"type": "string",
+										"description": "The name of the table from which to fetch options."
+									},
+									"labelColumn": {
+										"type": "string",
+										"description": "The table column to be used as the label."
+									},
+									"valueColumn": {
+										"type": "string",
+										"description": "The table column to be used as the value."
+									}
+								},
+								"required": [
+									"tableName",
+									"labelColumn",
+									"valueColumn"
+								],
+								"description": "Configuration for 'table' choice source."
+							}
+						},
+						"required": [
+							"choiceType",
+							"choiceSource"
+						],
+						"description": "Configuration for choice fields."
+					},
+					"staticOptions": {
+						"type": "object",
+						"properties": {
+							"staticType": {
+								"type": "string",
+								"enum": [
+									"h1",
+									"h2",
+									"h3",
+									"paragraph",
+									"separator"
+								],
+								"description": "The type of the static field."
+							},
+							"content": {
+								"type": "string",
+								"description": "Content for the static field."
+							}
+						},
+						"required": [
+							"staticType"
+						],
+						"description": "Configuration for static fields."
+					},
+					"relevantForms": {
+						"type": "array",
+						"items": {
+							"type": "object",
+							"properties": {
+								"id": {
+									"type": "string",
+									"description": "The ID of the relevant form."
+								},
+								"name": {
+									"type": "string",
+									"description": "The name of the relevant form."
+								}
+							},
+							"required": [
+								"id",
+								"name"
+							]
+						},
+						"description": "List of relevant forms associated with the field."
+					}
+				},
+				"required": [
+					"id",
+					"label",
+					"fieldType"
+				],
+				"allOf": [
+					{
+						"if": {
+							"properties": {
+								"fieldType": {
+									"const": "input"
+								}
+							}
+						},
+						"then": {
+							"required": [
+								"inputOptions"
+							]
+						}
+					},
+					{
+						"if": {
+							"properties": {
+								"fieldType": {
+									"const": "choice"
+								}
+							}
+						},
+						"then": {
+							"required": [
+								"choiceOptions"
+							],
+							"properties": {
+								"choiceOptions": {
+									"oneOf": [
+										{
+											"properties": {
+												"choiceSource": {
+													"const": "enum"
+												}
+											},
+											"required": [
+												"enumOptions"
+											]
+										},
+										{
+											"properties": {
+												"choiceSource": {
+													"const": "table"
+												}
+											},
+											"required": [
+												"tableOptions"
+											]
+										}
+									]
+								}
+							}
+						}
+					},
+					{
+						"if": {
+							"properties": {
+								"fieldType": {
+									"const": "static"
+								}
+							}
+						},
+						"then": {
+							"required": [
+								"staticOptions"
+							]
+						}
+					}
+				],
+				"additionalProperties": false
+			}
+		}
+	},
+	"required": [
+		"name",
+		"description",
+		"priority",
+		"fields"
+	],
+	"additionalProperties": false
+}

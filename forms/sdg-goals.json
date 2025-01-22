@@ -1,0 +1,27 @@
+{
+	"name": "SDG Goals",
+	"description": "This form refers to the input of SDG goals details.",
+	"priority": 3,
+	"fields": [
+		{
+			"id": "number",
+			"label": "Number",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "number",
+				"placeholder": "1"
+			}
+		},
+		{
+			"id": "goal",
+			"label": "Goal",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "string",
+				"placeholder": "No Poverty"
+			}
+		}
+	]
+}

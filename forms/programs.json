@@ -1,0 +1,132 @@
+{
+	"name": "Programs",
+	"description": "This form refers to the input of the programs offered by the institute.",
+	"priority": 1,
+	"fields": [
+		{
+			"id": "program_code",
+			"label": "Program Code",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "number",
+				"placeholder": "101"
+			}
+		},
+		{
+			"id": "duration_year",
+			"label": "Duration (Years)",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "number",
+				"placeholder": "4"
+			}
+		},
+		{
+			"id": "name",
+			"label": "Program Name",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "string",
+				"placeholder": "Bachelor of Technology"
+			}
+		},
+		{
+			"id": "year_of_start",
+			"label": "Year of Start",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "number",
+				"placeholder": "2000"
+			}
+		},
+		{
+			"id": "sanctioned_intake",
+			"label": "Sanctioned Intake",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "number",
+				"placeholder": "120"
+			}
+		},
+		{
+			"id": "aicte_approval_details",
+			"label": "AICTE Approval Details",
+			"fieldType": "input",
+			"required": false,
+			"inputOptions": {
+				"inputType": "textarea",
+				"placeholder": "Details of AICTE approval for the program."
+			}
+		},
+		{
+			"id": "accreditation_status",
+			"label": "Accreditation Status",
+			"fieldType": "choice",
+			"required": true,
+			"choiceOptions": {
+				"choiceType": "single",
+				"choiceSource": "enum",
+				"enumOptions": [
+					{
+						"name": "Applying First Time",
+						"value": "APPLYING_FIRST_TIME"
+					},
+					{
+						"name": "Granted Accreditation for 2-3 Years",
+						"value": "GRANTED_ACCREDITATION_FOR_2_3_YEARS"
+					},
+					{
+						"name": "Granted Accreditation for 5-6 Years",
+						"value": "GRANTED_ACCREDITATION_FOR_5_6_YEARS"
+					},
+					{
+						"name": "Not Accredited",
+						"value": "NOT_ACCREDITED"
+					},
+					{
+						"name": "Withdrawn",
+						"value": "WITHDRAWN"
+					},
+					{
+						"name": "Not Eligible for Accreditation",
+						"value": "NOT_ELIGIBLE_FOR_ACCREDITATION"
+					},
+					{
+						"name": "Eligible but Not Applied",
+						"value": "ELIGIBLE_BUT_NOT_APPLIED"
+					}
+				]
+			}
+		},
+		{
+			"id": "number_of_times_accredited",
+			"label": "Number of Times Accredited",
+			"fieldType": "input",
+			"required": false,
+			"inputOptions": {
+				"inputType": "number",
+				"placeholder": "2"
+			}
+		},
+		{
+			"id": "institute_id",
+			"label": "Institute ID",
+			"fieldType": "choice",
+			"required": true,
+			"choiceOptions": {
+				"choiceType": "single",
+				"choiceSource": "table",
+				"tableOptions": {
+					"tableName": "institutes",
+					"labelColumn": "name",
+					"valueColumn": "id"
+				}
+			}
+		}
+	]
+}

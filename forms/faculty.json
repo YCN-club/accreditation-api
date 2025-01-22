@@ -1,0 +1,264 @@
+{
+	"name": "Faculty",
+	"description": "This form refers to the input of faculty details.",
+	"priority": 0,
+	"fields": [
+		{
+			"id": "first_name",
+			"label": "First Name",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "string",
+				"placeholder": "Keshav"
+			}
+		},
+		{
+			"id": "middle_name",
+			"label": "Middle Name",
+			"fieldType": "input",
+			"required": false,
+			"inputOptions": {
+				"inputType": "string",
+				"placeholder": "A."
+			}
+		},
+		{
+			"id": "last_name",
+			"label": "Last Name",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "string",
+				"placeholder": "Gupta"
+			}
+		},
+		{
+			"id": "email",
+			"label": "Email",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "string",
+				"placeholder": "keshav.gupta@manipal.edu"
+			}
+		},
+		{
+			"id": "employee_id",
+			"label": "Employee ID",
+			"fieldType": "input",
+			"required": false,
+			"inputOptions": {
+				"inputType": "string",
+				"placeholder": "EMP12345"
+			}
+		},
+		{
+			"id": "department_id",
+			"label": "Department",
+			"fieldType": "choice",
+			"required": true,
+			"choiceOptions": {
+				"choiceType": "single",
+				"choiceSource": "table",
+				"tableOptions": {
+					"tableName": "departments",
+					"labelColumn": "name",
+					"valueColumn": "id"
+				}
+			}
+		},
+		{
+			"id": "designation",
+			"label": "Designation",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "string",
+				"placeholder": "Professor"
+			}
+		},
+		{
+			"id": "pan_no",
+			"label": "PAN Number",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "string",
+				"placeholder": "ABCDE1234F"
+			}
+		},
+		{
+			"id": "apaar_id",
+			"label": "APAAR ID",
+			"fieldType": "input",
+			"required": false,
+			"inputOptions": {
+				"inputType": "string",
+				"placeholder": "APAAR12345"
+			}
+		},
+		{
+			"id": "highest_degree",
+			"label": "Highest Degree",
+			"fieldType": "choice",
+			"required": true,
+			"choiceOptions": {
+				"choiceType": "single",
+				"choiceSource": "enum",
+				"enumOptions": [
+					{
+						"name": "Associate",
+						"value": "ASSOCIATE"
+					},
+					{
+						"name": "Bachelors",
+						"value": "BACHELORS"
+					},
+					{
+						"name": "Masters",
+						"value": "MASTERS"
+					},
+					{
+						"name": "Doctoral",
+						"value": "DOCTORAL"
+					}
+				]
+			}
+		},
+		{
+			"id": "university",
+			"label": "University",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "string",
+				"placeholder": "University Name"
+			}
+		},
+		{
+			"id": "area_of_specialization",
+			"label": "Area of Specialization",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "string",
+				"placeholder": "Specialization Area"
+			}
+		},
+		{
+			"id": "date_of_join",
+			"label": "Date of Join",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "date",
+				"placeholder": "2020-01-01"
+			}
+		},
+		{
+			"id": "designation_at_join",
+			"label": "Designation at Join",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "string",
+				"placeholder": "Assistant Professor"
+			}
+		},
+		{
+			"id": "designated_as_professor",
+			"label": "Designated as Professor",
+			"fieldType": "input",
+			"required": false,
+			"inputOptions": {
+				"inputType": "date",
+				"placeholder": "2025-01-01"
+			}
+		},
+		{
+			"id": "designated_as_associate_professor",
+			"label": "Designated as Associate Professor",
+			"fieldType": "input",
+			"required": false,
+			"inputOptions": {
+				"inputType": "date",
+				"placeholder": "2023-01-01"
+			}
+		},
+		{
+			"id": "designated_as_assistant_professor",
+			"label": "Designated as Assistant Professor",
+			"fieldType": "input",
+			"required": false,
+			"inputOptions": {
+				"inputType": "date",
+				"placeholder": "2021-01-01"
+			}
+		},
+		{
+			"id": "nature_of_association",
+			"label": "Nature of Association",
+			"fieldType": "choice",
+			"required": true,
+			"choiceOptions": {
+				"choiceType": "single",
+				"choiceSource": "enum",
+				"enumOptions": [
+					{
+						"name": "Regular",
+						"value": "REGULAR"
+					},
+					{
+						"name": "Contract",
+						"value": "CONTRACT"
+					},
+					{
+						"name": "Ad Hoc",
+						"value": "AD_HOC"
+					}
+				]
+			}
+		},
+		{
+			"id": "contractual_obligation",
+			"label": "Contractual Obligation",
+			"fieldType": "choice",
+			"required": true,
+			"choiceOptions": {
+				"choiceType": "single",
+				"choiceSource": "enum",
+				"enumOptions": [
+					{
+						"name": "Part Time",
+						"value": "PART_TIME"
+					},
+					{
+						"name": "Full Time",
+						"value": "FULL_TIME"
+					}
+				]
+			}
+		},
+		{
+			"id": "currently_associated",
+			"label": "Currently Associated",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "boolean",
+				"placeholder": "true"
+			}
+		},
+		{
+			"id": "date_of_leave",
+			"label": "Date of Leave",
+			"fieldType": "input",
+			"required": false,
+			"inputOptions": {
+				"inputType": "date",
+				"placeholder": "2025-01-01"
+			}
+		}
+	]
+}

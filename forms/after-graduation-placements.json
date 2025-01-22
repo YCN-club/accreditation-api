@@ -1,0 +1,47 @@
+{
+	"name": "After Graduation Placements",
+	"description": "This form refers to the input of placement details after graduation.",
+	"priority": 3,
+	"fields": [
+		{
+			"id": "after_graduation_id",
+			"label": "After Graduation",
+			"fieldType": "choice",
+			"required": true,
+			"choiceOptions": {
+				"choiceType": "single",
+				"choiceSource": "table",
+				"tableOptions": {
+					"tableName": "after_graduation",
+					"labelColumn": "name",
+					"valueColumn": "id"
+				}
+			}
+		},
+		{
+			"id": "employer_id",
+			"label": "Employer",
+			"fieldType": "choice",
+			"required": true,
+			"choiceOptions": {
+				"choiceType": "single",
+				"choiceSource": "table",
+				"tableOptions": {
+					"tableName": "companies",
+					"labelColumn": "name",
+					"valueColumn": "id"
+				}
+			}
+		},
+		{
+			"id": "salary",
+			"label": "Salary",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "number",
+				"placeholder": "500000"
+			}
+		}
+	]
+}

@@ -1,0 +1,47 @@
+{
+	"name": "Continuing Education Programs",
+	"description": "This form refers to the input of continuing education programs details.",
+	"priority": 2,
+	"fields": [
+		{
+			"id": "year",
+			"label": "Year",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "number",
+				"placeholder": "2021"
+			}
+		},
+		{
+			"id": "name",
+			"label": "Name",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "string",
+				"placeholder": "Workshop on AI"
+			}
+		},
+		{
+			"id": "no_of_participants",
+			"label": "Number of Participants",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "number",
+				"placeholder": "50"
+			}
+		},
+		{
+			"id": "no_of_days",
+			"label": "Number of Days",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "number",
+				"placeholder": "5"
+			}
+		}
+	]
+}

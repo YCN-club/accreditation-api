@@ -1,0 +1,248 @@
+{
+	"name": "Students",
+	"description": "This form refers to the input of student details.",
+	"priority": 0,
+	"fields": [
+		{
+			"id": "first_name",
+			"label": "First Name",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "string",
+				"placeholder": "Keshav"
+			}
+		},
+		{
+			"id": "middle_name",
+			"label": "Middle Name",
+			"fieldType": "input",
+			"required": false,
+			"inputOptions": {
+				"inputType": "string",
+				"placeholder": "A."
+			}
+		},
+		{
+			"id": "last_name",
+			"label": "Last Name",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "string",
+				"placeholder": "Gupta"
+			}
+		},
+		{
+			"id": "email",
+			"label": "Email",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "string",
+				"placeholder": "keshav.mitblr2025@manipal.edu"
+			}
+		},
+		{
+			"id": "admission_no",
+			"label": "Admission Number",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "string",
+				"placeholder": "122113456"
+			}
+		},
+		{
+			"id": "registration_no",
+			"label": "Registration Number",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "string",
+				"placeholder": "225881234"
+			}
+		},
+		{
+			"id": "origin",
+			"label": "Student Origin",
+			"fieldType": "choice",
+			"required": true,
+			"choiceOptions": {
+				"choiceType": "single",
+				"choiceSource": "enum",
+				"enumOptions": [
+					{
+						"name": "In State",
+						"value": "IN_STATE"
+					},
+					{
+						"name": "Out of State",
+						"value": "OUT_OF_STATE"
+					},
+					{
+						"name": "International",
+						"value": "INTERNATIONAL"
+					}
+				]
+			}
+		},
+		{
+			"id": "gender",
+			"label": "Gender",
+			"fieldType": "choice",
+			"required": true,
+			"choiceOptions": {
+				"choiceType": "single",
+				"choiceSource": "enum",
+				"enumOptions": [
+					{
+						"name": "Male",
+						"value": "MALE"
+					},
+					{
+						"name": "Female",
+						"value": "FEMALE"
+					}
+				]
+			}
+		},
+		{
+			"id": "branch_id",
+			"label": "Branch",
+			"fieldType": "choice",
+			"required": true,
+			"choiceOptions": {
+				"choiceType": "single",
+				"choiceSource": "table",
+				"tableOptions": {
+					"tableName": "branches",
+					"labelColumn": "name",
+					"valueColumn": "id"
+				}
+			}
+		},
+		{
+			"id": "batch_year",
+			"label": "Batch Year",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "number",
+				"placeholder": "2020"
+			}
+		},
+		{
+			"id": "year_of_join",
+			"label": "Year of Join",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "number",
+				"placeholder": "2020"
+			}
+		},
+		{
+			"id": "type_of_join",
+			"label": "Type of Join",
+			"fieldType": "choice",
+			"required": true,
+			"choiceOptions": {
+				"choiceType": "single",
+				"choiceSource": "enum",
+				"enumOptions": [
+					{
+						"name": "Regular",
+						"value": "REGULAR"
+					},
+					{
+						"name": "Lateral Entry",
+						"value": "LATERAL_ENTRY"
+					},
+					{
+						"name": "Other",
+						"value": "OTHER"
+					}
+				]
+			}
+		},
+		{
+			"id": "year_of_exit",
+			"label": "Year of Exit",
+			"fieldType": "input",
+			"required": false,
+			"inputOptions": {
+				"inputType": "number",
+				"placeholder": "2024"
+			}
+		},
+		{
+			"id": "type_of_exit",
+			"label": "Type of Exit",
+			"fieldType": "choice",
+			"required": false,
+			"choiceOptions": {
+				"choiceType": "single",
+				"choiceSource": "enum",
+				"enumOptions": [
+					{
+						"name": "Regular",
+						"value": "REGULAR"
+					},
+					{
+						"name": "Late",
+						"value": "LATE"
+					},
+					{
+						"name": "Left",
+						"value": "LEFT"
+					}
+				]
+			}
+		},
+		{
+			"id": "social_disadvantage",
+			"label": "Social Disadvantage",
+			"fieldType": "choice",
+			"required": false,
+			"choiceOptions": {
+				"choiceType": "single",
+				"choiceSource": "enum",
+				"enumOptions": [
+					{
+						"name": "SC",
+						"value": "SC"
+					},
+					{
+						"name": "ST",
+						"value": "ST"
+					},
+					{
+						"name": "OBC",
+						"value": "OBC"
+					}
+				]
+			}
+		},
+		{
+			"id": "economic_disadvantage",
+			"label": "Economic Disadvantage",
+			"fieldType": "input",
+			"required": false,
+			"inputOptions": {
+				"inputType": "boolean",
+				"placeholder": "false"
+			}
+		},
+		{
+			"id": "physically_challenged",
+			"label": "Physically Challenged",
+			"fieldType": "input",
+			"required": false,
+			"inputOptions": {
+				"inputType": "boolean",
+				"placeholder": "false"
+			}
+		}
+	]
+}

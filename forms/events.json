@@ -1,0 +1,155 @@
+{
+	"name": "Events",
+	"description": "This form refers to the input of event details.",
+	"priority": 0,
+	"fields": [
+		{
+			"id": "name",
+			"label": "Name",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "string",
+				"placeholder": "Event Name"
+			}
+		},
+		{
+			"id": "date",
+			"label": "Date",
+			"fieldType": "input",
+			"required": false,
+			"inputOptions": {
+				"inputType": "date",
+				"placeholder": "2023-01-01T00:00:00Z"
+			}
+		},
+		{
+			"id": "start_time",
+			"label": "Start Time",
+			"fieldType": "input",
+			"required": false,
+			"inputOptions": {
+				"inputType": "time",
+				"placeholder": "2023-01-01T09:00:00Z"
+			}
+		},
+		{
+			"id": "end_time",
+			"label": "End Time",
+			"fieldType": "input",
+			"required": false,
+			"inputOptions": {
+				"inputType": "time",
+				"placeholder": "2023-01-01T17:00:00Z"
+			}
+		},
+		{
+			"id": "venue",
+			"label": "Venue",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "string",
+				"placeholder": "Event Venue"
+			}
+		},
+		{
+			"id": "organizer_id",
+			"label": "Organizer",
+			"fieldType": "choice",
+			"required": true,
+			"choiceOptions": {
+				"choiceType": "single",
+				"choiceSource": "table",
+				"tableOptions": {
+					"tableName": "organizers",
+					"labelColumn": "name",
+					"valueColumn": "id"
+				}
+			}
+		},
+		{
+			"id": "level",
+			"label": "Level",
+			"fieldType": "choice",
+			"required": false,
+			"choiceOptions": {
+				"choiceType": "single",
+				"choiceSource": "enum",
+				"enumOptions": [
+					{
+						"name": "Internal",
+						"value": "INTERNAL"
+					},
+					{
+						"name": "State",
+						"value": "STATE"
+					},
+					{
+						"name": "National",
+						"value": "NATIONAL"
+					},
+					{
+						"name": "International",
+						"value": "INTERNATIONAL"
+					}
+				]
+			}
+		},
+		{
+			"id": "objective",
+			"label": "Objective",
+			"fieldType": "choice",
+			"required": false,
+			"choiceOptions": {
+				"choiceType": "single",
+				"choiceSource": "enum",
+				"enumOptions": [
+					{
+						"name": "Competitive",
+						"value": "COMPETITIVE"
+					},
+					{
+						"name": "Informational",
+						"value": "INFORMATIONAL"
+					}
+				]
+			}
+		},
+		{
+			"id": "description",
+			"label": "Description",
+			"fieldType": "input",
+			"required": false,
+			"inputOptions": {
+				"inputType": "textarea",
+				"placeholder": "Event Description"
+			}
+		},
+		{
+			"id": "sdg_goals",
+			"label": "SDG Goals",
+			"fieldType": "choice",
+			"required": false,
+			"choiceOptions": {
+				"choiceType": "multi",
+				"choiceSource": "table",
+				"tableOptions": {
+					"tableName": "sdg_goals",
+					"labelColumn": "goal",
+					"valueColumn": "id"
+				}
+			}
+		},
+		{
+			"id": "attachments",
+			"label": "Attachments",
+			"fieldType": "input",
+			"required": false,
+			"inputOptions": {
+				"inputType": "multi-input",
+				"placeholder": "http://example.com/attachment1, http://example.com/attachment2, ..."
+			}
+		}
+	]
+}

@@ -1,0 +1,37 @@
+{
+	"name": "Agencies",
+	"description": "This form refers to the input of agency details.",
+	"priority": 2,
+	"fields": [
+		{
+			"id": "name",
+			"label": "Name",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "string",
+				"placeholder": "Research Institute"
+			}
+		},
+		{
+			"id": "contact_no",
+			"label": "Contact Number",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "string",
+				"placeholder": "+91-9876543210"
+			}
+		},
+		{
+			"id": "contact_email",
+			"label": "Contact Email",
+			"fieldType": "input",
+			"required": true,
+			"inputOptions": {
+				"inputType": "string",
+				"placeholder": "contact@researchinstitute.com"
+			}
+		}
+	]
+}
