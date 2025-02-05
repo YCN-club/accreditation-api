@@ -1,4 +1,6 @@
-from dotenv import dotenv_values
+from os import getenv
+
+from dotenv import load_dotenv
 from mayim.extension import SanicMayimExtension
 from sanic.log import logger
 from sanic_ext import Extend
@@ -10,7 +12,9 @@ from api.mayim.user_executor import UserExecutor
 from . import endpoints  # noqa: F401
 
 logger.debug("Loading ENV")
-config = dotenv_values(".env")
+load_dotenv()
+
+config = {}
 
 # Read the public and private keys and add them to the config.
 with open("public-key.pem") as public_key_file:
@@ -28,12 +32,12 @@ config.update({"IS_PROD": is_prod.lower() == "true"})
 # Load default values for the database connection
 config.update(
     {
-        "DB_HOST": config.get("DB_HOST", "localhost"),
-        "DB_PORT": int(config.get("DB_PORT", 5432)),
-        "DB_USERNAME": config.get("DB_USERNAME", "root"),
-        "DB_PASSWORD": config.get("DB_PASSWORD", "password"),
-        "DB_NAME": config.get("DB_NAME", "helpdesk"),
-        "HOST": config.get("HOST", "DEMO"),
+        "DB_HOST": getenv("DB_HOST", "localhost"),
+        "DB_PORT": int(getenv("DB_PORT", 5432)),
+        "DB_USERNAME": getenv("DB_USERNAME", "root"),
+        "DB_PASSWORD": getenv("DB_PASSWORD", "password"),
+        "DB_NAME": getenv("DB_NAME", "helpdesk"),
+        "HOST": getenv("HOST", "DEMO"),
     },
 )
 
