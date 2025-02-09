@@ -1,13 +1,13 @@
-SELECT 
+SELECT
     e.year,
     e.name AS event_name,
     ce.position,
     ce.type AS event_type
-FROM 
+FROM
     competitive_events ce
-JOIN 
+JOIN
     events e ON ce.id = e.id
-WHERE 
+WHERE
     e.date >= NOW() - INTERVAL '3 years'
-ORDER BY 
+ORDER BY
     e.date DESC;

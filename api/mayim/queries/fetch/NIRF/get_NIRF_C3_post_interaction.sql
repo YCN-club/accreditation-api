@@ -1,5 +1,5 @@
 -- Post Interaction
-SELECT 
+SELECT
     i.year,
     COUNT(CASE WHEN i.type = 'PATENT' AND i.status = 'FILED' THEN 1 END) AS patents_filed,
     COUNT(CASE WHEN i.type = 'PATENT' AND i.status = 'GRANTED' THEN 1 END) AS patents_granted,
@@ -7,21 +7,21 @@ SELECT
     COUNT(CASE WHEN i.type = 'PATENT' AND i.status = 'COLLABORATIVE' THEN 1 END) AS collaborative_patents,
     COUNT(CASE WHEN i.type = 'DESIGN' AND i.status = 'FILED' THEN 1 END) AS designs_filed,
     COUNT(CASE WHEN i.type = 'DESIGN' AND i.status = 'GRANTED' THEN 1 END) AS designs_granted
-FROM 
+FROM
     ipr i
-WHERE 
+WHERE
     i.year IN ($year - 2, $year - 3, $year - 4)
-GROUP BY 
+GROUP BY
     i.year;
 
-SELECT 
+SELECT
     ie.financial_year AS year,
     SUM(ie.amount_inr) / 100000 AS amount_in_lakh_inr
-FROM 
+FROM
     ipr_earnings ie
-WHERE 
+WHERE
     ie.financial_year IN ($year - 2, $year - 3, $year - 4)
-GROUP BY 
+GROUP BY
     ie.financial_year;
 
 -- Variables to be passed: $year

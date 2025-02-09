@@ -1,4 +1,4 @@
-SELECT 
+SELECT
     d.name AS department_name,
     e.name AS event_name,
     o.name AS organizer_name,
@@ -15,11 +15,11 @@ SELECT
     e.sdg_goal,
     e.photos_docs,
     e.event_report_doc
-FROM 
+FROM
     events e
-JOIN 
+JOIN
     departments d ON e.department_id = d.id
-JOIN 
+JOIN
     organizers o ON e.organizer_id = o.id
-LEFT JOIN 
+LEFT JOIN
     organizers co ON e.co_organizer_id = co.id;

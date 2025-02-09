@@ -1,4 +1,4 @@
-SELECT 
+SELECT
     s.year_of_join AS year,
     p.name AS program_name,
     p.level AS program_level,
@@ -31,25 +31,25 @@ SELECT
     COUNT(CASE WHEN aghs.with_exam = true THEN 1 END) AS higher_studies_with_exam,
     COUNT(CASE WHEN aghs.with_exam = false THEN 1 END) AS higher_studies_without_exam,
     COUNT(CASE WHEN ag.type = 'ENTREPRENEURSHIP' THEN 1 END) AS entrepreneurship_students
-FROM 
+FROM
     students s
-JOIN 
+JOIN
     branches b ON s.branch_id = b.id
-JOIN 
+JOIN
     departments d ON b.department_id = d.id
-JOIN 
+JOIN
     programs p ON d.program_id = p.id
-LEFT JOIN 
+LEFT JOIN
     national_government_exams nge ON s.id = nge.student_id
-LEFT JOIN 
+LEFT JOIN
     after_graduation ag ON s.id = ag.student_id
-LEFT JOIN 
+LEFT JOIN
     after_graduation_placements agp ON ag.id = agp.after_graduation_id
-LEFT JOIN 
+LEFT JOIN
     after_graduation_higher_studies aghs ON ag.id = aghs.after_graduation_id
-WHERE 
+WHERE
     s.year_of_join IN ($year - 2, $year - 3, $year - 4)
-GROUP BY 
+GROUP BY
     s.year_of_join, p.name, p.level, p.sanctioned_intake;
 
 -- Variables to be passed: $year

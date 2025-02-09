@@ -1,6 +1,6 @@
 -- Pre Interaction
-SELECT 
-    CASE 
+SELECT
+    CASE
         WHEN jp.type = 'HARDCOPY' THEN 'Article'
         WHEN jp.type = 'SOFTCOPY' THEN 'Book'
         ELSE 'Book Chapter'
@@ -8,15 +8,15 @@ SELECT
     STRING_AGG(u.last_name || ', ' || u.first_name || ' ' || u.middle_name, '; ') AS authors,
     jp.title AS full_title,
     jp.year AS year_of_publication
-FROM 
+FROM
     journal_publications jp
-JOIN 
+JOIN
     journal_publication_authors jpa ON jp.id = jpa.publication_id
-JOIN 
+JOIN
     users u ON jpa.author_id = u.id
-WHERE 
+WHERE
     jp.year = $year
-GROUP BY 
+GROUP BY
     jp.type, jp.title, jp.year;
 
 -- Variables to be passed: $year
