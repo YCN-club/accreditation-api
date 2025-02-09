@@ -5,8 +5,6 @@ from sanic_ext import validate
 import bcrypt
 import uuid
 
-from api.app import API
-
 from api.mayim.auth_executor import AuthExecutor
 from api.models.db.login_data import LoginData
 
@@ -20,8 +18,6 @@ class AuthSignUp(HTTPMethodView):
         """
         # Get the executor
         executor = Mayim.get(AuthExecutor)
-
-        app: API = request.app
 
         # Get the username from the request.
         username = data.employee_id

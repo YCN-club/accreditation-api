@@ -13,15 +13,15 @@ class AuthExecutor(PostgresExecutor):
         This method maps the database row to the LoginData model.
         """
         query = """
-        SELECT 
-            user_id, 
-            name, 
-            email, 
-            employee_id, 
-            password AS hashed_password, 
-            is_active, 
-            requires_reset 
-        FROM login_data 
+        SELECT
+            user_id,
+            name,
+            email,
+            employee_id,
+            password AS hashed_password,
+            is_active,
+            requires_reset
+        FROM login_data
         WHERE employee_id = $1
         """
 
