@@ -1,4 +1,0 @@
-SELECT 
-    name
-FROM 
-    clubs;
