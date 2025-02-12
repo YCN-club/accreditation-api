@@ -1,13 +1,13 @@
-SELECT 
+SELECT
     e.year,
     e.date AS event_date,
     e.name AS activity_name,
     e.level
-FROM 
+FROM
     events e
-WHERE 
+WHERE
     e.date >= NOW() - INTERVAL '5 years'
-AND 
+AND
     e.type IN ('SPORTS', 'CULTURAL')
-ORDER BY 
+ORDER BY
     e.date DESC;

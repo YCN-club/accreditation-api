@@ -1,4 +1,4 @@
-SELECT 
+SELECT
     ca.title AS activity_title,
     a.name AS collaborating_agency,
     a.contact_no AS agency_contact_no,
@@ -9,13 +9,13 @@ SELECT
     ca.duration,
     ca.type AS nature_of_activity,
     ca.link_to_relevant_documents
-FROM 
+FROM
     collaborative_activities ca
-JOIN 
+JOIN
     agencies a ON ca.agency_id = a.id
-JOIN 
+JOIN
     users u ON ca.user_id = u.id
-WHERE 
+WHERE
     ca.year = $year;
 
 -- Variables to be passed: $year

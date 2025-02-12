@@ -1,4 +1,4 @@
-SELECT 
+SELECT
     a.year,
     a.name AS award_name,
     a.team_or_individual,
@@ -6,9 +6,9 @@ SELECT
     a.classification,
     s.name AS student_name,
     s.id AS student_id
-FROM 
+FROM
     awards a
-JOIN 
+JOIN
     students s ON a.user_id = s.id
-WHERE 
+WHERE
     a.type IN ('SPORTS', 'CULTURAL');

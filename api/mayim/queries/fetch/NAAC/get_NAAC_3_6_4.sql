@@ -1,4 +1,4 @@
-SELECT 
+SELECT
     e.name AS activity_name,
     o.name AS organizing_unit,
     e.scheme_name,
@@ -6,9 +6,9 @@ SELECT
     e.date,
     e.location,
     e.link_to_report
-FROM 
+FROM
     events e
-JOIN 
+JOIN
     organizers o ON e.organizer_id = o.id
-WHERE 
+WHERE
     e.type = 'SOCIAL_RESPONSIBILITY';

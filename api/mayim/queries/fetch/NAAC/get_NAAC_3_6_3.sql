@@ -1,9 +1,9 @@
-SELECT 
+SELECT
     a.name AS award_name,
     a.awarding_agency AS awarding_body
-FROM 
+FROM
     awards a
-WHERE 
+WHERE
     a.type = 'EXTENSION_OUTREACH'
     AND a.year BETWEEN '2023-07-01' AND '2024-06-30';
 
