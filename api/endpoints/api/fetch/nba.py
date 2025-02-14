@@ -22,7 +22,16 @@ class NBAFetch(HTTPMethodView):
         }
 
         if not slug:
-            return json({"options": list(methods.keys())})
+            return json(
+                {
+                    method: str(
+                        inspect.signature(getattr(NBAExecutor, f"get_NIRF_{method}"))
+                    )
+                    .replace("self, ", "")
+                    .replace("self", "")
+                    for method in methods
+                }
+            )
 
         if slug not in methods:
             return json(

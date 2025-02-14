@@ -22,7 +22,16 @@ class NAACFetch(HTTPMethodView):
         )
 
         if not slug:
-            return json({"options": list(methods)})
+            return json(
+                {
+                    method: str(
+                        inspect.signature(getattr(NAACExecutor, f"get_NIRF_{method}"))
+                    )
+                    .replace("self, ", "")
+                    .replace("self", "")
+                    for method in methods
+                }
+            )
 
         if slug not in methods:
             return json(
