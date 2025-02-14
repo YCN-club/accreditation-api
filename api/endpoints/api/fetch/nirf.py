@@ -1,7 +1,9 @@
 import inspect
+import uuid
 from mayim import Mayim
 from sanic import Request, json
 from sanic.views import HTTPMethodView
+from sanic.log import logger
 
 from api.decorators.require_login import require_login
 from api.mayim.nirf_executor import NIRFExecutor
@@ -42,5 +44,31 @@ class NIRFFetch(HTTPMethodView):
                 404,
             )
 
-        # TODO: Dynamically call the method
-        return json({"message": "Not implemented yet."})
+        try:
+            args = request.json if request.json else {}
+            method = getattr(NIRFExecutor, f"get_NAAC_{slug}")
+            call = getattr(executor, f"get_NAAC_{slug}")
+
+            required_args = inspect.signature(method)
+
+            if len(required_args.parameters) > 1 and not args:
+                return json(
+                    {
+                        "error": "Bad Request",
+                        "message": "This format requires additional arguments.",
+                    },
+                    400,
+                )
+            data = await call(**args) if required_args.parameters else await call()
+            if not data:
+                return json({"data": []})
+            return json({"data": [d.to_dict() for d in data]})
+        except Exception as e:
+            ref_id = uuid.uuid4()
+            logger.error(
+                f"REF ID: {ref_id}\nAn error occurred while fetching NAAC data: {str(e)}",
+                exc_info=e,
+            )
+            return json(
+                {"error": "Internal Server Error", "reference_id": str(ref_id)}, 500
+            )
