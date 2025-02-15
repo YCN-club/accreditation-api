@@ -5,10 +5,9 @@ from sanic_ext import validate
 import bcrypt
 import uuid
 
-from api.app import API
-
 from api.mayim.auth_executor import AuthExecutor
 from api.models.db.login_data import LoginData
+
 
 class AuthSignUp(HTTPMethodView):
 
@@ -20,8 +19,6 @@ class AuthSignUp(HTTPMethodView):
         # Get the executor
         executor = Mayim.get(AuthExecutor)
 
-        app: API = request.app
-
         # Get the username from the request.
         username = data.employee_id
 
@@ -29,16 +26,18 @@ class AuthSignUp(HTTPMethodView):
         user = await executor.get_user_by_emp_id(username)
 
         # Check if the user exists.
-        if user=={"error": "invalid_username"}:
+        if user == {"error": "invalid_username"}:
             pass
         else:
             return json({"error": "username_exists"}, status=401)
-        
+
         # Get the password from the request.
         password = data.password
 
         # Hash the password.
-        password_hash = bcrypt.hashpw(password.encode("utf-8"), bcrypt.gensalt()).decode("utf-8")
+        password_hash = bcrypt.hashpw(
+            password.encode("utf-8"), bcrypt.gensalt()
+        ).decode("utf-8")
 
         # Insert the user into the database.
         user = LoginData(
@@ -48,10 +47,9 @@ class AuthSignUp(HTTPMethodView):
             employee_id=data.employee_id,
             password=password_hash,
             is_active=True,
-            requires_reset=False
+            requires_reset=False,
         )
 
         await executor.insert_user(user)
 
         return json({"message": "user_created"}, status=200)
-
