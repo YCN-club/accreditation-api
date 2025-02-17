@@ -1,0 +1,9 @@
+SELECT 
+    faculty_id,
+    name,
+    development_platform,
+    date_of_launch,
+    link_to_relevant_document,
+    institute
+FROM 
+    e_resources;

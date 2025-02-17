@@ -1,0 +1,10 @@
+SELECT 
+    id,
+    name,
+    type,
+    awarding_agency,
+    user_type,
+    user_id,
+    year
+FROM 
+    awards;

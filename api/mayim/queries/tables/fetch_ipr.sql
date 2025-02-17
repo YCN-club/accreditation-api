@@ -1,0 +1,12 @@
+SELECT 
+    id,
+    awardee_id,
+    awarder_name,
+    government_recognized,
+    year,
+    uuid,
+    title,
+    type,
+    status
+FROM 
+    ipr;
