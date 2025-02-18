@@ -1,6 +1,6 @@
-SELECT 
+SELECT
     id,
     type,
     name
-FROM 
+FROM
     organizers;

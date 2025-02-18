@@ -1,7 +1,7 @@
-SELECT 
+SELECT
     id,
     speaker,
     no_of_students,
     no_of_teachers
-FROM 
+FROM
     informational_events;

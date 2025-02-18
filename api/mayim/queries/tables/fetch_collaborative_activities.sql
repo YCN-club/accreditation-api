@@ -1,4 +1,4 @@
-SELECT 
+SELECT
     id,
     title,
     type,
@@ -8,5 +8,5 @@ SELECT
     year,
     duration,
     link_to_relevant_documents
-FROM 
+FROM
     collaborative_activities;

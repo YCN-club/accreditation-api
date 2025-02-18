@@ -1,6 +1,6 @@
-SELECT 
+SELECT
     program_id,
     year,
     intake
-FROM 
+FROM
     program_intakes;

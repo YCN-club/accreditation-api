@@ -1,4 +1,4 @@
-SELECT 
+SELECT
     id,
     name,
     date,
@@ -10,5 +10,5 @@ SELECT
     objective,
     description,
     sdg_goals
-FROM 
+FROM
     events;

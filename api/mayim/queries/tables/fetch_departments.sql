@@ -1,6 +1,6 @@
-SELECT 
+SELECT
     id,
     name,
     program_id
-FROM 
+FROM
     departments;

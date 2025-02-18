@@ -1,4 +1,4 @@
-SELECT 
+SELECT
     id,
     program_code,
     duration_year,
@@ -9,5 +9,5 @@ SELECT
     accreditation_status,
     number_of_times_accredited,
     institute_id
-FROM 
+FROM
     programs;

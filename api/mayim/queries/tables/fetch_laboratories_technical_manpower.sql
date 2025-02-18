@@ -1,7 +1,7 @@
-SELECT 
+SELECT
     id,
     name,
     designation,
     qualification
-FROM 
+FROM
     laboratories_technical_manpower;

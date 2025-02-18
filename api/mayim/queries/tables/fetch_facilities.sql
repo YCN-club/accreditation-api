@@ -1,4 +1,4 @@
-SELECT 
+SELECT
     id,
     name,
     type,
@@ -7,5 +7,5 @@ SELECT
     reasons,
     utilization,
     relevance_to_pos
-FROM 
+FROM
     facilities;

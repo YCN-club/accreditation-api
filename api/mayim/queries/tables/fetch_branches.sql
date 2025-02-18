@@ -1,6 +1,6 @@
-SELECT 
+SELECT
     id,
     name,
     department_id
-FROM 
+FROM
     branches;

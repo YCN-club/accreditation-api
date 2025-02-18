@@ -1,6 +1,6 @@
-SELECT 
+SELECT
     faculty_id,
     name_of_society,
     position
-FROM 
+FROM
     professional_communities;

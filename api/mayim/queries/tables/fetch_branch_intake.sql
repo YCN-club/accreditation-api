@@ -1,6 +1,6 @@
-SELECT 
+SELECT
     branch_id,
     year,
     allowed_batch_size
-FROM 
+FROM
     branch_intakes;

@@ -1,9 +1,9 @@
-SELECT 
+SELECT
     id,
     year,
     semester,
     title,
     isbn,
     type
-FROM 
+FROM
     book_publications;

@@ -1,6 +1,6 @@
-SELECT 
+SELECT
     id,
     financial_year,
     amount_inr
-FROM 
+FROM
     ipr_earnings;

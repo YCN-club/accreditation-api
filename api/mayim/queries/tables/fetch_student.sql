@@ -1,4 +1,4 @@
-SELECT 
+SELECT
     id,
     admission_no,
     registration_no,
@@ -13,5 +13,5 @@ SELECT
     social_disadvantage,
     economic_disadvantage,
     physically_challenged
-FROM 
+FROM
     students;

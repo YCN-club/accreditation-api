@@ -1,6 +1,6 @@
-SELECT 
+SELECT
     faculty_id,
     hours_handled,
     subjects
-FROM 
+FROM
     adjunct_faculty;

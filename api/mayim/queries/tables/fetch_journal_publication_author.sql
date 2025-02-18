@@ -1,6 +1,6 @@
-SELECT 
+SELECT
     publication_id,
     author_id,
     author_index
-FROM 
+FROM
     journal_publication_authors;

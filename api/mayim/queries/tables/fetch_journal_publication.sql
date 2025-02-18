@@ -1,4 +1,4 @@
-SELECT 
+SELECT
     id,
     journal_id,
     journal_volume_number,
@@ -8,5 +8,5 @@ SELECT
     semester,
     doi,
     title
-FROM 
+FROM
     journal_publications;

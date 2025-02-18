@@ -1,11 +1,11 @@
-SELECT 
+SELECT
     u.id AS user_id,
     u.first_name || ' ' || u.last_name AS name,
     u.email,
     a.password,
     a.is_active,
     a.requires_reset
-FROM 
+FROM
     users u
-JOIN 
+JOIN
     auth a ON u.id = a.id;

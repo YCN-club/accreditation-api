@@ -1,9 +1,9 @@
-SELECT 
+SELECT
     id,
     classification,
     participant_id,
     position,
     award,
     type
-FROM 
+FROM
     competitive_events;

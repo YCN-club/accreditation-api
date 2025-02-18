@@ -1,4 +1,4 @@
-SELECT 
+SELECT
     id,
     institute_code,
     name,
@@ -14,5 +14,5 @@ SELECT
     programs_considered,
     head_of_institute_id,
     nba_coordinator_id
-FROM 
+FROM
     institutes;

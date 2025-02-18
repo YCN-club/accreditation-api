@@ -1,6 +1,6 @@
-SELECT 
+SELECT
     id,
     student_id,
     exam_type
-FROM 
+FROM
     national_government_exams;

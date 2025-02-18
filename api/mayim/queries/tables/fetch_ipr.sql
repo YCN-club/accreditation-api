@@ -1,4 +1,4 @@
-SELECT 
+SELECT
     id,
     awardee_id,
     awarder_name,
@@ -8,5 +8,5 @@ SELECT
     title,
     type,
     status
-FROM 
+FROM
     ipr;

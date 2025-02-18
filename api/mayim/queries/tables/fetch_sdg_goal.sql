@@ -1,6 +1,6 @@
-SELECT 
+SELECT
     id,
     number,
     goal
-FROM 
+FROM
     sdg_goals;

@@ -1,7 +1,7 @@
-SELECT 
+SELECT
     id,
     student_id,
     year,
     type
-FROM 
+FROM
     benefit_programs;

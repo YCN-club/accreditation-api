@@ -1,4 +1,4 @@
-SELECT 
+SELECT
     id,
     name,
     type,
@@ -6,5 +6,5 @@ SELECT
     user_type,
     user_id,
     year
-FROM 
+FROM
     awards;

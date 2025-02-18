@@ -10,3 +10,12 @@ class Journal(BaseModel):
     frequency: JournalFrequency
     type: JournalPublicationType
     scopus_indexed: bool
+
+    def to_dict(self):
+        return {
+            "id": str(self.id),
+            "name": self.name,
+            "frequency": self.frequency,
+            "type": self.type,
+            "scopus_indexed": self.scopus_indexed,
+        }

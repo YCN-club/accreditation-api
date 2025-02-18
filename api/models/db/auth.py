@@ -10,3 +10,11 @@ class Auth(BaseModel):
     last_login: Optional[datetime] = None
     requires_reset: bool = False
     is_active: bool
+
+    def to_dict(self):
+        return {
+            "id": str(self.id),
+            "last_login": self.last_login,
+            "requires_reset": self.requires_reset,
+            "is_active": self.is_active,
+        }

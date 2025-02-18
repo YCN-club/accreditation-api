@@ -18,3 +18,18 @@ class Event(BaseModel):
     objective: Optional[EventObjective] = None
     description: Optional[str] = None
     sdg_goals: Optional[UUID] = None
+
+    def to_dict(self):
+        return {
+            "id": str(self.id),
+            "name": self.name,
+            "date": self.date,
+            "start_time": self.start_time,
+            "end_time": self.end_time,
+            "venue": self.venue,
+            "organizer_id": str(self.organizer_id),
+            "level": self.level if self.level else None,
+            "objective": self.objective if self.objective else None,
+            "description": self.description,
+            "sdg_goals": self.sdg_goals,
+        }

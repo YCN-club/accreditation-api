@@ -1,4 +1,4 @@
-SELECT 
+SELECT
     faculty_id,
     name_of_principal_investigator,
     name_of_co_principal_investigator,
@@ -8,5 +8,5 @@ SELECT
     duration_of_project,
     amount_inr,
     outcomes
-FROM 
+FROM
     faculty_sponsored_research_projects_consultancy_work_institute_seed_money;

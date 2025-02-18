@@ -1,4 +1,4 @@
-SELECT 
+SELECT
     id,
     employee_id,
     department,
@@ -17,5 +17,5 @@ SELECT
     contractual_obligation,
     currently_associated,
     date_of_leave
-FROM 
+FROM
     faculty;
