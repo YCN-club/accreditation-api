@@ -65,6 +65,10 @@ class AuthLogin(HTTPMethodView):
             "roles": [],
             "uuid": str(user.user_id),
         }
-        token = await app.generate_jwt(user)
+
+        # Validity by default is 7 days (in minutes).
+        validity = 7 * 24 * 60
+        # Generate the token.
+        token = await app.generate_jwt(user.to_dict(), validity)
         # Return Token.
         return json({"token": token, "message": "Authenticated"}, status=200)
