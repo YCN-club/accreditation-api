@@ -17,6 +17,8 @@ VALUES
 -- 2. AUTH (depends on "users")
 INSERT INTO "auth" ("id", "password", "last_login", "requires_reset")
 VALUES
+('6379fcb6-7530-46b1-86d0-13190c8516fa' ,'$2a$12$fc1eZBkWWMZm0xyo2KimIezjSnlFKY.M55Ibc4h7NDeS/WXBMYGU.', '', false),
+('6f936c2f-9a9c-43e3-b9b4-59d94a0ac131' ,'$2b$12$Lh22WuDAhIxTMTlZfg9klu0SYf5zomA4wXfPxohwez7WoxJjmLQpS', '', false),
 ('11111111-1111-1111-1111-111111111101', 'password1', '2025-02-01 10:00:00', false),
 ('11111111-1111-1111-1111-111111111102', 'password2', '2025-02-02 11:00:00', false),
 ('11111111-1111-1111-1111-111111111103', 'password3', '2025-02-03 12:00:00', false),
