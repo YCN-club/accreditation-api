@@ -1,0 +1,759 @@
+CREATE TYPE "SOCIAL_DISADVANTAGE" AS ENUM (
+  'SC',
+  'ST',
+  'OBC'
+);
+
+CREATE TYPE "STUDENT_ORIGIN" AS ENUM (
+  'IN_STATE',
+  'OUT_OF_STATE',
+  'INTERNATIONAL'
+);
+
+CREATE TYPE "STUDENT_GENDER" AS ENUM (
+  'MALE',
+  'FEMALE'
+);
+
+CREATE TYPE "STUDENT_ENTRIES" AS ENUM (
+  'REGULAR',
+  'LATERAL_ENTRY',
+  'OTHER'
+);
+
+CREATE TYPE "STUDENT_EXITS" AS ENUM (
+  'REGULAR',
+  'LATE',
+  'LEFT'
+);
+
+CREATE TYPE "FACULTY_HIGHEST_DEGREE" AS ENUM (
+  'ASSOCIATE',
+  'BACHELORS',
+  'MASTERS',
+  'DOCTORAL'
+);
+
+CREATE TYPE "FACULTY_NATURE_OF_ASSOCIATION" AS ENUM (
+  'REGULAR',
+  'CONTRACT',
+  'AD_HOC'
+);
+
+CREATE TYPE "FACULTY_CONTRACTUAL_OBLIGATION" AS ENUM (
+  'PART_TIME',
+  'FULL_TIME'
+);
+
+CREATE TYPE "FACULTY_ITC_TYPE" AS ENUM (
+  'INTERNSHIP',
+  'TRAINING',
+  'COLLABORATION'
+);
+
+CREATE TYPE "FACULTY_SRPCWISM_TYPE" AS ENUM (
+  'SPONSORED_RESEARCH_PROJECT',
+  'CONSULTANCY_WORK',
+  'INSTITUTE_SEED_MONEY'
+);
+
+CREATE TYPE "JOURNAL_PUBLICATION_TYPE" AS ENUM (
+  'HARDCOPY',
+  'SOFTCOPY'
+);
+
+CREATE TYPE "JOURNAL_FREQUENCY" AS ENUM (
+  'WEEKLY',
+  'BIWEEKLY',
+  'MONTHLY',
+  'QUARTERLY',
+  'YEARLY'
+);
+
+CREATE TYPE "BOOK_PUBLICATION_TYPE" AS ENUM (
+  'BOOK',
+  'CHAPTER'
+);
+
+CREATE TYPE "IPR_TYPE" AS ENUM (
+  'PATENT',
+  'DESIGN',
+  'COPYRIGHT'
+);
+
+CREATE TYPE "IPR_STATUS" AS ENUM (
+  'FILED',
+  'GRANTED',
+  'LICENSED',
+  'COLLABORATIVE'
+);
+
+CREATE TYPE "ACADEMIC_SEMESTER" AS ENUM (
+  'ODD',
+  'EVEN'
+);
+
+CREATE TYPE "INSTITUTE_TYPE" AS ENUM (
+  'DEEMED_TO_BE_UNIVERSITY',
+  'UNIVERSITY',
+  'AUTONOMOUS',
+  'AFFILIATED',
+  'OTHER'
+);
+
+CREATE TYPE "INSTITUTE_OWNERSHIP_STATUS" AS ENUM (
+  'CENTRAL_GOVERNMENT',
+  'STATE_GOVERNMENT',
+  'GRANT_IN_AID',
+  'SELF_FINANCING_TRUST',
+  'OTHER'
+);
+
+CREATE TYPE "PROGRAM_ACCREDITATION_STATUS" AS ENUM (
+  'APPLYING_FIRST_TIME',
+  'GRANTED_ACCREDITATION_FOR_2_3_YEARS',
+  'GRANTED_ACCREDITATION_FOR_5_6_YEARS',
+  'NOT_ACCREDITED',
+  'WITHDRAWN',
+  'NOT_ELIGIBLE_FOR_ACCREDITATION',
+  'ELIGIBLE_BUT_NOT_APPLIED'
+);
+
+CREATE TYPE "EVENT_LEVEL" AS ENUM (
+  'INTERNAL',
+  'STATE',
+  'NATIONAL',
+  'INTERNATIONAL'
+);
+
+CREATE TYPE "EVENT_CLASSIFICATION" AS ENUM (
+  'INDIVIDUAL',
+  'TEAM'
+);
+
+CREATE TYPE "COMPETITIVE_EVENT_TYPE" AS ENUM (
+  'SPORTS',
+  'CULTURAL',
+  'ACADEMIC',
+  'OTHER'
+);
+
+CREATE TYPE "EVENT_OBJECTIVE" AS ENUM (
+  'COMPETITIVE',
+  'INFORMATIONAL'
+);
+
+CREATE TYPE "COMMUNITY_TYPE" AS ENUM (
+  'CLUBS',
+  'NGO',
+  'GOVERNMENT',
+  'INDUSTRY'
+);
+
+CREATE TYPE "AFTER_GRADUATION_TYPE" AS ENUM (
+  'PLACEMENT',
+  'ENTREPRENEURSHIP',
+  'HIGHER_STUDIES'
+);
+
+CREATE TYPE "AWARD_TYPE" AS ENUM (
+  'SPORTS',
+  'RESEARCH',
+  'CULTURAL',
+  'FELLOWSHIP'
+);
+
+CREATE TYPE "AWARD_USER_TYPE" AS ENUM (
+  'FACULTY',
+  'STUDENT'
+);
+
+CREATE TYPE "COLLABORATIVE_ACTIVITY_TYPE" AS ENUM (
+  'RESEARCH',
+  'STUDENT_EXCHANGE',
+  'FACULTY_EXCHANGE',
+  'INDUSTRY_INTERNSHIP'
+);
+
+CREATE TYPE "BENEFIT_SCHEME_TYPE" AS ENUM (
+  'GOVERNMENT',
+  'NON_GOVERNMENT',
+  'INSTITUTIONAL',
+  'COMPETITIVE_EXAM_GUIDANCE'
+);
+
+CREATE TYPE "NATIONAL_GOVERNMENT_EXAM_TYPE" AS ENUM (
+  'NET',
+  'SLET',
+  'GATE',
+  'GMAT',
+  'GPAT',
+  'CAT',
+  'GRE',
+  'IELET',
+  'TOEFL',
+  'PLAB',
+  'USMLE',
+  'AYUSH',
+  'STATE_GOVERNMENT_EXAMS',
+  'UPSC',
+  'PG_NEET',
+  'OTHERS'
+);
+
+CREATE TABLE "users" (
+  "id" uuid PRIMARY KEY,
+  "first_name" varchar(100),
+  "middle_name" varchar(100),
+  "last_name" varchar(100),
+  "email" varchar(255) UNIQUE
+);
+
+CREATE TABLE "auth" (
+  "id" uuid PRIMARY KEY,
+  "password" varchar(255),
+  "last_login" timestamp,
+  "requires_reset" boolean DEFAULT false
+);
+
+CREATE TABLE "students" (
+  "id" uuid PRIMARY KEY,
+  "admission_no" varchar(50) UNIQUE,
+  "registration_no" varchar(50) UNIQUE,
+  "origin" "STUDENT_ORIGIN",
+  "gender" "STUDENT_GENDER",
+  "branch_id" uuid,
+  "batch_year" int,
+  "year_of_join" int,
+  "type_of_join" "STUDENT_ENTRIES",
+  "year_of_exit" int,
+  "type_of_exit" "STUDENT_EXITS",
+  "social_disadvantage" "SOCIAL_DISADVANTAGE",
+  "economic_disadvantage" bool DEFAULT false,
+  "physically_challenged" bool DEFAULT false
+);
+
+CREATE TABLE "faculty" (
+  "id" uuid PRIMARY KEY,
+  "employee_id" varchar(50) UNIQUE,
+  "department_id" uuid,
+  "designation" varchar(100),
+  "pan_no" text,
+  "apaar_id" text,
+  "highest_degree" "FACULTY_HIGHEST_DEGREE",
+  "university" text,
+  "area_of_specialization" text,
+  "date_of_join" date,
+  "designation_at_join" varchar(100),
+  "designated_as_professor" date,
+  "designated_as_associate_professor" date,
+  "designated_as_assistant_professor" date,
+  "nature_of_association" "FACULTY_NATURE_OF_ASSOCIATION",
+  "contractual_obligation" "FACULTY_CONTRACTUAL_OBLIGATION",
+  "currently_associated" bool DEFAULT true,
+  "date_of_leave" date
+);
+
+CREATE TABLE "adjunct_faculty" (
+  "faculty_id" uuid,
+  "hours_handled" int,
+  "subjects" text[]
+);
+
+CREATE TABLE "professional_communities" (
+  "faculty_id" uuid,
+  "name_of_society" text,
+  "position" text,
+  PRIMARY KEY ("faculty_id", "name_of_society")
+);
+
+CREATE TABLE "continuing_education_programs" (
+  "id" uuid PRIMARY KEY,
+  "year" int,
+  "name" text,
+  "no_of_participants" int,
+  "no_of_days" int
+);
+
+CREATE TABLE "faculty_courses" (
+  "faculty_id" uuid,
+  "name_of_course" text,
+  "developed" bool DEFAULT false
+);
+
+CREATE TABLE "faculty_student_innovative_projects" (
+  "faculty_id" uuid,
+  "name_of_event" text,
+  "link_of_website" text
+);
+
+CREATE TABLE "faculty_internship_training_collaboration" (
+  "faculty_id" uuid,
+  "name_of_itc" text,
+  "name_of_company" text,
+  "type" "FACULTY_ITC_TYPE",
+  "outcomes" text
+);
+
+CREATE TABLE "faculty_sponsored_research_projects_consultancy_work_institute_seed_money" (
+  "type" "FACULTY_SRPCWISM_TYPE",
+  "name_of_principal_investigator" text,
+  "name_of_co_principal_investigator" text,
+  "department_id" uuid,
+  "project_title" text,
+  "name_of_funding_agency" text,
+  "duration_of_project" text,
+  "amount_inr" int,
+  "outcomes" text
+);
+
+CREATE TABLE "journals" (
+  "id" uuid PRIMARY KEY,
+  "name" varchar(50),
+  "frequency" "JOURNAL_FREQUENCY",
+  "type" "JOURNAL_PUBLICATION_TYPE",
+  "scopus_indexed" boolean
+);
+
+CREATE TABLE "sponsorships" (
+  "id" uuid PRIMARY KEY,
+  "agency_name" text,
+  "year" int,
+  "amount_inr" int,
+  "project_title" text
+);
+
+CREATE TABLE "ipr" (
+  "id" uuid PRIMARY KEY,
+  "awardee_id" uuid,
+  "awarder_name" text,
+  "government_recognized" bool DEFAULT false,
+  "year" int,
+  "uuid" text,
+  "title" text,
+  "type" "IPR_TYPE",
+  "status" "IPR_STATUS"
+);
+
+CREATE TABLE "ipr_earnings" (
+  "ipr_id" uuid PRIMARY KEY,
+  "financial_year" int,
+  "amount_inr" int
+);
+
+CREATE TABLE "journal_publications" (
+  "id" uuid PRIMARY KEY,
+  "journal_id" uuid,
+  "journal_volume_number" int,
+  "journal_issue_number" int,
+  "sponsor_id" uuid,
+  "year" int,
+  "semester" "ACADEMIC_SEMESTER",
+  "doi" varchar(255),
+  "title" text
+);
+
+CREATE TABLE "journal_publication_authors" (
+  "publication_id" uuid,
+  "author_id" uuid,
+  "author_index" int,
+  PRIMARY KEY ("publication_id", "author_id")
+);
+
+CREATE TABLE "book_publications" (
+  "id" uuid PRIMARY KEY,
+  "year" int,
+  "semester" "ACADEMIC_SEMESTER",
+  "title" text,
+  "isbn" int,
+  "type" "BOOK_PUBLICATION_TYPE"
+);
+
+CREATE TABLE "book_publication_authors" (
+  "publication_id" uuid,
+  "author_id" uuid,
+  "author_index" int,
+  PRIMARY KEY ("publication_id", "author_id")
+);
+
+CREATE TABLE "other_academic_institutes_run_by_trust_society" (
+  "id" uuid PRIMARY KEY,
+  "name" text,
+  "year_of_establishment" int,
+  "program_of_study" text[],
+  "location" text
+);
+
+CREATE TABLE "institutes" (
+  "id" uuid PRIMARY KEY,
+  "institute_code" text,
+  "name" text,
+  "type" "INSTITUTE_TYPE",
+  "year_of_establishment" int,
+  "ownership_status" "INSTITUTE_OWNERSHIP_STATUS",
+  "affiliating_university_name" text,
+  "affiliating_university_address" text,
+  "vision" text,
+  "mission" text,
+  "other_academic_institute_ids" uuid[],  -- This will no longer have a direct foreign key constraint
+  "programs_offered" uuid[],  -- This will no longer have a direct foreign key constraint
+  "programs_considered" uuid[],  -- This will no longer have a direct foreign key constraint
+  "head_of_institute_id" uuid,
+  "nba_coordinator_id" uuid
+);
+
+-- Create a junction table for the relationship with other academic institutes
+-- Replaces foreign key constraint on "other_academic_institute_ids"
+CREATE TABLE "institute_other_academic_institutes" (
+  "institute_id" uuid,
+  "other_academic_institute_id" uuid,
+  PRIMARY KEY ("institute_id", "other_academic_institute_id"),
+  FOREIGN KEY ("institute_id") REFERENCES "institutes" ("id"),
+  FOREIGN KEY ("other_academic_institute_id") REFERENCES "other_academic_institutes_run_by_trust_society" ("id")
+);
+
+CREATE TABLE "programs" (
+  "id" uuid PRIMARY KEY,
+  "program_code" int,
+  "duration_year" int,
+  "name" text,
+  "year_of_start" int,
+  "sanctioned_intake" int,
+  "aicte_approval_details" text,
+  "accreditation_status" "PROGRAM_ACCREDITATION_STATUS",
+  "number_of_times_accredited" int,
+  "institute_id" uuid
+);
+
+-- Create a junction table for the relationship with programs offered
+-- Replaces foreign key constraint on "programs_offered"
+CREATE TABLE "institute_programs_offered" (
+  "institute_id" uuid,
+  "program_id" uuid,
+  PRIMARY KEY ("institute_id", "program_id"),
+  FOREIGN KEY ("institute_id") REFERENCES "institutes" ("id"),
+  FOREIGN KEY ("program_id") REFERENCES "programs" ("id")
+);
+
+-- Create a junction table for the relationship with programs considered
+-- Replaces foreign key constraint on "programs_considered"
+CREATE TABLE "institute_programs_considered" (
+  "institute_id" uuid,
+  "program_id" uuid,
+  PRIMARY KEY ("institute_id", "program_id"),
+  FOREIGN KEY ("institute_id") REFERENCES "institutes" ("id"),
+  FOREIGN KEY ("program_id") REFERENCES "programs" ("id")
+);
+
+CREATE TABLE "program_intakes" (
+  "program_id" uuid,
+  "year" int,
+  "intake" int,
+  PRIMARY KEY ("program_id", "year")
+);
+
+CREATE TABLE "departments" (
+  "id" uuid PRIMARY KEY,
+  "name" text,
+  "program_id" uuid
+);
+
+CREATE TABLE "branches" (
+  "id" uuid PRIMARY KEY,
+  "name" text,
+  "department_id" uuid
+);
+
+CREATE TABLE "branch_intakes" (
+  "branch_id" uuid,
+  "year" int,
+  "allowed_batch_size" int,
+  PRIMARY KEY ("branch_id", "year")
+);
+
+CREATE TABLE "organizers" (
+  "id" uuid PRIMARY KEY,
+  "type" "COMMUNITY_TYPE",
+  "name" text
+);
+
+CREATE TABLE "sdg_goals" (
+  "id" uuid PRIMARY KEY,
+  "number" int,
+  "goal" text
+);
+
+CREATE TABLE "events" (
+  "id" uuid PRIMARY KEY,
+  "name" text,
+  "date" timestamp,
+  "start_time" timestamp,
+  "end_time" timestamp,
+  "venue" text,
+  "organizer_id" uuid,
+  "level" "EVENT_LEVEL",
+  "objective" "EVENT_OBJECTIVE",
+  "description" text,
+  "sdg_goals" uuid[]  -- This will no longer have a direct foreign key constraint
+);
+
+-- Create a junction table for the relationship with SDG goals
+-- Replaces foreign key constraint on "sdg_goals"
+CREATE TABLE "event_sdg_goals" (
+  "event_id" uuid,
+  "sdg_goal_id" uuid,
+  PRIMARY KEY ("event_id", "sdg_goal_id"),
+  FOREIGN KEY ("event_id") REFERENCES "events" ("id"),
+  FOREIGN KEY ("sdg_goal_id") REFERENCES "sdg_goals" ("id")
+);
+
+CREATE TABLE "competitive_events" (
+  "id" uuid PRIMARY KEY,
+  "classification" "EVENT_CLASSIFICATION",
+  "type" "COMPETITIVE_EVENT_TYPE",
+  "participant_id" uuid,
+  "position" int,
+  "award" text
+);
+
+CREATE TABLE "informational_events" (
+  "id" uuid PRIMARY KEY,
+  "speaker" text,
+  "no_of_students" int,
+  "no_of_teachers" int,
+  "link_to_report" text,
+  "geotagged_photographs" text[]
+);
+
+CREATE TABLE "GPA" (
+  "student_id" uuid,
+  "semester" int,
+  "GPA" decimal(4,2),
+  "credits" int,
+  PRIMARY KEY ("student_id", "semester")
+);
+
+CREATE TABLE "after_graduation" (
+  "id" uuid,
+  "student_id" uuid,
+  "year" int,
+  "type" "AFTER_GRADUATION_TYPE",
+  PRIMARY KEY ("id")
+
+);
+
+CREATE TABLE "after_graduation_placements" (
+  "after_graduation_id" uuid PRIMARY KEY,
+  "employer_id" uuid,
+  "salary" int
+);
+
+CREATE TABLE "after_graduation_higher_studies" (
+  "after_graduation_id" uuid PRIMARY KEY,
+  "institute_name" text,
+  "program_name" text,
+  "with_exam" bool DEFAULT true
+);
+
+CREATE TABLE "after_graduation_entrepreneurship" (
+  "after_graduation_id" uuid PRIMARY KEY,
+  "company_name" text
+);
+
+CREATE TABLE "companies" (
+  "id" uuid PRIMARY KEY,
+  "name" text,
+  "contact_no" text,
+  "contact_email" text
+);
+
+CREATE TABLE "awards" (
+  "id" uuid PRIMARY KEY,
+  "name" text,
+  "type" "AWARD_TYPE",
+  "awarding_agency" text,
+  "user_type" "AWARD_USER_TYPE",
+  "user_id" uuid,
+  "year" int
+);
+
+CREATE TABLE "collaborative_activities" (
+  "id" uuid PRIMARY KEY,
+  "title" text,
+  "type" "COLLABORATIVE_ACTIVITY_TYPE",
+  "agency_id" uuid,
+  "user_id" uuid,
+  "source_of_financial_support" text,
+  "year" int,
+  "duration" int,
+  "link_to_relevant_documents" text[]
+);
+
+CREATE TABLE "agencies" (
+  "id" uuid PRIMARY KEY,
+  "name" text,
+  "contact_no" text,
+  "contact_email" text
+);
+
+CREATE TABLE "benefit_programs" (
+  "id" uuid PRIMARY KEY,
+  "student_id" uuid,
+  "year" int,
+  "type" "BENEFIT_SCHEME_TYPE"
+);
+
+CREATE TABLE "national_government_exams" (
+  "id" uuid PRIMARY KEY,
+  "student_id" uuid,
+  "exam_type" "NATIONAL_GOVERNMENT_EXAM_TYPE"
+);
+
+CREATE TABLE "facilities" (
+  "id" uuid PRIMARY KEY,
+  "name" text,
+  "type" text,
+  "is_ict" bool DEFAULT false,
+  "details" text,
+  "reasons" text[],
+  "utilization" text,
+  "relevance_to_pos" text
+);
+
+CREATE TABLE "laboratories" (
+  "id" uuid PRIMARY KEY,
+  "batch_size" int,
+  "name_of_equipment" text[],
+  "safety_measures" text[],
+  "weekly_utilization" int,
+  "technical_manpower_ids" uuid[]  -- This will no longer have a direct foreign key constraint
+);
+
+CREATE TABLE "laboratories_technical_manpower" (
+  "id" uuid PRIMARY KEY,
+  "name" text,
+  "designation" text,
+  "qualification" text
+);
+
+-- Create a junction table for the relationship with technical manpower
+-- Replaces foreign key constraint on "technical_manpower_ids"
+CREATE TABLE "laboratory_technical_manpower" (
+  "laboratory_id" uuid,
+  "technical_manpower_id" uuid,
+  PRIMARY KEY ("laboratory_id", "technical_manpower_id"),
+  FOREIGN KEY ("laboratory_id") REFERENCES "laboratories" ("id"),
+  FOREIGN KEY ("technical_manpower_id") REFERENCES "laboratories_technical_manpower" ("id")
+);
+
+CREATE TABLE "e_resources" (
+  "faculty_id" uuid,
+  "name" text,
+  "development_platform" text,
+  "date_of_launch" date,
+  "link_to_relevant_document" text,
+  "institute" text
+);
+
+ALTER TABLE "auth" ADD FOREIGN KEY ("id") REFERENCES "users" ("id");
+
+ALTER TABLE "students" ADD FOREIGN KEY ("id") REFERENCES "users" ("id");
+
+ALTER TABLE "students" ADD FOREIGN KEY ("branch_id") REFERENCES "branches" ("id");
+
+ALTER TABLE "students" ADD FOREIGN KEY ("branch_id", "batch_year") REFERENCES "branch_intakes" ("branch_id", "year");
+
+ALTER TABLE "faculty" ADD FOREIGN KEY ("id") REFERENCES "users" ("id");
+
+ALTER TABLE "faculty" ADD FOREIGN KEY ("department_id") REFERENCES "departments" ("id");
+
+ALTER TABLE "adjunct_faculty" ADD FOREIGN KEY ("faculty_id") REFERENCES "faculty" ("id");
+
+ALTER TABLE "professional_communities" ADD FOREIGN KEY ("faculty_id") REFERENCES "faculty" ("id");
+
+ALTER TABLE "faculty_courses" ADD FOREIGN KEY ("faculty_id") REFERENCES "faculty" ("id");
+
+ALTER TABLE "faculty_student_innovative_projects" ADD FOREIGN KEY ("faculty_id") REFERENCES "faculty" ("id");
+
+ALTER TABLE "faculty_internship_training_collaboration" ADD FOREIGN KEY ("faculty_id") REFERENCES "faculty" ("id");
+
+ALTER TABLE "faculty_sponsored_research_projects_consultancy_work_institute_seed_money" ADD FOREIGN KEY ("department_id") REFERENCES "departments" ("id");
+
+ALTER TABLE "ipr" ADD FOREIGN KEY ("awardee_id") REFERENCES "users" ("id");
+
+ALTER TABLE "ipr_earnings" ADD FOREIGN KEY ("ipr_id") REFERENCES "ipr" ("id");
+
+ALTER TABLE "journal_publications" ADD FOREIGN KEY ("journal_id") REFERENCES "journals" ("id");
+
+ALTER TABLE "journal_publications" ADD FOREIGN KEY ("sponsor_id") REFERENCES "sponsorships" ("id");
+
+ALTER TABLE "journal_publication_authors" ADD FOREIGN KEY ("publication_id") REFERENCES "journal_publications" ("id");
+
+ALTER TABLE "journal_publication_authors" ADD FOREIGN KEY ("author_id") REFERENCES "users" ("id");
+
+ALTER TABLE "book_publication_authors" ADD FOREIGN KEY ("publication_id") REFERENCES "book_publications" ("id");
+
+ALTER TABLE "book_publication_authors" ADD FOREIGN KEY ("author_id") REFERENCES "users" ("id");
+
+-- Remove the incompatible foreign key constraint
+-- ALTER TABLE "institutes" ADD FOREIGN KEY ("other_academic_institute_ids") REFERENCES "other_academic_institutes_run_by_trust_society" ("id");
+
+-- Remove the incompatible foreign key constraint
+-- ALTER TABLE "institutes" ADD FOREIGN KEY ("programs_offered") REFERENCES "programs" ("id");
+
+-- Remove the incompatible foreign key constraint
+-- ALTER TABLE "institutes" ADD FOREIGN KEY ("programs_considered") REFERENCES "programs" ("id");
+
+ALTER TABLE "institutes" ADD FOREIGN KEY ("head_of_institute_id") REFERENCES "faculty" ("id");
+
+ALTER TABLE "institutes" ADD FOREIGN KEY ("nba_coordinator_id") REFERENCES "faculty" ("id");
+
+ALTER TABLE "programs" ADD FOREIGN KEY ("institute_id") REFERENCES "institutes" ("id");
+
+ALTER TABLE "program_intakes" ADD FOREIGN KEY ("program_id") REFERENCES "programs" ("id");
+
+ALTER TABLE "departments" ADD FOREIGN KEY ("program_id") REFERENCES "programs" ("id");
+
+ALTER TABLE "branches" ADD FOREIGN KEY ("department_id") REFERENCES "departments" ("id");
+
+ALTER TABLE "branch_intakes" ADD FOREIGN KEY ("branch_id") REFERENCES "branches" ("id");
+
+ALTER TABLE "events" ADD FOREIGN KEY ("organizer_id") REFERENCES "organizers" ("id");
+
+-- Remove the incompatible foreign key constraint
+-- ALTER TABLE "events" ADD FOREIGN KEY ("sdg_goals") REFERENCES "sdg_goals" ("id");
+
+ALTER TABLE "competitive_events" ADD FOREIGN KEY ("id") REFERENCES "events" ("id");
+
+ALTER TABLE "competitive_events" ADD FOREIGN KEY ("participant_id") REFERENCES "students" ("id");
+
+ALTER TABLE "informational_events" ADD FOREIGN KEY ("id") REFERENCES "events" ("id");
+
+ALTER TABLE "GPA" ADD FOREIGN KEY ("student_id") REFERENCES "students" ("id");
+
+ALTER TABLE "after_graduation" ADD FOREIGN KEY ("student_id") REFERENCES "students" ("id");
+
+ALTER TABLE "after_graduation_placements" ADD FOREIGN KEY ("after_graduation_id") REFERENCES "after_graduation" ("id");
+
+ALTER TABLE "after_graduation_placements" ADD FOREIGN KEY ("employer_id") REFERENCES "companies" ("id");
+
+ALTER TABLE "after_graduation_higher_studies" ADD FOREIGN KEY ("after_graduation_id") REFERENCES "after_graduation" ("id");
+
+ALTER TABLE "after_graduation_entrepreneurship" ADD FOREIGN KEY ("after_graduation_id") REFERENCES "after_graduation" ("id");
+
+ALTER TABLE "awards" ADD FOREIGN KEY ("user_id") REFERENCES "users" ("id");
+
+ALTER TABLE "collaborative_activities" ADD FOREIGN KEY ("agency_id") REFERENCES "agencies" ("id");
+
+ALTER TABLE "collaborative_activities" ADD FOREIGN KEY ("user_id") REFERENCES "users" ("id");
+
+ALTER TABLE "benefit_programs" ADD FOREIGN KEY ("student_id") REFERENCES "students" ("id");
+
+ALTER TABLE "national_government_exams" ADD FOREIGN KEY ("student_id") REFERENCES "students" ("id");
+
+ALTER TABLE "laboratories" ADD FOREIGN KEY ("id") REFERENCES "facilities" ("id");
+
+-- Remove the incompatible foreign key constraint
+-- ALTER TABLE "laboratories" ADD FOREIGN KEY ("technical_manpower_ids") REFERENCES "laboratories_technical_manpower" ("id");
+
+ALTER TABLE "e_resources" ADD FOREIGN KEY ("faculty_id") REFERENCES "faculty" ("id");
