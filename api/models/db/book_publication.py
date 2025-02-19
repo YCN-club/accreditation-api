@@ -11,3 +11,13 @@ class BookPublication(BaseModel):
     title: str
     isbn: int
     type: BookPublicationType
+
+    def to_dict(self):
+        return {
+            "id": str(self.id),
+            "year": self.year,
+            "semester": self.semester,
+            "title": self.title,
+            "isbn": self.isbn,
+            "type": self.type,
+        }

@@ -15,3 +15,16 @@ class JournalPublication(BaseModel):
     semester: AcademicSemester
     doi: Optional[str] = None
     title: str
+
+    def to_dict(self):
+        return {
+            "id": str(self.id),
+            "journal_id": str(self.journal_id),
+            "journal_volume_number": self.journal_volume_number,
+            "journal_issue_number": self.journal_issue_number,
+            "sponsor_id": str(self.sponsor_id) if self.sponsor_id else None,
+            "year": self.year,
+            "semester": self.semester,
+            "doi": self.doi,
+            "title": self.title,
+        }

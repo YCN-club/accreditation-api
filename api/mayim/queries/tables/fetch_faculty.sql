@@ -1,0 +1,21 @@
+SELECT
+    id,
+    employee_id,
+    department,
+    designation,
+    pan_no,
+    apaar_id,
+    highest_degree,
+    university,
+    area_of_specialization,
+    date_of_join,
+    designation_at_join,
+    designated_as_professor,
+    designated_as_associate_professor,
+    designated_as_assistant_professor,
+    nature_of_association,
+    contractual_obligation,
+    currently_associated,
+    date_of_leave
+FROM
+    faculty;

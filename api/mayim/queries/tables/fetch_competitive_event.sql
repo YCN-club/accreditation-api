@@ -1,0 +1,9 @@
+SELECT
+    id,
+    classification,
+    participant_id,
+    position,
+    award,
+    type
+FROM
+    competitive_events;

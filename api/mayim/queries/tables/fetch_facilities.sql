@@ -1,0 +1,11 @@
+SELECT
+    id,
+    name,
+    type,
+    is_ict,
+    details,
+    reasons,
+    utilization,
+    relevance_to_pos
+FROM
+    facilities;

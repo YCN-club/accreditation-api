@@ -14,3 +14,16 @@ class Ipr(BaseModel):
     title: str
     type: IprType
     status: IprStatus
+
+    def to_dict(self):
+        return {
+            "id": str(self.id),
+            "awardee_id": str(self.awardee_id),
+            "awarder_name": self.awarder_name,
+            "government_recognized": self.government_recognized,
+            "year": self.year,
+            "uuid": self.uuid,
+            "title": self.title,
+            "type": self.type,
+            "status": self.status,
+        }

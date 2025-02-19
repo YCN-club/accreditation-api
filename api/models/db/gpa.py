@@ -7,3 +7,11 @@ class GPA(BaseModel):
     semester: int
     GPA: float
     credits: int
+
+    def to_dict(self):
+        return {
+            "student_id": str(self.student_id),
+            "semester": self.semester,
+            "GPA": self.GPA,
+            "credits": self.credits,
+        }
