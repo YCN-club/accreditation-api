@@ -27,7 +27,7 @@ class NBAFetch(HTTPMethodView):
             return json(
                 {
                     method: str(
-                        inspect.signature(getattr(NBAExecutor, f"get_NIRF_{method}"))
+                        inspect.signature(getattr(NBAExecutor, f"get_NBA_{method}"))
                     )
                     .replace("self, ", "")
                     .replace("self", "")
@@ -66,7 +66,7 @@ class NBAFetch(HTTPMethodView):
         except Exception as e:
             ref_id = uuid.uuid4()
             logger.error(
-                f"REF ID: {ref_id}\nAn error occurred while fetching NAAC data: {str(e)}",
+                f"REF ID: {ref_id}\nAn error occurred while fetching NBA data: {str(e)}",
                 exc_info=e,
             )
             return json(

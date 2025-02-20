@@ -1,12 +1,16 @@
 import uuid
+from typing import Protocol, TypeVar
+
 from mayim import Mayim
 from sanic import Request, json
-from sanic.views import HTTPMethodView
 from sanic.log import logger
-
+from sanic.views import HTTPMethodView
 from sanic_ext import validate
 
 from api.mayim.create_executor import CreateExecutor
+from api.models.requests.faculty_research_consultancy_seed_money import (
+    faculty_research_consultancy_seed_money,
+)
 from api.models.requests.insert_adjunct_faculty import adjunct_faculty
 from api.models.requests.insert_after_graduation import after_graduation
 from api.models.requests.insert_after_graduation_entrepreneurship import (
@@ -38,9 +42,6 @@ from api.models.requests.insert_faculty import faculty
 from api.models.requests.insert_faculty_course import faculty_course
 from api.models.requests.insert_faculty_internship_training_collaboration import (
     faculty_internship_training_collaboration,
-)
-from api.models.requests.faculty_research_consultancy_seed_money import (
-    faculty_research_consultancy_seed_money,
 )
 from api.models.requests.insert_faculty_student_innovative_projects import (
     faculty_student_innovative_projects,
@@ -83,6 +84,14 @@ from api.models.requests.insert_sdg_goal import sdg_goal
 from api.models.requests.insert_sponsorship import sponsorship
 from api.models.requests.insert_student import student
 from api.models.requests.insert_user import user
+
+
+class ValidatingClass(Protocol):
+    def to_dict(self) -> dict:
+        """Convert the object to a dictionary"""
+
+
+T = TypeVar("T", bound=ValidatingClass)
 
 
 class CreateItem(HTTPMethodView):
@@ -147,14 +156,14 @@ class CreateItem(HTTPMethodView):
             return json({"error": "Invalid type"}, status=400)
 
         @validate(form=validation_class)
-        async def create_item(request: Request, slug: str, body):
+        async def create_item(request: Request, slug: str, body: T):
             # Get the executor
             executor = Mayim.get(CreateExecutor)
             # Get the function
             create_function = getattr(executor, f"create_{slug}")
             try:
                 # Call the function
-                await create_function(**body)
+                await create_function(**body.to_dict())
                 return json({"message": "Success"}, status=201)
             except Exception as e:
                 ref_id = uuid.uuid4()

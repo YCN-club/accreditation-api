@@ -27,7 +27,7 @@ class NAACFetch(HTTPMethodView):
             return json(
                 {
                     method: str(
-                        inspect.signature(getattr(NAACExecutor, f"get_NIRF_{method}"))
+                        inspect.signature(getattr(NAACExecutor, f"get_NAAC_{method}"))
                     )
                     .replace("self, ", "")
                     .replace("self", "")
