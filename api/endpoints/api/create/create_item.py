@@ -1,5 +1,5 @@
 import uuid
-from typing import Protocol, TypeVar
+from typing import TypeVar
 
 from mayim import Mayim
 from sanic import Request, json
@@ -8,6 +8,7 @@ from sanic.views import HTTPMethodView
 from sanic_ext import validate
 
 from api.mayim.create_executor import CreateExecutor
+from api.models.generic_model import GenericModel
 from api.models.requests.faculty_research_consultancy_seed_money import (
     faculty_research_consultancy_seed_money,
 )
@@ -85,13 +86,7 @@ from api.models.requests.insert_sponsorship import sponsorship
 from api.models.requests.insert_student import student
 from api.models.requests.insert_user import user
 
-
-class ValidatingClass(Protocol):
-    def to_dict(self) -> dict:
-        """Convert the object to a dictionary"""
-
-
-T = TypeVar("T", bound=ValidatingClass)
+T = TypeVar("T", bound=GenericModel)
 
 
 class CreateItem(HTTPMethodView):
@@ -163,7 +158,7 @@ class CreateItem(HTTPMethodView):
             create_function = getattr(executor, f"create_{slug}")
             try:
                 # Call the function
-                await create_function(**body.to_dict())
+                await create_function(body)
                 return json({"message": "Success"}, status=201)
             except Exception as e:
                 ref_id = uuid.uuid4()

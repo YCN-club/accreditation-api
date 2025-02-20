@@ -1,4 +1,5 @@
 import inspect
+from typing import List, TypeVar
 import uuid
 from mayim import Mayim
 from sanic import Request, json
@@ -7,7 +8,10 @@ from sanic.log import logger
 
 from api.decorators.require_login import require_login
 from api.mayim.nirf_executor import NIRFExecutor
+from api.models.generic_model import GenericModel
 from api.models.internal.jwt_data import JWT_Data
+
+T = TypeVar("T", bound=GenericModel)
 
 
 class NIRFFetch(HTTPMethodView):
@@ -50,8 +54,9 @@ class NIRFFetch(HTTPMethodView):
             call = getattr(executor, f"get_NAAC_{slug}")
 
             required_args = inspect.signature(method)
+            needs_args = len(required_args.parameters) > 1
 
-            if len(required_args.parameters) > 1 and not args:
+            if needs_args and not args:
                 return json(
                     {
                         "error": "Bad Request",
@@ -59,7 +64,7 @@ class NIRFFetch(HTTPMethodView):
                     },
                     400,
                 )
-            data = await call(**args) if required_args.parameters else await call()
+            data: List[T] = await call(**args) if needs_args else await call()
             if not data:
                 return json({"data": []})
             return json({"data": [d.to_dict() for d in data]})

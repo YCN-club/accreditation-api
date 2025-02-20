@@ -1,328 +1,323 @@
+from typing import TypeVar
 from mayim import PostgresExecutor
+
+from api.models.generic_model import GenericModel
+
+T = TypeVar("T", bound=GenericModel)
 
 
 class CreateExecutor(PostgresExecutor):
     generic_prefix = ""
-    path = "./queries/insert/"
+    path = "./queries/input/"
 
-    async def create_adjunct_faculty(self, faculty_id, hours_handled, subjects):
+    async def create_adjunct_faculty(self, obj: T):
         """Create Adjunct Faculty"""
+        return await self.execute(
+            self.get_query(), allow_none=True, params=obj.to_dict()
+        )
 
-    async def create_user(self, id, first_name, middle_name, last_name, email):
+    async def create_user(self, obj: T):
         """Create User"""
+        return await self.execute(
+            self.get_query(), allow_none=True, params=obj.to_dict()
+        )
 
-    async def create_student(
-        self,
-        id,
-        admission_no,
-        registration_no,
-        origin,
-        gender,
-        branch_id,
-        batch_year,
-        year_of_join,
-        type_of_join,
-        year_of_exit,
-        type_of_exit,
-        social_disadvantage,
-        economic_disadvantage,
-        physically_challenged,
-    ):
+    async def create_student(self, obj: T):
         """Create Student"""
+        return await self.execute(
+            self.get_query(), allow_none=True, params=obj.to_dict()
+        )
 
-    async def create_sponsorship(
-        self, id, agency_name, year, amount_inr, project_title
-    ):
+    async def create_sponsorship(self, obj: T):
         """Create Sponsorship"""
+        return await self.execute(
+            self.get_query(), allow_none=True, params=obj.to_dict()
+        )
 
-    async def create_sdg_goal(self, id, number, goal):
+    async def create_sdg_goal(self, obj: T):
         """Create SDG Goal"""
+        return await self.execute(
+            self.get_query(), allow_none=True, params=obj.to_dict()
+        )
 
-    async def create_program(
-        self,
-        id,
-        program_code,
-        duration_year,
-        name,
-        year_of_start,
-        sanctioned_intake,
-        aicte_approval_details,
-        accreditation_status,
-        number_of_times_accredited,
-        institute_id,
-    ):
+    async def create_program(self, obj: T):
         """Create Program"""
+        return await self.execute(
+            self.get_query(), allow_none=True, params=obj.to_dict()
+        )
 
-    async def create_program_intake(self, program_id, year, intake):
+    async def create_program_intake(self, obj: T):
         """Create Program Intake"""
+        return await self.execute(
+            self.get_query(), allow_none=True, params=obj.to_dict()
+        )
 
-    async def create_professional_community(
-        self, faculty_id, name_of_society, position
-    ):
+    async def create_professional_community(self, obj: T):
         """Create Professional Community"""
+        return await self.execute(
+            self.get_query(), allow_none=True, params=obj.to_dict()
+        )
 
-    async def create_other_academic_institute(
-        self, id, name, year_of_establishment, program_of_study, location
-    ):
+    async def create_other_academic_institute(self, obj: T):
         """Create Other Academic Institute"""
+        return await self.execute(
+            self.get_query(), allow_none=True, params=obj.to_dict()
+        )
 
-    async def create_organizer(self, id, type, name):
+    async def create_organizer(self, obj: T):
         """Create Organizer"""
+        return await self.execute(
+            self.get_query(), allow_none=True, params=obj.to_dict()
+        )
 
-    async def create_national_government_exam(self, id, student_id, exam_type):
+    async def create_national_government_exam(self, obj: T):
         """Create National Government Exam"""
+        return await self.execute(
+            self.get_query(), allow_none=True, params=obj.to_dict()
+        )
 
-    async def create_login_data(
-        self, user_id, name, email, employee_id, password, is_active, requires_reset
-    ):
+    async def create_login_data(self, obj: T):
         """Create Login Data"""
+        return await self.execute(
+            self.get_query(), allow_none=True, params=obj.to_dict()
+        )
 
-    async def create_laboratory(
-        self, id, batch_size, name_of_equipment, safety_measures, weekly_utilization
-    ):
+    async def create_laboratory(self, obj: T):
         """Create Laboratory"""
+        return await self.execute(
+            self.get_query(), allow_none=True, params=obj.to_dict()
+        )
 
-    async def create_laboratory_technical_manpower(
-        self, laboratory_id, technical_manpower_id
-    ):
+    async def create_laboratory_technical_manpower(self, obj: T):
         """Create Laboratory Technical Manpower"""
+        return await self.execute(
+            self.get_query(), allow_none=True, params=obj.to_dict()
+        )
 
-    async def create_laboratories_technical_manpower(
-        self, id, name, designation, qualification
-    ):
+    async def create_laboratories_technical_manpower(self, obj: T):
         """Create Laboratories Technical Manpower"""
+        return await self.execute(
+            self.get_query(), allow_none=True, params=obj.to_dict()
+        )
 
-    async def create_journal(self, id, name, frequency, type, scopus_indexed):
+    async def create_journal(self, obj: T):
         """Create Journal"""
+        return await self.execute(
+            self.get_query(), allow_none=True, params=obj.to_dict()
+        )
 
-    async def create_journal_publication(
-        self,
-        id,
-        journal_id,
-        journal_volume_number,
-        journal_issue_number,
-        sponsor_id,
-        year,
-        semester,
-        doi,
-        title,
-    ):
+    async def create_journal_publication(self, obj: T):
         """Create Journal Publication"""
+        return await self.execute(
+            self.get_query(), allow_none=True, params=obj.to_dict()
+        )
 
-    async def create_journal_publication_author(
-        self, publication_id, author_id, author_index
-    ):
+    async def create_journal_publication_author(self, obj: T):
         """Create Journal Publication Author"""
+        return await self.execute(
+            self.get_query(), allow_none=True, params=obj.to_dict()
+        )
 
-    async def create_ipr(
-        self,
-        id,
-        awardee_id,
-        awarder_name,
-        government_recognized,
-        year,
-        uuid,
-        title,
-        type,
-        status,
-    ):
+    async def create_ipr(self, obj: T):
         """Create IPR"""
+        return await self.execute(
+            self.get_query(), allow_none=True, params=obj.to_dict()
+        )
 
-    async def create_ipr_earning(self, id, financial_year, amount_inr):
+    async def create_ipr_earning(self, obj: T):
         """Create IPR Earning"""
+        return await self.execute(
+            self.get_query(), allow_none=True, params=obj.to_dict()
+        )
 
-    async def create_institute(
-        self,
-        id,
-        institute_code,
-        name,
-        type,
-        year_of_establishment,
-        ownership_status,
-        affiliating_university_name,
-        affiliating_university_address,
-        vision,
-        mission,
-        head_of_institute_id,
-        nba_coordinator_id,
-    ):
+    async def create_institute(self, obj: T):
         """Create Institute"""
+        return await self.execute(
+            self.get_query(), allow_none=True, params=obj.to_dict()
+        )
 
-    async def create_institute_programs_offered(self, institute_id, program_id):
+    async def create_institute_programs_offered(self, obj: T):
         """Create Institute Programs Offered"""
+        return await self.execute(
+            self.get_query(), allow_none=True, params=obj.to_dict()
+        )
 
-    async def create_institute_programs_considered(self, institute_id, program_id):
+    async def create_institute_programs_considered(self, obj: T):
         """Create Institute Programs Considered"""
+        return await self.execute(
+            self.get_query(), allow_none=True, params=obj.to_dict()
+        )
 
-    async def create_institute_other_academic_institutes(
-        self, institute_id, other_academic_institute_id
-    ):
+    async def create_institute_other_academic_institutes(self, obj: T):
         """Create Institute Other Academic Institutes"""
+        return await self.execute(
+            self.get_query(), allow_none=True, params=obj.to_dict()
+        )
 
-    async def create_informational_event(
-        self, id, speaker, no_of_students, no_of_teachers
-    ):
+    async def create_informational_event(self, obj: T):
         """Create Informational Event"""
+        return await self.execute(
+            self.get_query(), allow_none=True, params=obj.to_dict()
+        )
 
-    async def create_gpa(self, student_id, semester, gpa, credits):
+    async def create_gpa(self, obj: T):
         """Create GPA"""
+        return await self.execute(
+            self.get_query(), allow_none=True, params=obj.to_dict()
+        )
 
-    async def create_faculty(
-        self,
-        id,
-        employee_id,
-        department,
-        designation,
-        pan_no,
-        apaar_id,
-        highest_degree,
-        university,
-        area_of_specialization,
-        date_of_join,
-        designation_at_join,
-        designated_as_professor,
-        designated_as_associate_professor,
-        designated_as_assistant_professor,
-        nature_of_association,
-        contractual_obligation,
-        currently_associated,
-        date_of_leave,
-    ):
+    async def create_faculty(self, obj: T):
         """Create Faculty"""
+        return await self.execute(
+            self.get_query(), allow_none=True, params=obj.to_dict()
+        )
 
-    async def create_faculty_student_innovative_project(
-        self, faculty_id, name_of_event, link_of_website
-    ):
+    async def create_faculty_student_innovative_project(self, obj: T):
         """Create Faculty Student Innovative Project"""
+        return await self.execute(
+            self.get_query(), allow_none=True, params=obj.to_dict()
+        )
 
-    async def create_faculty_sponsored_research_project(
-        self,
-        faculty_id,
-        name_of_principal_investigator,
-        name_of_co_principal_investigator,
-        department_id,
-        project_title,
-        name_of_funding_agency,
-        duration_of_project,
-        amount_inr,
-        outcomes,
-    ):
+    async def create_faculty_sponsored_research_project(self, obj: T):
         """Create Faculty Sponsored Research Project"""
+        return await self.execute(
+            self.get_query(), allow_none=True, params=obj.to_dict()
+        )
 
-    async def create_faculty_internship_training_collaboration(
-        self, faculty_id, name_of_itc, name_of_company, type, outcomes
-    ):
+    async def create_faculty_internship_training_collaboration(self, obj: T):
         """Create Faculty Internship Training Collaboration"""
+        return await self.execute(
+            self.get_query(), allow_none=True, params=obj.to_dict()
+        )
 
-    async def create_faculty_course(self, faculty_id, name_of_course, developed):
+    async def create_faculty_course(self, obj: T):
         """Create Faculty Course"""
+        return await self.execute(
+            self.get_query(), allow_none=True, params=obj.to_dict()
+        )
 
-    async def create_facility(
-        self, id, name, type, is_ict, details, reasons, utilization, relevance_to_pos
-    ):
+    async def create_facility(self, obj: T):
         """Create Facility"""
+        return await self.execute(
+            self.get_query(), allow_none=True, params=obj.to_dict()
+        )
 
-    async def create_event(
-        self,
-        id,
-        name,
-        date,
-        start_time,
-        end_time,
-        venue,
-        organizer_id,
-        level,
-        objective,
-        description,
-    ):
+    async def create_event(self, obj: T):
         """Create Event"""
+        return await self.execute(
+            self.get_query(), allow_none=True, params=obj.to_dict()
+        )
 
-    async def create_event_sdg_goal(self, event_id, sdg_goal_id):
+    async def create_event_sdg_goal(self, obj: T):
         """Create Event SDG Goal"""
+        return await self.execute(
+            self.get_query(), allow_none=True, params=obj.to_dict()
+        )
 
-    async def create_e_resource(
-        self,
-        faculty_id,
-        name,
-        development_platform,
-        date_of_launch,
-        link_to_relevant_document,
-        institute,
-    ):
+    async def create_e_resource(self, obj: T):
         """Create E-Resource"""
+        return await self.execute(
+            self.get_query(), allow_none=True, params=obj.to_dict()
+        )
 
-    async def create_department(self, id, name, program_id):
+    async def create_department(self, obj: T):
         """Create Department"""
+        return await self.execute(
+            self.get_query(), allow_none=True, params=obj.to_dict()
+        )
 
-    async def create_continuing_education_program(
-        self, id, year, name, no_of_participants, no_of_days
-    ):
+    async def create_continuing_education_program(self, obj: T):
         """Create Continuing Education Program"""
+        return await self.execute(
+            self.get_query(), allow_none=True, params=obj.to_dict()
+        )
 
-    async def create_competitive_event(
-        self, id, classification, participant_id, position, award, type
-    ):
+    async def create_competitive_event(self, obj: T):
         """Create Competitive Event"""
+        return await self.execute(
+            self.get_query(), allow_none=True, params=obj.to_dict()
+        )
 
-    async def create_company(self, id, name, contact_no, contact_email):
+    async def create_company(self, obj: T):
         """Create Company"""
+        return await self.execute(
+            self.get_query(), allow_none=True, params=obj.to_dict()
+        )
 
-    async def create_collaborative_activity(
-        self,
-        id,
-        title,
-        type,
-        agency_id,
-        user_id,
-        source_of_financial_support,
-        year,
-        duration,
-        link_to_relevant_documents,
-    ):
+    async def create_collaborative_activity(self, obj: T):
         """Create Collaborative Activity"""
+        return await self.execute(
+            self.get_query(), allow_none=True, params=obj.to_dict()
+        )
 
-    async def create_branch(self, id, name, department_id):
+    async def create_branch(self, obj: T):
         """Create Branch"""
+        return await self.execute(
+            self.get_query(), allow_none=True, params=obj.to_dict()
+        )
 
-    async def create_branch_intake(self, branch_id, year, allowed_batch_size):
+    async def create_branch_intake(self, obj: T):
         """Create Branch Intake"""
+        return await self.execute(
+            self.get_query(), allow_none=True, params=obj.to_dict()
+        )
 
-    async def create_book_publication(self, id, year, semester, title, isbn, type):
+    async def create_book_publication(self, obj: T):
         """Create Book Publication"""
+        return await self.execute(
+            self.get_query(), allow_none=True, params=obj.to_dict()
+        )
 
-    async def create_book_publication_author(
-        self, publication_id, author_id, author_index
-    ):
+    async def create_book_publication_author(self, obj: T):
         """Create Book Publication Author"""
+        return await self.execute(
+            self.get_query(), allow_none=True, params=obj.to_dict()
+        )
 
-    async def create_benefit_program(self, id, student_id, year, type):
+    async def create_benefit_program(self, obj: T):
         """Create Benefit Program"""
+        return await self.execute(
+            self.get_query(), allow_none=True, params=obj.to_dict()
+        )
 
-    async def create_award(
-        self, id, name, type, awarding_agency, user_type, user_id, year
-    ):
+    async def create_award(self, obj: T):
         """Create Award"""
+        return await self.execute(
+            self.get_query(), allow_none=True, params=obj.to_dict()
+        )
 
-    async def create_auth(self, id, password, last_login, requires_reset):
+    async def create_auth(self, obj: T):
         """Create Auth"""
+        return await self.execute(
+            self.get_query(), allow_none=True, params=obj.to_dict()
+        )
 
-    async def create_agency(self, id, name, contact_no, contact_email):
+    async def create_agency(self, obj: T):
         """Create Agency"""
+        return await self.execute(
+            self.get_query(), allow_none=True, params=obj.to_dict()
+        )
 
-    async def create_after_graduation(self, id, student_id, year, type):
+    async def create_after_graduation(self, obj: T):
         """Create After Graduation"""
+        return await self.execute(
+            self.get_query(), allow_none=True, params=obj.to_dict()
+        )
 
-    async def create_after_graduation_placement(
-        self, after_graduation_id, employer_id, salary
-    ):
+    async def create_after_graduation_placement(self, obj: T):
         """Create After Graduation Placement"""
+        return await self.execute(
+            self.get_query(), allow_none=True, params=obj.to_dict()
+        )
 
-    async def create_after_graduation_higher_study(
-        self, after_graduation_id, institute_name, program_name, with_exam
-    ):
+    async def create_after_graduation_higher_study(self, obj: T):
         """Create After Graduation Higher Study"""
+        return await self.execute(
+            self.get_query(), allow_none=True, params=obj.to_dict()
+        )
 
-    async def create_after_graduation_entrepreneurship(
-        self, after_graduation_id, company_name
-    ):
+    async def create_after_graduation_entrepreneurship(self, obj: T):
         """Create After Graduation Entrepreneurship"""
+        return await self.execute(
+            self.get_query(), allow_none=True, params=obj.to_dict()
+        )
