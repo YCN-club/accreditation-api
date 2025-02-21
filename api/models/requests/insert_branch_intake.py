@@ -13,4 +13,3 @@ class BranchIntake(BaseModel):
             "year": self.year,
             "allowed_batch_size": self.allowed_batch_size,
         }
-

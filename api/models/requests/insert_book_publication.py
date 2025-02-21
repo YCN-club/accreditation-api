@@ -21,4 +21,3 @@ class BookPublication(BaseModel):
             "isbn": self.isbn,
             "type": self.type,
         }
-

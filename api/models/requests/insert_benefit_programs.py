@@ -17,4 +17,3 @@ class BenefitPrograms(BaseModel):
             "year": self.year,
             "type": self.type,
         }
-

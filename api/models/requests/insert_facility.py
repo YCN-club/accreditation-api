@@ -23,4 +23,3 @@ class Facilities(BaseModel):
             "utilization": self.utilization,
             "relevance_to_pos": self.relevance_to_pos,
         }
-

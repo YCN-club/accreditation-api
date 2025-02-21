@@ -27,4 +27,3 @@ class Ipr(BaseModel):
             "type": self.type,
             "status": self.status,
         }
-

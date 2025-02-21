@@ -13,4 +13,3 @@ class AdjunctFaculty(BaseModel):
             "hours_handled": self.hours_handled,
             "subjects": self.subjects,
         }
-

@@ -13,4 +13,3 @@ class BookPublicationAuthor(BaseModel):
             "author_id": str(self.author_id),
             "author_index": self.author_index,
         }
-

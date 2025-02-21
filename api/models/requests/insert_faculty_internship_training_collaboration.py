@@ -17,4 +17,3 @@ class FacultyInternshipTrainingCollaboration(BaseModel):
             "type": self.type,
             "outcomes": self.outcomes,
         }
-

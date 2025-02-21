@@ -13,4 +13,3 @@ class AfterGraduationPlacements(BaseModel):
             "employer_id": str(self.employer_id),
             "salary": self.salary,
         }
-

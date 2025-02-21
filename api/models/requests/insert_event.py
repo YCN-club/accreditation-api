@@ -31,4 +31,3 @@ class Event(BaseModel):
             "objective": self.objective if self.objective else None,
             "description": self.description,
         }
-

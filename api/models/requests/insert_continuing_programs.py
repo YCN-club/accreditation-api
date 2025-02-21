@@ -17,4 +17,3 @@ class ContinuingEducationPrograms(BaseModel):
             "no_of_participants": self.no_of_participants,
             "no_of_days": self.no_of_days,
         }
-

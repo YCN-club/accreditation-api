@@ -28,4 +28,3 @@ class JournalPublication(BaseModel):
             "doi": self.doi,
             "title": self.title,
         }
-

@@ -14,7 +14,7 @@ class TablesRoot(HTTPMethodView):
         executor = Mayim.get(TableExecutor)
 
         # Get query args
-        columns = request.args.get("columns", "").split(",")
+        columns = request.args.get("columns", None)
 
         # Fetch data
         db_data = await getattr(executor, f"fetch_{slug}")()
@@ -22,6 +22,7 @@ class TablesRoot(HTTPMethodView):
 
         # Filter columns
         if columns:
-            resp = [{k: v for k, v in d.items() if k in columns} for d in data]
+            cols = columns.split(",")
+            resp = [{k: v for k, v in d.items() if k in cols} for d in data]
             return json({"data": resp})
         return json({"data": data})

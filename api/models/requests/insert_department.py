@@ -13,4 +13,3 @@ class Departments(BaseModel):
             "name": self.name,
             "program_id": str(self.program_id),
         }
-

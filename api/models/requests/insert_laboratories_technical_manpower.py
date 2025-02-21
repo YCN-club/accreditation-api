@@ -15,4 +15,3 @@ class LaboratoriesTechnicalManpower(BaseModel):
             "designation": self.designation,
             "qualification": self.qualification,
         }
-

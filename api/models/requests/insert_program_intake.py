@@ -13,4 +13,3 @@ class ProgramIntakes(BaseModel):
             "year": self.year,
             "intake": self.intake,
         }
-

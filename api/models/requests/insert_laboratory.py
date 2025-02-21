@@ -17,4 +17,3 @@ class Laboratories(BaseModel):
             "safety_measures": self.safety_measures,
             "weekly_utilization": self.weekly_utilization,
         }
-

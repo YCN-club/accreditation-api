@@ -13,4 +13,3 @@ class Branches(BaseModel):
             "name": self.name,
             "department_id": self.department_id,
         }
-

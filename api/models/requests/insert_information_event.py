@@ -15,4 +15,3 @@ class InformationalEvent(BaseModel):
             "no_of_students": self.no_of_students,
             "no_of_teachers": self.no_of_teachers,
         }
-

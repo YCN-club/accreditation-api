@@ -41,4 +41,3 @@ class Institute(BaseModel):
             "head_of_institute_id": str(self.head_of_institute_id),
             "nba_coordinator_id": str(self.nba_coordinator_id),
         }
-

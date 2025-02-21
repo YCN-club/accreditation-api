@@ -17,4 +17,3 @@ class OtherAcademicInstitutesRunByTrustSociety(BaseModel):
             "program_of_study": self.program_of_study,
             "location": self.location,
         }
-

@@ -17,4 +17,3 @@ class AfterGraduation(BaseModel):
             "year": self.year,
             "type": self.type,
         }
-

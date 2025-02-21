@@ -19,4 +19,3 @@ class Journal(BaseModel):
             "type": self.type,
             "scopus_indexed": self.scopus_indexed,
         }
-

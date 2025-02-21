@@ -9,4 +9,3 @@ class SdgGoal(BaseModel):
 
     def to_dict(self):
         return {"id": str(self.id), "number": self.number, "goal": self.goal}
-

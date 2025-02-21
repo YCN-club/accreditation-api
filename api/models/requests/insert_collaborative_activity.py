@@ -3,6 +3,7 @@ from uuid import UUID
 
 from api.models.enums import CollaborativeActivityType
 
+
 class CollaborativeActivity(BaseModel):
     id: UUID
     title: str

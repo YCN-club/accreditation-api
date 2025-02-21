@@ -15,4 +15,3 @@ class NationalGovernmentExams(BaseModel):
             "student_id": str(self.student_id),
             "exam_type": self.exam_type,
         }
-

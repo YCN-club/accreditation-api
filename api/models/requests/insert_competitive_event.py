@@ -21,4 +21,3 @@ class CompetitiveEvent(BaseModel):
             "award": self.award,
             "type": self.type,
         }
-

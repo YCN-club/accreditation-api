@@ -13,4 +13,3 @@ class FacultyCourses(BaseModel):
             "name_of_course": self.name_of_course,
             "developed": self.developed,
         }
-

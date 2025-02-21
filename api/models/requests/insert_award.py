@@ -21,4 +21,3 @@ class Awards(BaseModel):
             "user_id": str(self.user_id),
             "year": self.year,
         }
-

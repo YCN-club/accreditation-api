@@ -15,4 +15,3 @@ class Companies(BaseModel):
             "contact_no": self.contact_no,
             "contact_email": self.contact_email,
         }
-

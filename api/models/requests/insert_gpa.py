@@ -15,4 +15,3 @@ class GPA(BaseModel):
             "GPA": self.GPA,
             "credits": self.credits,
         }
-

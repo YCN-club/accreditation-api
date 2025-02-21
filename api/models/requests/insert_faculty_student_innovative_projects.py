@@ -13,4 +13,3 @@ class FacultyStudentInnovativeProjects(BaseModel):
             "name_of_event": self.name_of_event,
             "link_of_website": self.link_of_website,
         }
-

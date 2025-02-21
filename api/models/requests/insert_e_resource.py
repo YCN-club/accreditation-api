@@ -19,4 +19,3 @@ class EResources(BaseModel):
             "link_to_relevant_document": self.link_to_relevant_document,
             "institute": self.institute,
         }
-

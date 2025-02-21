@@ -13,4 +13,3 @@ class IprEarnings(BaseModel):
             "financial_year": self.financial_year,
             "amount_inr": self.amount_inr,
         }
-
