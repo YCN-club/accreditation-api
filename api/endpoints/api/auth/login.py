@@ -1,11 +1,11 @@
 from mayim import Mayim
-from sanic import Request, json
-from sanic.views import HTTPMethodView
-from sanic.log import logger
-from sanic_ext import validate
 from mayim.exception import RecordNotFound
-from api.app import API
+from sanic import Request, json
+from sanic.log import logger
+from sanic.views import HTTPMethodView
+from sanic_ext import validate
 
+from api.app import API
 from api.mayim.auth_executor import AuthExecutor
 from api.models.requests.auth.login_post import LoginPost
 
@@ -50,7 +50,7 @@ class AuthLogin(HTTPMethodView):
                 "name": user.name,
                 "email": user.email,
                 "roles": ["password_reset"],
-                "uuid": str(user.user_id),
+                "user_id": str(user.user_id),
             }
             token = await app.generate_jwt(data=data, validity=30)
             return json(
@@ -62,13 +62,13 @@ class AuthLogin(HTTPMethodView):
         data = {
             "name": user.name,
             "email": user.email,
-            "roles": [],
-            "uuid": str(user.user_id),
+            "roles": ["PLACEHOLDER"],
+            "user_id": str(user.user_id),
         }
 
         # Validity by default is 7 days (in minutes).
         validity = 7 * 24 * 60
         # Generate the token.
-        token = await app.generate_jwt(user.to_dict(), validity)
+        token = await app.generate_jwt(data, validity)
         # Return Token.
         return json({"token": token, "message": "Authenticated"}, status=200)
