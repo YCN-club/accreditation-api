@@ -25,7 +25,6 @@ class JWT_Data:
             "name": self.name,
             "email": self.email,
             "roles": self.roles,
-            "uuid": self.uuid,
         }
 
     def is_valid(self) -> bool:
