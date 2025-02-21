@@ -62,154 +62,158 @@ class TableExecutor(PostgresExecutor):
     generic_prefix = ""
     path = "./queries/tables/"
 
-    async def fetch_adjunct_faculty(self) -> AdjunctFaculty:
+    async def fetch_adjunct_faculty(self) -> list[AdjunctFaculty]:
         pass
 
     async def fetch_after_graduation_entrepreneurship(
         self,
-    ) -> AfterGraduationEntrepreneurship:
+    ) -> list[AfterGraduationEntrepreneurship]:
         pass
 
     async def fetch_after_graduation_higher_studies(
         self,
-    ) -> AfterGraduationHigherStudies:
+    ) -> list[AfterGraduationHigherStudies]:
         pass
 
-    async def fetch_after_graduation_placements(self) -> AfterGraduationPlacements:
+    async def fetch_after_graduation_placements(
+        self,
+    ) -> list[AfterGraduationPlacements]:
         pass
 
-    async def fetch_after_graduation(self) -> AfterGraduation:
+    async def fetch_after_graduation(self) -> list[AfterGraduation]:
         pass
 
-    async def fetch_agencies(self) -> Agencies:
+    async def fetch_agencies(self) -> list[Agencies]:
         pass
 
-    async def fetch_auth(self) -> Auth:
+    async def fetch_auth(self) -> list[Auth]:
         pass
 
-    async def fetch_awards(self) -> Awards:
+    async def fetch_awards(self) -> list[Awards]:
         pass
 
-    async def fetch_benefit_programs(self) -> BenefitPrograms:
+    async def fetch_benefit_programs(self) -> list[BenefitPrograms]:
         pass
 
-    async def fetch_book_publication_author(self) -> BookPublicationAuthor:
+    async def fetch_book_publication_author(self) -> list[BookPublicationAuthor]:
         pass
 
-    async def fetch_book_publication(self) -> BookPublication:
+    async def fetch_book_publication(self) -> list[BookPublication]:
         pass
 
-    async def fetch_branch_intake(self) -> BranchIntake:
+    async def fetch_branch_intake(self) -> list[BranchIntake]:
         pass
 
-    async def fetch_branches(self) -> Branches:
+    async def fetch_branches(self) -> list[Branches]:
         pass
 
-    async def fetch_collaborative_activities(self) -> CollaborativeActivity:
+    async def fetch_collaborative_activities(self) -> list[CollaborativeActivity]:
         pass
 
-    async def fetch_companies(self) -> Companies:
+    async def fetch_companies(self) -> list[Companies]:
         pass
 
-    async def fetch_competitive_event(self) -> CompetitiveEvent:
+    async def fetch_competitive_event(self) -> list[CompetitiveEvent]:
         pass
 
-    async def fetch_continuing_education_programs(self) -> ContinuingEducationPrograms:
+    async def fetch_continuing_education_programs(
+        self,
+    ) -> list[ContinuingEducationPrograms]:
         pass
 
-    async def fetch_departments(self) -> Departments:
+    async def fetch_departments(self) -> list[Departments]:
         pass
 
-    async def fetch_e_resources(self) -> EResources:
+    async def fetch_e_resources(self) -> list[EResources]:
         pass
 
-    async def fetch_event(self) -> Event:
+    async def fetch_event(self) -> list[Event]:
         pass
 
-    async def fetch_facilities(self) -> Facilities:
+    async def fetch_facilities(self) -> list[Facilities]:
         pass
 
-    async def fetch_faculty_courses(self) -> FacultyCourses:
+    async def fetch_faculty_courses(self) -> list[FacultyCourses]:
         pass
 
     async def fetch_faculty_internship_training_collaboration(
         self,
-    ) -> FacultyInternshipTrainingCollaboration:
+    ) -> list[FacultyInternshipTrainingCollaboration]:
         pass
 
     async def fetch_faculty_sponsored_research_projects_consultancy_work_institute_seed_money(
         self,
-    ) -> FacultySponsoredResearchProjectsConsultancyWorkInstituteSeedMoney:
+    ) -> list[FacultySponsoredResearchProjectsConsultancyWorkInstituteSeedMoney]:
         pass
 
     async def fetch_faculty_student_innovative_projects(
         self,
-    ) -> FacultyStudentInnovativeProjects:
+    ) -> list[FacultyStudentInnovativeProjects]:
         pass
 
-    async def fetch_faculty(self) -> Faculty:
+    async def fetch_faculty(self) -> list[Faculty]:
         pass
 
-    async def fetch_gpa(self) -> GPA:
+    async def fetch_gpa(self) -> list[GPA]:
         pass
 
-    async def fetch_informational_event(self) -> InformationalEvent:
+    async def fetch_informational_event(self) -> list[InformationalEvent]:
         pass
 
-    async def fetch_institute(self) -> Institute:
+    async def fetch_institute(self) -> list[Institute]:
         pass
 
-    async def fetch_ipr_earning(self) -> IprEarnings:
+    async def fetch_ipr_earning(self) -> list[IprEarnings]:
         pass
 
-    async def fetch_ipr(self) -> Ipr:
+    async def fetch_ipr(self) -> list[Ipr]:
         pass
 
-    async def fetch_journal_publication_author(self) -> JournalPublicationAuthor:
+    async def fetch_journal_publication_author(self) -> list[JournalPublicationAuthor]:
         pass
 
-    async def fetch_journal_publication(self) -> JournalPublication:
+    async def fetch_journal_publication(self) -> list[JournalPublication]:
         pass
 
-    async def fetch_journal(self) -> Journal:
+    async def fetch_journal(self) -> list[Journal]:
         pass
 
     async def fetch_laboratories_technical_manpower(
         self,
-    ) -> LaboratoriesTechnicalManpower:
+    ) -> list[LaboratoriesTechnicalManpower]:
         pass
 
-    async def fetch_laboratories(self) -> Laboratories:
+    async def fetch_laboratories(self) -> list[Laboratories]:
         pass
 
-    async def fetch_national_government_exams(self) -> NationalGovernmentExams:
+    async def fetch_national_government_exams(self) -> list[NationalGovernmentExams]:
         pass
 
-    async def fetch_organizer(self) -> Organizer:
+    async def fetch_organizer(self) -> list[Organizer]:
         pass
 
     async def fetch_other_academic_institutes_run_by_trust_society(
         self,
-    ) -> OtherAcademicInstitutesRunByTrustSociety:
+    ) -> list[OtherAcademicInstitutesRunByTrustSociety]:
         pass
 
-    async def fetch_professional_communities(self) -> ProfessionalCommunities:
+    async def fetch_professional_communities(self) -> list[ProfessionalCommunities]:
         pass
 
-    async def fetch_program_intakes(self) -> ProgramIntakes:
+    async def fetch_program_intakes(self) -> list[ProgramIntakes]:
         pass
 
-    async def fetch_program(self) -> Program:
+    async def fetch_program(self) -> list[Program]:
         pass
 
-    async def fetch_sdg_goal(self) -> SdgGoal:
+    async def fetch_sdg_goal(self) -> list[SdgGoal]:
         pass
 
-    async def fetch_sponsorship(self) -> Sponsorship:
+    async def fetch_sponsorship(self) -> list[Sponsorship]:
         pass
 
-    async def fetch_student(self) -> Student:
+    async def fetch_student(self) -> list[Student]:
         pass
 
-    async def fetch_user(self) -> User:
+    async def fetch_user(self) -> list[User]:
         pass

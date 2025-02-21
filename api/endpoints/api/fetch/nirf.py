@@ -8,10 +8,10 @@ from sanic.log import logger
 
 from api.decorators.require_login import require_login
 from api.mayim.nirf_executor import NIRFExecutor
-from api.models.generic_model import GenericModel
+from api.models.generic_protocol import GenericProtocol
 from api.models.internal.jwt_data import JWT_Data
 
-T = TypeVar("T", bound=GenericModel)
+T = TypeVar("T", bound=GenericProtocol)
 
 
 class NIRFFetch(HTTPMethodView):

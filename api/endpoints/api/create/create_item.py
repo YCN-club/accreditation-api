@@ -8,7 +8,7 @@ from sanic.views import HTTPMethodView
 from sanic_ext import validate
 
 from api.mayim.create_executor import CreateExecutor
-from api.models.generic_model import GenericModel
+from api.models.generic_protocol import GenericProtocol
 from api.models.requests.faculty_research_consultancy_seed_money import (
     faculty_research_consultancy_seed_money,
 )
@@ -86,7 +86,7 @@ from api.models.requests.insert_sponsorship import sponsorship
 from api.models.requests.insert_student import student
 from api.models.requests.insert_user import user
 
-T = TypeVar("T", bound=GenericModel)
+T = TypeVar("T", bound=GenericProtocol)
 
 
 class CreateItem(HTTPMethodView):

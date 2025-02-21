@@ -1,9 +1,9 @@
 from typing import TypeVar
 from mayim import PostgresExecutor
 
-from api.models.generic_model import GenericModel
+from api.models.generic_protocol import GenericProtocol
 
-T = TypeVar("T", bound=GenericModel)
+T = TypeVar("T", bound=GenericProtocol)
 
 
 class CreateExecutor(PostgresExecutor):

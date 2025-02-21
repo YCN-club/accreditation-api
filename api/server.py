@@ -7,6 +7,8 @@ from sanic_ext import Extend
 
 from api.app import API, appserver
 from api.mayim.auth_executor import AuthExecutor
+from api.mayim.create_executor import CreateExecutor
+from api.mayim.table_executor import TableExecutor
 from api.mayim.user_executor import UserExecutor
 from api.mayim.naac_executor import NAACExecutor
 from api.mayim.nba_executor import NBAExecutor
@@ -50,7 +52,15 @@ app.config.PROXIES_COUNT = int(config.get("PROXIES_COUNT", 0))
 
 Extend.register(
     SanicMayimExtension(
-        executors=[AuthExecutor, UserExecutor, NAACExecutor, NBAExecutor, NIRFExecutor],
+        executors=[
+            AuthExecutor,
+            UserExecutor,
+            NAACExecutor,
+            NBAExecutor,
+            NIRFExecutor,
+            CreateExecutor,
+            TableExecutor,
+        ],
         dsn=f"postgres://{config['DB_USERNAME']}:{config['DB_PASSWORD']}@{config['DB_HOST']}:{config['DB_PORT']}/{config['DB_NAME']}",  # noqa: E501
     )
 )

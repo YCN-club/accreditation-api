@@ -14,7 +14,7 @@ class TablesRoot(HTTPMethodView):
         executor = Mayim.get(TableExecutor)
 
         # Get query args
-        columns = request.args.get("columns", [])
+        columns = request.args.get("columns", "").split(",")
 
         # Fetch data
         db_data = await getattr(executor, f"fetch_{slug}")()
