@@ -1,0 +1,2 @@
+DELETE FROM faculty_sponsored_research_projects_consultancy_work_institute_seed_money
+WHERE faculty_id = :faculty_id;
