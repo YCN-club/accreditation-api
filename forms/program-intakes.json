@@ -12,7 +12,7 @@
 				"choiceType": "single",
 				"choiceSource": "table",
 				"tableOptions": {
-					"tableName": "program",
+					"tableName": "programs",
 					"labelColumn": "name",
 					"valueColumn": "id"
 				}

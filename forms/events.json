@@ -62,7 +62,7 @@
 				"choiceType": "single",
 				"choiceSource": "table",
 				"tableOptions": {
-					"tableName": "organizer",
+					"tableName": "organizers",
 					"labelColumn": "name",
 					"valueColumn": "id"
 				}
@@ -135,7 +135,7 @@
 				"choiceType": "multi",
 				"choiceSource": "table",
 				"tableOptions": {
-					"tableName": "sdg_goal",
+					"tableName": "sdg_goals",
 					"labelColumn": "goal",
 					"valueColumn": "id"
 				}

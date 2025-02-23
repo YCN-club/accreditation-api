@@ -161,7 +161,7 @@
 				"choiceType": "multi",
 				"choiceSource": "table",
 				"tableOptions": {
-					"tableName": "program",
+					"tableName": "programs",
 					"labelColumn": "name",
 					"valueColumn": "id"
 				}
@@ -176,7 +176,7 @@
 				"choiceType": "multi",
 				"choiceSource": "table",
 				"tableOptions": {
-					"tableName": "program",
+					"tableName": "programs",
 					"labelColumn": "name",
 					"valueColumn": "id"
 				}

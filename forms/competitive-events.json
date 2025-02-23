@@ -12,7 +12,7 @@
 				"choiceType": "single",
 				"choiceSource": "table",
 				"tableOptions": {
-					"tableName": "event",
+					"tableName": "events",
 					"labelColumn": "name",
 					"valueColumn": "id"
 				}
@@ -75,7 +75,7 @@
 				"choiceType": "single",
 				"choiceSource": "table",
 				"tableOptions": {
-					"tableName": "student",
+					"tableName": "students",
 					"labelColumn": "registration_no",
 					"valueColumn": "id"
 				}
