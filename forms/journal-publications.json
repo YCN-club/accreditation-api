@@ -12,7 +12,7 @@
 				"choiceType": "single",
 				"choiceSource": "table",
 				"tableOptions": {
-					"tableName": "journals",
+					"tableName": "journal",
 					"labelColumn": "name",
 					"valueColumn": "id"
 				}
@@ -47,8 +47,8 @@
 				"choiceType": "single",
 				"choiceSource": "table",
 				"tableOptions": {
-					"tableName": "sponsorships",
-					"labelColumn": "agency_name",
+					"tableName": "sponsorship",
+					"labelColumn": "project_title",
 					"valueColumn": "id"
 				}
 			}

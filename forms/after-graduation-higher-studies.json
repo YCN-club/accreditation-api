@@ -13,7 +13,7 @@
 				"choiceSource": "table",
 				"tableOptions": {
 					"tableName": "after_graduation",
-					"labelColumn": "name",
+					"labelColumn": "student_id",
 					"valueColumn": "id"
 				}
 			}

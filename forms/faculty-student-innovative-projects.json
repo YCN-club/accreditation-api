@@ -13,7 +13,7 @@
 				"choiceSource": "table",
 				"tableOptions": {
 					"tableName": "faculty",
-					"labelColumn": "name",
+					"labelColumn": "employee_id",
 					"valueColumn": "id"
 				}
 			}

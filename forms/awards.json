@@ -80,8 +80,8 @@
 				"choiceType": "single",
 				"choiceSource": "table",
 				"tableOptions": {
-					"tableName": "users",
-					"labelColumn": "id",
+					"tableName": "student",
+					"labelColumn": "registration_no",
 					"valueColumn": "id"
 				}
 			}

@@ -12,8 +12,8 @@
 				"choiceType": "single",
 				"choiceSource": "table",
 				"tableOptions": {
-					"tableName": "students",
-					"labelColumn": "id",
+					"tableName": "student",
+					"labelColumn": "registration_no",
 					"valueColumn": "id"
 				}
 			}

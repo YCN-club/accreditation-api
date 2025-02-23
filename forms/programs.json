@@ -122,7 +122,7 @@
 				"choiceType": "single",
 				"choiceSource": "table",
 				"tableOptions": {
-					"tableName": "institutes",
+					"tableName": "institute",
 					"labelColumn": "name",
 					"valueColumn": "id"
 				}

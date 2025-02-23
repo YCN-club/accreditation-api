@@ -161,7 +161,7 @@
 				"choiceType": "multi",
 				"choiceSource": "table",
 				"tableOptions": {
-					"tableName": "programs",
+					"tableName": "program",
 					"labelColumn": "name",
 					"valueColumn": "id"
 				}
@@ -176,7 +176,7 @@
 				"choiceType": "multi",
 				"choiceSource": "table",
 				"tableOptions": {
-					"tableName": "programs",
+					"tableName": "program",
 					"labelColumn": "name",
 					"valueColumn": "id"
 				}
@@ -192,7 +192,7 @@
 				"choiceSource": "table",
 				"tableOptions": {
 					"tableName": "faculty",
-					"labelColumn": "name",
+					"labelColumn": "employee_id",
 					"valueColumn": "id"
 				}
 			}
@@ -207,7 +207,7 @@
 				"choiceSource": "table",
 				"tableOptions": {
 					"tableName": "faculty",
-					"labelColumn": "name",
+					"labelColumn": "employee_id",
 					"valueColumn": "id"
 				}
 			}
