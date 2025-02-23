@@ -9,47 +9,47 @@ from sanic_ext import validate
 
 from api.mayim.create_executor import CreateExecutor
 from api.models.generic_protocol import GenericProtocol
-from api.models.requests.faculty_research_consultancy_seed_money import (
-    faculty_research_consultancy_seed_money,
-)
-from api.models.requests.insert_adjunct_faculty import adjunct_faculty
-from api.models.requests.insert_after_graduation import after_graduation
+from api.models.requests.insert_adjunct_faculty import AdjunctFaculty
+from api.models.requests.insert_after_graduation import AfterGraduation
 from api.models.requests.insert_after_graduation_entrepreneurship import (
-    after_graduation_entrepreneurship,
+    AfterGraduationEntrepreneurship,
 )
 from api.models.requests.insert_after_graduation_higher_studies import (
-    after_graduation_higher_studies,
+    AfterGraduationHigherStudies,
 )
 from api.models.requests.insert_after_graduation_placements import (
-    after_graduation_placements,
+    AfterGraduationPlacements,
 )
-from api.models.requests.insert_agency import agency
-from api.models.requests.insert_award import award
-from api.models.requests.insert_benefit_programs import benefit_programs
-from api.models.requests.insert_book_publication import book_publication
-from api.models.requests.insert_book_publication_author import book_publication_author
-from api.models.requests.insert_branch import branch
-from api.models.requests.insert_branch_intake import branch_intake
-from api.models.requests.insert_collaborative_activity import collaborative_activity
-from api.models.requests.insert_company import company
-from api.models.requests.insert_competitive_event import competitive_event
-from api.models.requests.insert_continuing_programs import continuing_programs
-from api.models.requests.insert_department import department
-from api.models.requests.insert_e_resource import e_resource
-from api.models.requests.insert_event import event
+from api.models.requests.insert_agency import Agencies
+from api.models.requests.insert_award import Awards
+from api.models.requests.insert_benefit_programs import BenefitPrograms
+from api.models.requests.insert_book_publication import BookPublication
+from api.models.requests.insert_book_publication_author import BookPublicationAuthor
+from api.models.requests.insert_branch import Branches
+from api.models.requests.insert_branch_intake import BranchIntake
+from api.models.requests.insert_collaborative_activity import CollaborativeActivity
+from api.models.requests.insert_company import Companies
+from api.models.requests.insert_competitive_event import CompetitiveEvent
+from api.models.requests.insert_continuing_programs import ContinuingEducationPrograms
+from api.models.requests.insert_department import Departments
+from api.models.requests.insert_e_resource import EResources
+from api.models.requests.insert_event import Event
 from api.models.requests.insert_event_sdg_goals import event_sdg_goals
-from api.models.requests.insert_facility import facility
-from api.models.requests.insert_faculty import faculty
-from api.models.requests.insert_faculty_course import faculty_course
+from api.models.requests.insert_facility import Facilities
+from api.models.requests.insert_faculty import Faculty
+from api.models.requests.insert_faculty_course import FacultyCourses
 from api.models.requests.insert_faculty_internship_training_collaboration import (
-    faculty_internship_training_collaboration,
+    FacultyInternshipTrainingCollaboration,
+)
+from api.models.requests.insert_faculty_sponsored_research_projects_consultancy_work_institute_seed_money import (  # noqa: E501
+    FacultySponsoredResearchProjectsConsultancyWorkInstituteSeedMoney,
 )
 from api.models.requests.insert_faculty_student_innovative_projects import (
-    faculty_student_innovative_projects,
+    FacultyStudentInnovativeProjects,
 )
-from api.models.requests.insert_gpa import gpa
-from api.models.requests.insert_information_event import information_event
-from api.models.requests.insert_institute import institute
+from api.models.requests.insert_gpa import GPA
+from api.models.requests.insert_information_event import InformationalEvent
+from api.models.requests.insert_institute import Institute
 from api.models.requests.insert_institute_other_academic_institutes import (
     institute_other_academic_institutes,
 )
@@ -59,90 +59,90 @@ from api.models.requests.insert_institute_programs_considered import (
 from api.models.requests.insert_institute_programs_offered import (
     institute_programs_offered,
 )
-from api.models.requests.insert_ipr import ipr
-from api.models.requests.insert_ipr_earning import ipr_earning
-from api.models.requests.insert_journal import journal
-from api.models.requests.insert_journal_publication import journal_publication
+from api.models.requests.insert_ipr import Ipr
+from api.models.requests.insert_ipr_earning import IprEarnings
+from api.models.requests.insert_journal import Journal
+from api.models.requests.insert_journal_publication import JournalPublication
 from api.models.requests.insert_journal_publication_author import (
-    journal_publication_author,
+    JournalPublicationAuthor,
 )
 from api.models.requests.insert_laboratories_technical_manpower import (
-    laboratories_technical_manpower,
+    LaboratoriesTechnicalManpower,
 )
-from api.models.requests.insert_laboratory import laboratory
+from api.models.requests.insert_laboratory import Laboratories
 from api.models.requests.insert_laboratory_technical_manpower import (
     laboratory_technical_manpower,
 )
-from api.models.requests.insert_national_government_exam import national_government_exam
-from api.models.requests.insert_organizer import organizer
+from api.models.requests.insert_national_government_exam import NationalGovernmentExams
+from api.models.requests.insert_organizer import Organizer
 from api.models.requests.insert_other_academic_institutes_run_by_trust_society import (
-    other_academic_institutes_run_by_trust_society,
+    OtherAcademicInstitutesRunByTrustSociety,
 )
 from api.models.requests.insert_professional_communities import professional_communities
-from api.models.requests.insert_program import program
-from api.models.requests.insert_program_intake import program_intake
-from api.models.requests.insert_sdg_goal import sdg_goal
-from api.models.requests.insert_sponsorship import sponsorship
-from api.models.requests.insert_student import student
-from api.models.requests.insert_user import user
+from api.models.requests.insert_program import Program
+from api.models.requests.insert_program_intake import ProgramIntakes
+from api.models.requests.insert_sdg_goal import SdgGoal
+from api.models.requests.insert_sponsorship import Sponsorship
+from api.models.requests.insert_student import Student
+from api.models.requests.insert_user import User
 
 T = TypeVar("T", bound=GenericProtocol)
 
 
 class CreateItem(HTTPMethodView):
 
-    # TODO: Make Dynamic
+    # TODO: Check the feasibility of making this dynamic
     validation_classes = {
-        "adjunct_faculty": adjunct_faculty,
-        "after_graduation_entrepreneurship": after_graduation_entrepreneurship,
-        "after_graduation_higher_studies": after_graduation_higher_studies,
-        "after_graduation_placements": after_graduation_placements,
-        "after_graduation": after_graduation,
-        "agency": agency,
-        "award": award,
-        "benefit_programs": benefit_programs,
-        "book_publication_author": book_publication_author,
-        "book_publication": book_publication,
-        "branch_intake": branch_intake,
-        "branch": branch,
-        "collaborative_activity": collaborative_activity,
-        "company": company,
-        "competitive_event": competitive_event,
-        "continuing_programs": continuing_programs,
-        "department": department,
-        "e_resource": e_resource,
+        "adjunct_faculty": AdjunctFaculty,
+        "after_graduation_entrepreneurship": AfterGraduationEntrepreneurship,
+        "after_graduation_higher_studies": AfterGraduationHigherStudies,
+        "after_graduation_placements": AfterGraduationPlacements,
+        "after_graduation": AfterGraduation,
+        "agency": Agencies,
+        "award": Awards,
+        "benefit_programs": BenefitPrograms,
+        "book_publication_author": BookPublicationAuthor,
+        "book_publication": BookPublication,
+        "branch_intake": BranchIntake,
+        "branch": Branches,
+        "collaborative_activity": CollaborativeActivity,
+        "company": Companies,
+        "competitive_event": CompetitiveEvent,
+        "continuing_programs": ContinuingEducationPrograms,
+        "department": Departments,
+        "e_resource": EResources,
         "event_sdg_goals": event_sdg_goals,
-        "event": event,
-        "facility": facility,
-        "faculty_course": faculty_course,
-        "faculty_internship_training_collaboration": faculty_internship_training_collaboration,
-        "faculty_research_consultancy_seed_money": faculty_research_consultancy_seed_money,
-        "faculty_student_innovative_projects": faculty_student_innovative_projects,
-        "faculty": faculty,
-        "gpa": gpa,
-        "information_event": information_event,
+        "event": Event,
+        "facility": Facilities,
+        "faculty_course": FacultyCourses,
+        "faculty_internship_training_collaboration": FacultyInternshipTrainingCollaboration,
+        "faculty_research_consultancy_seed_money": FacultySponsoredResearchProjectsConsultancyWorkInstituteSeedMoney,  # noqa: E501
+        "faculty_student_innovative_projects": FacultyStudentInnovativeProjects,
+        "faculty": Faculty,
+        "gpa": GPA,
+        "information_event": InformationalEvent,
         "institute_other_academic_institutes": institute_other_academic_institutes,
         "institute_programs_considered": institute_programs_considered,
         "institute_programs_offered": institute_programs_offered,
-        "institute": institute,
-        "ipr_earning": ipr_earning,
-        "ipr": ipr,
-        "journal_publication_author": journal_publication_author,
-        "journal_publication": journal_publication,
-        "journal": journal,
-        "laboratories_technical_manpower": laboratories_technical_manpower,
+        "institute": Institute,
+        "ipr_earning": IprEarnings,
+        "ipr": Ipr,
+        "journal_publication_author": JournalPublicationAuthor,
+        "journal_publication": JournalPublication,
+        "journal": Journal,
+        "laboratories_technical_manpower": LaboratoriesTechnicalManpower,
         "laboratory_technical_manpower": laboratory_technical_manpower,
-        "laboratory": laboratory,
-        "national_government_exam": national_government_exam,
-        "organizer": organizer,
-        "other_academic_institutes_run_by_trust_society": other_academic_institutes_run_by_trust_society,
+        "laboratory": Laboratories,
+        "national_government_exam": NationalGovernmentExams,
+        "organizer": Organizer,
+        "other_academic_institutes_run_by_trust_society": OtherAcademicInstitutesRunByTrustSociety,
         "professional_communities": professional_communities,
-        "program_intake": program_intake,
-        "program": program,
-        "sdg_goal": sdg_goal,
-        "sponsorship": sponsorship,
-        "student": student,
-        "user": user,
+        "program_intake": ProgramIntakes,
+        "program": Program,
+        "sdg_goal": SdgGoal,
+        "sponsorship": Sponsorship,
+        "student": Student,
+        "user": User,
     }
 
     async def post(self, request: Request, slug: str):
