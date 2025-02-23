@@ -14,8 +14,6 @@ class Faculty(BaseModel):
     id: UUID
     employee_id: Optional[str]
     department: Optional[str]
-    employee_id: Optional[str]
-    department: Optional[str]
     designation: str
     pan_no: str
     apaar_id: Optional[str]
