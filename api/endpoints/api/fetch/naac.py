@@ -87,8 +87,32 @@ class NAACFetch(HTTPMethodView):
             data: List[T] = await call(**args) if needs_args else await call()
 
             if not data:
-                return json({"data": []})
-            return json({"data": [d.to_dict() for d in data]})
+                return json(
+                    {
+                        "data": [],
+                        "description": (
+                            " ".join(
+                                getattr(
+                                    NAACExecutor, f"get_NAAC_{slug}"
+                                ).__doc__.split()
+                            )
+                            if getattr(NAACExecutor, f"get_NAAC_{slug}").__doc__
+                            else ""
+                        ),
+                    }
+                )
+            return json(
+                {
+                    "data": [d.to_dict() for d in data],
+                    "description": (
+                        " ".join(
+                            getattr(NAACExecutor, f"get_NAAC_{slug}").__doc__.split()
+                        )
+                        if getattr(NAACExecutor, f"get_NAAC_{slug}").__doc__
+                        else ""
+                    ),
+                }
+            )
         except Exception as e:
             ref_id = uuid.uuid4()
             logger.error(

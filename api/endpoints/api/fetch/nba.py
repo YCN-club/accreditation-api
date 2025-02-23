@@ -72,6 +72,7 @@ class NBAFetch(HTTPMethodView):
             # Set default year to current year if not provided
             # Specific check in required_args as year may be a substring of another argument
             if "year: int" in str(required_args):
+                print(str(required_args))
                 args["year"] = int(args.get("year", datetime.now().year))
 
             if needs_args and not args:
@@ -84,8 +85,30 @@ class NBAFetch(HTTPMethodView):
                 )
             data: List[T] = await call(**args) if needs_args else await call()
             if not data:
-                return json({"data": []})
-            return json({"data": [d.to_dict() for d in data]})
+                return json(
+                    {
+                        "data": [],
+                        "description": (
+                            " ".join(
+                                getattr(NBAExecutor, f"get_NBA_{slug}").__doc__.split()
+                            )
+                            if getattr(NBAExecutor, f"get_NBA_{slug}").__doc__
+                            else ""
+                        ),
+                    }
+                )
+            return json(
+                {
+                    "data": [d.to_dict() for d in data],
+                    "description": (
+                        " ".join(
+                            getattr(NBAExecutor, f"get_NBA_{slug}").__doc__.split()
+                        )
+                        if getattr(NBAExecutor, f"get_NBA_{slug}").__doc__
+                        else ""
+                    ),
+                }
+            )
         except Exception as e:
             ref_id = uuid.uuid4()
             logger.error(
