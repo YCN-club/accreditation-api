@@ -14,7 +14,11 @@ class Auth(BaseModel):
     def to_dict(self):
         return {
             "id": str(self.id),
-            "last_login": self.last_login,
+            "last_login": (
+                self.last_login.strftime("%Y-%m-%d %H:%M:%S")
+                if self.last_login
+                else None
+            ),
             "requires_reset": self.requires_reset,
             "is_active": self.is_active,
         }

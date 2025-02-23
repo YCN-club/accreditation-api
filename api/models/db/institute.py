@@ -6,7 +6,7 @@ from api.models.enums import InstituteOwnershipStatus, InstituteType
 
 class Institute(BaseModel):
     id: UUID
-    institute_code: int
+    institute_code: str
     name: str
     type: InstituteType
     year_of_establishment: int

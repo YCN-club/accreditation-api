@@ -8,6 +8,6 @@ class AfterGraduationEntrepreneurship(BaseModel):
 
     def to_dict(self):
         return {
-            "after_graduation_id": self.after_graduation_id,
+            "after_graduation_id": str(self.after_graduation_id),
             "company_name": self.company_name,
         }

@@ -33,9 +33,7 @@ class NBAFetch(HTTPMethodView):
                 {
                     method: {
                         "args": str(
-                            inspect.signature(
-                                getattr(NBAExecutor, f"get_NAAC_{method}")
-                            )
+                            inspect.signature(getattr(NBAExecutor, f"get_NBA_{method}"))
                         )
                         .replace("self, ", "")
                         .replace("self", "")
@@ -43,10 +41,10 @@ class NBAFetch(HTTPMethodView):
                         "description": (
                             " ".join(
                                 getattr(
-                                    NBAExecutor, f"get_NAAC_{method}"
+                                    NBAExecutor, f"get_NBA_{method}"
                                 ).__doc__.split()
                             )
-                            if getattr(NBAExecutor, f"get_NAAC_{method}").__doc__
+                            if getattr(NBAExecutor, f"get_NBA_{method}").__doc__
                             else ""
                         ),
                     }
@@ -65,8 +63,8 @@ class NBAFetch(HTTPMethodView):
 
         try:
             args = request.json if request.json else {}
-            method = getattr(NBAExecutor, f"get_NAAC_{slug}")
-            call = getattr(executor, f"get_NAAC_{slug}")
+            method = getattr(NBAExecutor, f"get_NBA_{slug}")
+            call = getattr(executor, f"get_NBA_{slug}")
 
             required_args = inspect.signature(method)
             needs_args = len(required_args.parameters) > 1

@@ -34,7 +34,7 @@ class NIRFFetch(HTTPMethodView):
                     method: {
                         "args": str(
                             inspect.signature(
-                                getattr(NIRFExecutor, f"get_NAAC_{method}")
+                                getattr(NIRFExecutor, f"get_NIRF_{method}")
                             )
                         )
                         .replace("self, ", "")
@@ -43,10 +43,10 @@ class NIRFFetch(HTTPMethodView):
                         "description": (
                             " ".join(
                                 getattr(
-                                    NIRFExecutor, f"get_NAAC_{method}"
+                                    NIRFExecutor, f"get_NIRF_{method}"
                                 ).__doc__.split()
                             )
-                            if getattr(NIRFExecutor, f"get_NAAC_{method}").__doc__
+                            if getattr(NIRFExecutor, f"get_NIRF_{method}").__doc__
                             else ""
                         ),
                     }
@@ -65,8 +65,8 @@ class NIRFFetch(HTTPMethodView):
 
         try:
             args = request.json if request.json else {}
-            method = getattr(NIRFExecutor, f"get_NAAC_{slug}")
-            call = getattr(executor, f"get_NAAC_{slug}")
+            method = getattr(NIRFExecutor, f"get_NIRF_{slug}")
+            call = getattr(executor, f"get_NIRF_{slug}")
 
             required_args = inspect.signature(method)
             needs_args = len(required_args.parameters) > 1

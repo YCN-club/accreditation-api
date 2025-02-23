@@ -13,7 +13,7 @@ class CollaborativeActivity(BaseModel):
     source_of_financial_support: str
     year: int
     duration: int
-    link_to_relevant_documents: str
+    link_to_relevant_documents: list[str]
 
     def to_dict(self):
         return {
