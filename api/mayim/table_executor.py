@@ -98,10 +98,10 @@ class TableExecutor(PostgresExecutor):
     async def fetch_book_publication_author(self) -> list[BookPublicationAuthor]:
         pass
 
-    async def fetch_book_publication(self) -> list[BookPublication]:
+    async def fetch_book_publications(self) -> list[BookPublication]:
         pass
 
-    async def fetch_branch_intake(self) -> list[BranchIntake]:
+    async def fetch_branch_intakes(self) -> list[BranchIntake]:
         pass
 
     async def fetch_branches(self) -> list[Branches]:
@@ -113,7 +113,7 @@ class TableExecutor(PostgresExecutor):
     async def fetch_companies(self) -> list[Companies]:
         pass
 
-    async def fetch_competitive_event(self) -> list[CompetitiveEvent]:
+    async def fetch_competitive_events(self) -> list[CompetitiveEvent]:
         pass
 
     async def fetch_continuing_education_programs(
@@ -127,7 +127,7 @@ class TableExecutor(PostgresExecutor):
     async def fetch_e_resources(self) -> list[EResources]:
         pass
 
-    async def fetch_event(self) -> list[Event]:
+    async def fetch_events(self) -> list[Event]:
         pass
 
     async def fetch_facilities(self) -> list[Facilities]:
@@ -157,13 +157,13 @@ class TableExecutor(PostgresExecutor):
     async def fetch_gpa(self) -> list[GPA]:
         pass
 
-    async def fetch_informational_event(self) -> list[InformationalEvent]:
+    async def fetch_informational_events(self) -> list[InformationalEvent]:
         pass
 
-    async def fetch_institute(self) -> list[Institute]:
+    async def fetch_institutes(self) -> list[Institute]:
         pass
 
-    async def fetch_ipr_earning(self) -> list[IprEarnings]:
+    async def fetch_ipr_earnings(self) -> list[IprEarnings]:
         pass
 
     async def fetch_ipr(self) -> list[Ipr]:
@@ -172,10 +172,10 @@ class TableExecutor(PostgresExecutor):
     async def fetch_journal_publication_author(self) -> list[JournalPublicationAuthor]:
         pass
 
-    async def fetch_journal_publication(self) -> list[JournalPublication]:
+    async def fetch_journal_publications(self) -> list[JournalPublication]:
         pass
 
-    async def fetch_journal(self) -> list[Journal]:
+    async def fetch_journals(self) -> list[Journal]:
         pass
 
     async def fetch_laboratories_technical_manpower(
@@ -189,7 +189,7 @@ class TableExecutor(PostgresExecutor):
     async def fetch_national_government_exams(self) -> list[NationalGovernmentExams]:
         pass
 
-    async def fetch_organizer(self) -> list[Organizer]:
+    async def fetch_organizers(self) -> list[Organizer]:
         pass
 
     async def fetch_other_academic_institutes_run_by_trust_society(
@@ -203,16 +203,16 @@ class TableExecutor(PostgresExecutor):
     async def fetch_program_intakes(self) -> list[ProgramIntakes]:
         pass
 
-    async def fetch_program(self) -> list[Program]:
+    async def fetch_programs(self) -> list[Program]:
         pass
 
-    async def fetch_sdg_goal(self) -> list[SdgGoal]:
+    async def fetch_sdg_goals(self) -> list[SdgGoal]:
         pass
 
-    async def fetch_sponsorship(self) -> list[Sponsorship]:
+    async def fetch_sponsorships(self) -> list[Sponsorship]:
         pass
 
-    async def fetch_student(self) -> list[Student]:
+    async def fetch_students(self) -> list[Student]:
         pass
 
     async def fetch_user(self) -> list[User]:
