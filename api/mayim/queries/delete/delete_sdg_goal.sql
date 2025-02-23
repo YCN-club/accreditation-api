@@ -1,2 +1,2 @@
 DELETE FROM sdg_goal
-WHERE id = :id;
+WHERE id = $sdg_goal_id;

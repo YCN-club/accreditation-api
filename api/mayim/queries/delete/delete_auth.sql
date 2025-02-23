@@ -1,2 +1,2 @@
 DELETE FROM auth
-WHERE id = :id;
+WHERE id = $auth_id;

@@ -1,2 +1,2 @@
 DELETE FROM laboratories
-WHERE id = :id;
+WHERE id = $laboratory_id;

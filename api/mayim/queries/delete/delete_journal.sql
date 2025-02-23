@@ -1,2 +1,2 @@
 DELETE FROM journal
-WHERE id = :id;
+WHERE id = $journal_id;

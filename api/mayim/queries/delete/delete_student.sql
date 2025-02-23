@@ -1,2 +1,2 @@
 DELETE FROM student
-WHERE id = :id;
+WHERE id = $student_id;

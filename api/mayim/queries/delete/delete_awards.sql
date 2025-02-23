@@ -1,2 +1,2 @@
 DELETE FROM awards
-WHERE id = :id;
+WHERE id = $award_id;

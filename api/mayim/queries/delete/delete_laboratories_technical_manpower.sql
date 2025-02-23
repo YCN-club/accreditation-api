@@ -1,2 +1,2 @@
 DELETE FROM laboratories_technical_manpower
-WHERE id = :id;
+WHERE id = $laboratories_technical_manpower_id;

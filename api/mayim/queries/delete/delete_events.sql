@@ -1,2 +1,2 @@
 DELETE FROM events
-WHERE id = :id;
+WHERE id = $event_id;

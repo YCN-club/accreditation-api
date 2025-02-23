@@ -1,2 +1,2 @@
 DELETE FROM companies
-WHERE id = :id;
+WHERE id = $company_id;

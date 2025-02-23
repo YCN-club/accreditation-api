@@ -1,2 +1,2 @@
 DELETE FROM branches
-WHERE id = :id;
+WHERE id = $branch_id;

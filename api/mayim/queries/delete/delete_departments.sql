@@ -1,2 +1,2 @@
 DELETE FROM departments
-WHERE id = :id;
+WHERE id = $department_id;

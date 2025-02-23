@@ -1,2 +1,2 @@
 DELETE FROM user
-WHERE id = :id;
+WHERE id = $user_id;

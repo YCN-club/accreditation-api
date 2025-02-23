@@ -1,2 +1,2 @@
 DELETE FROM gpa
-WHERE student_id = :student_id AND semester = :semester;
+WHERE student_id = $faculty_id AND semester = $semester;

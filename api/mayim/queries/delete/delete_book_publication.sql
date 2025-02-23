@@ -1,2 +1,2 @@
 DELETE FROM book_publication
-WHERE id = :id;
+WHERE id = $publication_id;

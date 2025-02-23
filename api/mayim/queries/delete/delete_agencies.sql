@@ -1,2 +1,2 @@
 DELETE FROM agencies
-WHERE id = :id;
+WHERE id = $agency_id;

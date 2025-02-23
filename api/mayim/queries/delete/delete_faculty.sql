@@ -1,2 +1,2 @@
 DELETE FROM faculty
-WHERE id = :id;
+WHERE id = $faculty_id;

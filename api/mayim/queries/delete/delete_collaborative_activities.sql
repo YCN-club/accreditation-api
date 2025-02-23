@@ -1,2 +1,2 @@
 DELETE FROM collaborative_activities
-WHERE id = :id;
+WHERE id = $collaborative_activity_id;

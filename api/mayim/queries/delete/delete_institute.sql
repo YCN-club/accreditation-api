@@ -1,2 +1,2 @@
 DELETE FROM institute
-WHERE id = :id;
+WHERE id = $institute_id;

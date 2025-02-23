@@ -1,2 +1,2 @@
 DELETE FROM facilities
-WHERE id = :id;
+WHERE id = $facility_id;

@@ -1,2 +1,2 @@
 DELETE FROM informational_event
-WHERE id = :id;
+WHERE id = $informational_event_id;

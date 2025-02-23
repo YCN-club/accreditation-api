@@ -8,6 +8,7 @@ from sanic_ext import Extend
 from api.app import API, appserver
 from api.mayim.auth_executor import AuthExecutor
 from api.mayim.create_executor import CreateExecutor
+from api.mayim.delete_executor import DeleteExecutor
 from api.mayim.table_executor import TableExecutor
 from api.mayim.user_executor import UserExecutor
 from api.mayim.naac_executor import NAACExecutor
@@ -60,6 +61,7 @@ Extend.register(
             NIRFExecutor,
             CreateExecutor,
             TableExecutor,
+            DeleteExecutor,
         ],
         dsn=f"postgres://{config['DB_USERNAME']}:{config['DB_PASSWORD']}@{config['DB_HOST']}:{config['DB_PORT']}/{config['DB_NAME']}",  # noqa: E501
     )

@@ -1,2 +1,2 @@
 DELETE FROM organizer
-WHERE id = :id;
+WHERE id = $organizer_id;

@@ -1,2 +1,2 @@
 DELETE FROM sponsorship
-WHERE id = :id;
+WHERE id = $sponsorship_id;

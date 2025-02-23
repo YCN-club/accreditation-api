@@ -1,2 +1,2 @@
 DELETE FROM ipr_earning
-WHERE id = :id;
+WHERE id = $ipr_earning_id;

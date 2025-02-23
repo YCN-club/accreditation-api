@@ -1,2 +1,2 @@
 DELETE FROM ipr
-WHERE id = :id;
+WHERE id = $ipr_id;

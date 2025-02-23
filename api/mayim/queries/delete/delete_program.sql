@@ -1,2 +1,2 @@
 DELETE FROM program
-WHERE id = :id;
+WHERE id = $program_id;
