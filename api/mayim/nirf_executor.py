@@ -10,23 +10,24 @@ class NIRFExecutor(PostgresExecutor):
     path = "./queries/fetch/NIRF/"
 
     async def get_NIRF_C3_post_interation(self, year: int) -> List[GenericModel]:
-        """NIRF C3 - Post Interaction"""
+        """NIRF (C3) IPR - Post Interaction"""
         ...
 
     async def get_NIRF_C3_pre_interaction(self, year: int) -> List[GenericModel]:
-        """NIRF C3 - Pre Interaction"""
+        """NIRF (C3) IPR - Pre Interaction"""
         ...
 
     async def get_NIRF_C4(self, year: int) -> List[GenericModel]:
-        """NIRF C4"""
+        """NIRF (C4) Sponsored Research"""
         ...
 
     async def get_NIRF_C7(self, year: int) -> List[GenericModel]:
-        """NIRF C7"""
+        """NIRF (C7) Students Details Year-wise for the Last 3 Academic Years"""
         ...
 
     async def get_NIRF_C8(self, year: int) -> List[GenericModel]:
-        """NIRF C8"""
+        """NIRF (C8) Top Position in Inter-college Sports / Extra Curricular
+        Events for the Past 3 Academic Years"""
         ...
 
     async def get_NIRF_institutional_information(
