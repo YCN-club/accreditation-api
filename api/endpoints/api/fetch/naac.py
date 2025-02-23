@@ -1,3 +1,4 @@
+from datetime import datetime
 import inspect
 from typing import List, TypeVar
 import uuid
@@ -30,11 +31,25 @@ class NAACFetch(HTTPMethodView):
         if not slug:
             return json(
                 {
-                    method: str(
-                        inspect.signature(getattr(NAACExecutor, f"get_NAAC_{method}"))
-                    )
-                    .replace("self, ", "")
-                    .replace("self", "")
+                    method: {
+                        "args": str(
+                            inspect.signature(
+                                getattr(NAACExecutor, f"get_NAAC_{method}")
+                            )
+                        )
+                        .replace("self, ", "")
+                        .replace("self", "")
+                        .split(" -> ")[0],
+                        "description": (
+                            " ".join(
+                                getattr(
+                                    NAACExecutor, f"get_NAAC_{method}"
+                                ).__doc__.split()
+                            )
+                            if getattr(NAACExecutor, f"get_NAAC_{method}").__doc__
+                            else ""
+                        ),
+                    }
                     for method in methods
                 }
             )
@@ -56,6 +71,11 @@ class NAACFetch(HTTPMethodView):
             required_args = inspect.signature(method)
             needs_args = len(required_args.parameters) > 1
 
+            # Set default year to current year if not provided
+            # Specific check in required_args as year may be a substring of another argument
+            if "year: int" in str(required_args):
+                args["year"] = int(args.get("year", datetime.now().year))
+
             if needs_args and not args:
                 return json(
                     {
@@ -65,8 +85,6 @@ class NAACFetch(HTTPMethodView):
                     400,
                 )
             data: List[T] = await call(**args) if needs_args else await call()
-
-            print(data)
 
             if not data:
                 return json({"data": []})
