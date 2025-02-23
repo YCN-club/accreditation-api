@@ -154,7 +154,9 @@ class CreateExecutor(PostgresExecutor):
             self.get_query(), allow_none=True, params=obj.to_dict()
         )
 
-    async def create_faculty_sponsored_research_projects_consultancy_work_institute_work_institute_seed_money(self, obj: T):
+    async def create_faculty_sponsored_research_projects_consultancy_work_institute_work_institute_seed_money(
+        self, obj: T
+    ):
         """Create Faculty Sponsored Research Project"""
         return await self.execute(
             self.get_query(), allow_none=True, params=obj.to_dict()
@@ -207,7 +209,6 @@ class CreateExecutor(PostgresExecutor):
         return await self.execute(
             self.get_query(), allow_none=True, params=obj.to_dict()
         )
-
 
     async def create_ipr_earnings(self, obj: T):
         """Create IPR Earning"""
@@ -316,22 +317,3 @@ class CreateExecutor(PostgresExecutor):
         return await self.execute(
             self.get_query(), allow_none=True, params=obj.to_dict()
         )
-
-
-
-   
-  
-
-
-
-   
-
- 
-
-
-   
-
-
-
-
-

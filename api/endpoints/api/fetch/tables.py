@@ -1,3 +1,4 @@
+import inspect
 from mayim import Mayim
 from sanic import Request, json
 from sanic.views import HTTPMethodView
@@ -12,6 +13,33 @@ class TablesRoot(HTTPMethodView):
     async def get(self, request: Request, jwt_data: JWT_Data, slug: str):
         # Get Executor
         executor = Mayim.get(TableExecutor)
+
+        # Protected Tables
+        protected_tables = ["auth"]
+
+        methods = {
+            method_name.replace("fetch_", ""): method
+            for method_name, method in inspect.getmembers(
+                executor, predicate=inspect.ismethod
+            )
+            if method_name.startswith("fetch_")
+        }
+
+        # Remove protected tables
+        for table in protected_tables:
+            methods.pop(table, None)
+
+        if not slug:
+            return json({"methods": [method for method in methods]})
+
+        if slug not in methods:
+            return json(
+                {
+                    "error": "Not Found",
+                    "message": "The requested table is not available.",
+                },
+                404,
+            )
 
         # Get query args
         columns = request.args.get("columns", None)
