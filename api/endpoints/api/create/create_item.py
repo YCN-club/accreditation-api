@@ -108,7 +108,7 @@ class CreateItem(HTTPMethodView):
         "collaborative_activities": CollaborativeActivity,
         "companies": Companies,
         "competitive_events": CompetitiveEvent,
-        "continuing_programs": ContinuingEducationPrograms,
+        "continuing_education_programs": ContinuingEducationPrograms,
         "departments": Departments,
         "e_resources": EResources,
         "event_sdg_goals": event_sdg_goals,
