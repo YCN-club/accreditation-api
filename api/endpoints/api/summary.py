@@ -69,12 +69,12 @@ class SummaryRoot(HTTPMethodView):
                 "events": {
                     "competitive": {
                         "count": len(filtered_competitive_events),
-                        "events": filtered_competitive_events,
+                        "events": [i.to_dict() for i in filtered_competitive_events],
                         "position_distribution": position_distribution,
                     },
                     "informational": {
                         "count": len(filtered_informational_events),
-                        "events": filtered_informational_events,
+                        "events": [i.to_dict() for i in filtered_informational_events],
                     },
                 },
                 "publications": {
