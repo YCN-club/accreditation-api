@@ -113,7 +113,7 @@ class NIRFFetch(HTTPMethodView):
                 }
             )
         except Exception as e:
-            ref_id = uuid.uuid4()
+            ref_id = str(uuid.uuid4())
             logger.error(
                 f"REF ID: {ref_id}\nAn error occurred while fetching NIRF data: {str(e)}",
                 exc_info=e,

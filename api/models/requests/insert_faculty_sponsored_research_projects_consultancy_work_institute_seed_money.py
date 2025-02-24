@@ -1,12 +1,12 @@
 from pydantic import BaseModel
-from uuid import UUID
+from uuid import UUID, uuid4
 
 
 class FacultySponsoredResearchProjectsConsultancyWorkInstituteSeedMoney(BaseModel):
-    faculty_id: UUID
+    faculty_id: UUID = uuid4()
     name_of_principal_investigator: str
     name_of_co_principal_investigator: str
-    department_id: UUID
+    department_id: UUID = uuid4()
     project_title: str
     name_of_funding_agency: str
     duration_of_project: str

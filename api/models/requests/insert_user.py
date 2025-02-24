@@ -1,10 +1,10 @@
 from pydantic import BaseModel
 from typing import Optional
-from uuid import UUID
+from uuid import UUID, uuid4
 
 
 class User(BaseModel):
-    id: UUID
+    id: UUID = uuid4()
     first_name: str
     middle_name: Optional[str] = None
     last_name: str

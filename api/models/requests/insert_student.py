@@ -1,21 +1,21 @@
 from pydantic import BaseModel
 from typing import Optional
-from uuid import UUID
+from uuid import UUID, uuid4
 
 from api.models.enums import SocialDisadvantage, StudentEntries, StudentExits
 
 
 class Student(BaseModel):
-    id: UUID
+    id: UUID = uuid4()
     admission_no: str
     registration_no: str
     origin: str
     gender: str
-    branch_id: UUID
+    branch_id: UUID = uuid4()
     batch_year: int
     origin: str
     gender: str
-    branch_id: UUID
+    branch_id: UUID = uuid4()
     batch_year: int
     year_of_join: int
     type_of_join: StudentEntries

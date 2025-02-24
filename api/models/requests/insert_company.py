@@ -1,9 +1,9 @@
 from pydantic import BaseModel
-from uuid import UUID
+from uuid import UUID, uuid4
 
 
 class Companies(BaseModel):
-    id: UUID
+    id: UUID = uuid4()
     name: str
     contact_no: str
     contact_email: str

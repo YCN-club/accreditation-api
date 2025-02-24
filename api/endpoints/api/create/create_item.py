@@ -161,7 +161,7 @@ class CreateItem(HTTPMethodView):
                 await create_function(body)
                 return json({"message": "Success"}, status=201)
             except Exception as e:
-                ref_id = uuid.uuid4()
+                ref_id = str(uuid.uuid4())
                 logger.error(f"Error: {e} Ref ID: {ref_id}")
                 return json(
                     {"error": "Internal Server Error", "ref_id": ref_id}, status=500
@@ -173,3 +173,4 @@ class CreateItem(HTTPMethodView):
         except Exception as e:
             logger.error(e)
             return json({"error": "Validation Error"}, status=500)
+        return json({"status": "success"}, status=200)

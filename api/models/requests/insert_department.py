@@ -1,11 +1,11 @@
 from pydantic import BaseModel
-from uuid import UUID
+from uuid import UUID, uuid4
 
 
 class Departments(BaseModel):
-    id: UUID
+    id: UUID = uuid4()
     name: str
-    program_id: UUID
+    program_id: UUID = uuid4()
 
     def to_dict(self):
         return {

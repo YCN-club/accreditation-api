@@ -1,15 +1,15 @@
 from pydantic import BaseModel
-from uuid import UUID
+from uuid import UUID, uuid4
 
 from api.models.enums import CollaborativeActivityType
 
 
 class CollaborativeActivity(BaseModel):
-    id: UUID
+    id: UUID = uuid4()
     title: str
     type: CollaborativeActivityType
-    agency_id: UUID
-    user_id: UUID
+    agency_id: UUID = uuid4()
+    user_id: UUID = uuid4()
     source_of_financial_support: str
     year: int
     duration: int

@@ -1,19 +1,19 @@
 from datetime import datetime
 from typing import Optional
 from pydantic import BaseModel
-from uuid import UUID
+from uuid import UUID, uuid4
 
 from api.models.enums import EventLevel, EventObjective
 
 
 class Event(BaseModel):
-    id: UUID
+    id: UUID = uuid4()
     name: str
     date: Optional[datetime] = None
     start_time: Optional[datetime] = None
     end_time: Optional[datetime] = None
     venue: str
-    organizer_id: UUID
+    organizer_id: UUID = uuid4()
     level: Optional[EventLevel] = None
     objective: Optional[EventObjective] = None
     description: Optional[str] = None

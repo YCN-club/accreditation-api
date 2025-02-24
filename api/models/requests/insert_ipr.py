@@ -1,11 +1,11 @@
 from pydantic import BaseModel
-from uuid import UUID
+from uuid import UUID, uuid4
 
 from api.models.enums import IprStatus, IprType
 
 
 class Ipr(BaseModel):
-    id: UUID
+    id: UUID = uuid4()
     awardee_id: UUID | None
     awarder_name: str | None
     government_recognized: bool = False

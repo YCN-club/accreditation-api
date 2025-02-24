@@ -1,9 +1,9 @@
 from pydantic import BaseModel
-from uuid import UUID
+from uuid import UUID, uuid4
 
 
 class BranchIntake(BaseModel):
-    branch_id: UUID
+    branch_id: UUID = uuid4()
     year: int
     allowed_batch_size: int
 

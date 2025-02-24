@@ -1,9 +1,9 @@
 from pydantic import BaseModel
-from uuid import UUID
+from uuid import UUID, uuid4
 
 
 class InformationalEvent(BaseModel):
-    id: UUID
+    id: UUID = uuid4()
     speaker: str
     no_of_students: int
     no_of_teachers: int

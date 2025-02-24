@@ -1,11 +1,11 @@
 from pydantic import BaseModel
-from uuid import UUID
+from uuid import UUID, uuid4
 
 from api.models.enums import AcademicSemester, BookPublicationType
 
 
 class BookPublication(BaseModel):
-    id: UUID
+    id: UUID = uuid4()
     year: int
     semester: AcademicSemester
     title: str

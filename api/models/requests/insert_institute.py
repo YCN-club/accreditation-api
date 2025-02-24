@@ -1,11 +1,11 @@
 from pydantic import BaseModel
-from uuid import UUID
+from uuid import UUID, uuid4
 
 from api.models.enums import InstituteOwnershipStatus, InstituteType
 
 
 class Institute(BaseModel):
-    id: UUID
+    id: UUID = uuid4()
     institute_code: int
     name: str
     type: InstituteType
@@ -18,8 +18,8 @@ class Institute(BaseModel):
     other_academic_institute_ids: list[UUID]
     programs_offered: list[UUID]
     programs_considered: list[UUID]
-    head_of_institute_id: UUID
-    nba_coordinator_id: UUID
+    head_of_institute_id: UUID = uuid4()
+    nba_coordinator_id: UUID = uuid4()
 
     def to_dict(self):
         return {

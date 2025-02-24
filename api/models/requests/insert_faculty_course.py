@@ -1,9 +1,9 @@
 from pydantic import BaseModel
-from uuid import UUID
+from uuid import UUID, uuid4
 
 
 class FacultyCourses(BaseModel):
-    faculty_id: UUID
+    faculty_id: UUID = uuid4()
     name_of_course: str
     developed: bool = False
 

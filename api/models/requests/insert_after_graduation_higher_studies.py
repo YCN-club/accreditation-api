@@ -1,9 +1,9 @@
 from pydantic import BaseModel
-from uuid import UUID
+from uuid import UUID, uuid4
 
 
 class AfterGraduationHigherStudies(BaseModel):
-    after_graduation_id: UUID
+    after_graduation_id: UUID = uuid4()
     institute_name: str
     program_name: str
     with_exam: bool = True

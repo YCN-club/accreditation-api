@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-from uuid import UUID
+from uuid import UUID, uuid4
 from datetime import date
 from typing import Optional
 
@@ -11,7 +11,7 @@ from api.models.enums import (
 
 
 class Faculty(BaseModel):
-    id: UUID
+    id: UUID = uuid4()
     employee_id: Optional[str]
     department: Optional[str]
     employee_id: Optional[str]

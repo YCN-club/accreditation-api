@@ -1,10 +1,10 @@
 from pydantic import BaseModel
-from uuid import UUID
+from uuid import UUID, uuid4
 
 
 class BookPublicationAuthor(BaseModel):
-    publication_id: UUID
-    author_id: UUID
+    publication_id: UUID = uuid4()
+    author_id: UUID = uuid4()
     author_index: int
 
     def to_dict(self):

@@ -1,9 +1,9 @@
 from pydantic import BaseModel
-from uuid import UUID
+from uuid import UUID, uuid4
 
 
 class SdgGoal(BaseModel):
-    id: UUID
+    id: UUID = uuid4()
     number: int
     goal: str
 

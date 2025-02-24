@@ -1,12 +1,12 @@
 from pydantic import BaseModel
-from uuid import UUID
+from uuid import UUID, uuid4
 
 from api.models.enums import AfterGraduationType
 
 
 class AfterGraduation(BaseModel):
-    id: UUID
-    student_id: UUID
+    id: UUID = uuid4()
+    student_id: UUID = uuid4()
     year: int
     type: AfterGraduationType
 

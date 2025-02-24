@@ -1,14 +1,14 @@
 from pydantic import BaseModel
-from uuid import UUID
+from uuid import UUID, uuid4
 
 
 class Awards(BaseModel):
-    id: UUID
+    id: UUID = uuid4()
     name: str
     type: str
     awarding_agency: str
     user_type: str
-    user_id: UUID
+    user_id: UUID = uuid4()
     year: int
 
     def to_dict(self):

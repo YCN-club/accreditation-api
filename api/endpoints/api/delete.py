@@ -75,7 +75,7 @@ class DeleteRoot(HTTPMethodView):
                 )
             await call(**args) if needs_args else await call()
         except Exception as e:
-            ref_id = uuid.uuid4()
+            ref_id = str(uuid.uuid4())
             logger.error(
                 f"REF ID: {ref_id}\nAn error occurred while fetching deleting data: {str(e)}",
                 exc_info=e,

@@ -1,9 +1,9 @@
 from pydantic import BaseModel
-from uuid import UUID
+from uuid import UUID, uuid4
 
 
 class Laboratories(BaseModel):
-    id: UUID
+    id: UUID = uuid4()
     batch_size: int
     name_of_equipment: list[str]
     safety_measures: list[str]

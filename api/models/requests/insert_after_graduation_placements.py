@@ -1,10 +1,10 @@
 from pydantic import BaseModel
-from uuid import UUID
+from uuid import UUID, uuid4
 
 
 class AfterGraduationPlacements(BaseModel):
-    after_graduation_id: UUID
-    employer_id: UUID
+    after_graduation_id: UUID = uuid4()
+    employer_id: UUID = uuid4()
     salary: int
 
     def to_dict(self):
